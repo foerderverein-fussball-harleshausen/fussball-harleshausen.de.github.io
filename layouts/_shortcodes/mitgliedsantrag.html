@@ -1,6 +1,6 @@
 {{- /* Beitrittserklärung inkl. SEPA-Lastschriftmandat (angelehnt an das Formular auf svhkassel-fussball.de/foerderverein) */ -}}
 {{ $p := site.Params }}
-{{ partial "form-open.html" (dict "id" "antrag" "betreff" "Beitrittserklärung Förderverein") }}
+{{ partial "form-open.html" (dict "id" "beitrittserklaerung" "betreff" "Beitrittserklärung Förderverein") }}
   <fieldset>
     <legend>Gewünschter Beitrag <span class="fv-req">*</span></legend>
     <div class="fv-options">
@@ -76,3 +76,4 @@
     {{ if fileExists "static/downloads/mitgliedsantrag.pdf" }}<a class="fv-btn fv-btn--outline" href="{{ "downloads/mitgliedsantrag.pdf" | relURL }}">Antrag als PDF</a>{{ end }}
   </div>
 </form>
+{{ partial "form-validation.html" "beitrittserklaerung" }}

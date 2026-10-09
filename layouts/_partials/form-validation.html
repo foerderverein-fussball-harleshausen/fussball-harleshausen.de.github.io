@@ -1,0 +1,88 @@
+{{- /* Markiert Pflichtfelder farbig, sobald der Besucher versucht, das Formular abzusenden.
+     Aufruf direkt nach dem </form>: partial "form-validation.html" "beitrittserklaerung" (ID des Formulars).
+     Ohne JavaScript greift weiterhin die normale Browser-Prüfung. */ -}}
+<script>
+(function () {
+  var form = document.getElementById({{ . }});
+  if (!form) return;
+  form.noValidate = true;
+
+  var summary = document.createElement('div');
+  summary.className = 'fv-form-summary';
+  summary.setAttribute('role', 'alert');
+  summary.hidden = true;
+  form.insertBefore(summary, form.firstElementChild);
+
+  function message(el) {
+    var v = el.validity;
+    if (v.valueMissing) return el.type === 'checkbox' ? 'Bitte bestätigen.' : 'Bitte ausfüllen.';
+    if (v.typeMismatch && el.type === 'email') return 'Bitte eine gültige E-Mail-Adresse eingeben.';
+    if (v.patternMismatch && el.name === 'IBAN') return 'Bitte eine gültige IBAN eingeben (z. B. DE12 3456 …).';
+    return el.validationMessage;
+  }
+
+  function holder(el) {
+    return el.closest('.fv-field') || el.closest('.fv-choice') || el.closest('.fv-options') || el.parentNode;
+  }
+
+  function update(el) {
+    var box = holder(el);
+    // Bei Häkchen kommt der Hinweis in den Beschriftungstext, damit das Layout erhalten bleibt
+    var target = (el.type === 'checkbox' && el.nextElementSibling) ? el.nextElementSibling : box;
+    var err = target.querySelector(':scope > .fv-error');
+    if (el.checkValidity()) {
+      box.classList.remove('is-invalid');
+      if (err) err.remove();
+      el.removeAttribute('aria-invalid');
+      return true;
+    }
+    box.classList.add('is-invalid');
+    el.setAttribute('aria-invalid', 'true');
+    if (!err) {
+      err = document.createElement('span');
+      err.className = 'fv-error';
+      err.id = (el.id || el.name.replace(/\W+/g, '-')) + '-fehler';
+      target.appendChild(err);
+      el.setAttribute('aria-describedby', err.id);
+    }
+    err.textContent = message(el);
+    return false;
+  }
+
+  function fields() {
+    return Array.prototype.filter.call(form.elements, function (el) {
+      return el.willValidate && el.type !== 'hidden';
+    });
+  }
+
+  function validateAll() {
+    var invalid = fields().filter(function (el) { return !update(el); });
+    if (invalid.length) {
+      summary.textContent = invalid.length === 1
+        ? 'Bitte prüfen Sie das markierte Pflichtfeld.'
+        : 'Bitte prüfen Sie die ' + invalid.length + ' markierten Pflichtfelder.';
+      summary.hidden = false;
+    } else {
+      summary.hidden = true;
+    }
+    return invalid;
+  }
+
+  form.addEventListener('submit', function (e) {
+    form.classList.add('is-validated');
+    var invalid = validateAll();
+    if (invalid.length) {
+      e.preventDefault();
+      invalid[0].focus({ preventScroll: true });
+      holder(invalid[0]).scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+  });
+
+  ['input', 'change'].forEach(function (type) {
+    form.addEventListener(type, function (e) {
+      if (!form.classList.contains('is-validated') || !e.target.willValidate) return;
+      validateAll();
+    });
+  });
+})();
+</script>
