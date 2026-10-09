@@ -3,15 +3,11 @@ title: "Impressum"
 description: "Angaben gemäß § 5 DDG"
 ---
 
-{{< box titel="Bitte vervollständigen" farbe="red" icon="file" >}}
-Die mit **[ ]** markierten Angaben sind Platzhalter und müssen vor der Veröffentlichung durch die echten Daten des Vereins ersetzt werden.
-{{< /box >}}
-
 ## Angaben gemäß § 5 DDG
 
-**Förderverein Fußball Harleshausen 95 e.V.** [Vereinsname laut Vereinsregister prüfen]
-[Straße Hausnummer]
-[PLZ] Kassel
+**Förderverein Fußball Harleshausen 95 e.V.** 
+{{< param street >}}
+{{< param city >}}
 
 **Vertreten durch den Vorstand:**
 Marcus Dräbing, 1. Vorsitzender
@@ -20,7 +16,7 @@ Andre Ben Mansour, 2. Vorsitzender
 **Registereintrag:**
 Eintragung im Vereinsregister
 Registergericht: Amtsgericht Kassel
-Registernummer: VR [Nummer]
+Registernummer: VR 2718
 
 ## Kontakt
 
@@ -28,12 +24,13 @@ E-Mail: {{< param email >}}
 
 ## Steuerliche Angaben
 
-Der Verein ist vom Finanzamt als gemeinnützig anerkannt. [Optional: Finanzamt, Datum des Freistellungsbescheids, Steuernummer]
+Der Verein ist vom Finanzamt als gemeinnützig anerkannt.
 
 ## Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV
 
 Marcus Dräbing
-[Anschrift wie oben]
+{{< param street >}}
+{{< param city >}}
 
 ## Haftung für Inhalte
 

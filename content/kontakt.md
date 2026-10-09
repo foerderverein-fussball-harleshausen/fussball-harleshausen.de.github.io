@@ -20,6 +20,7 @@ Für weitere Informationen oder Fragen, schreibt uns gerne eine Email an <a href
 <aside class="fv-aside">
 <div class="fv-card">
   <h3>Förderverein Fußball Harleshausen 95 e.V.</h3>
+  <p class="fv-small">{{< param street >}}<br>{{< param city >}}</p>
   <p class="fv-small">1. Vorsitzender: Marcus Dräbing</p>
   <p class="fv-small fv-mb0">Für weitere Informationen oder Fragen schreiben Sie uns gerne eine E-Mail:<br><a href="mailto:{{< param email >}}">{{< param email >}}</a></p>
 </div>

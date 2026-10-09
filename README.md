@@ -75,7 +75,7 @@ Offene Restarbeiten – erledigte Punkte einfach abhaken (`[x]`).
 
 ### Vor dem Livegang
 
-- [ ] Postanschrift in `hugo.toml` und Impressum/Datenschutz ergänzen
+- [x] Postanschrift in `hugo.toml` und Impressum/Datenschutz ergänzen
 - [ ] Vorstandsfotos in `data/vorstand.yaml` ergänzen (optional)
 - [ ] Impressum und Datenschutz vervollständigen (`[ … ]`-Stellen)
 - [ ] Abgeschlossenen Projekten ein Datum geben (`date: 2025-09-01` im Front Matter) – danach werden sie sortiert, neueste oben; laufende Projekte stehen immer zuerst

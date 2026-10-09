@@ -3,14 +3,10 @@ title: "Datenschutzerklärung"
 description: "Informationen zur Verarbeitung personenbezogener Daten"
 ---
 
-{{< box titel="Bitte prüfen lassen" farbe="red" icon="shield" >}}
-Diese Datenschutzerklärung ist eine Vorlage für eine statische Website (Hugo, gehostet auf GitHub Pages) mit Kontakt- und Mitgliedsformular. Sie ersetzt keine Rechtsberatung. Mit **[ ]** markierte Stellen bitte ergänzen und vor Veröffentlichung prüfen.
-{{< /box >}}
-
 ## 1. Verantwortlicher
 
 Förderverein Fußball Harleshausen 95 e.V.
-[Straße Hausnummer], [PLZ] Kassel
+{{< param street >}}, {{< param city >}}
 E-Mail: {{< param email >}}
 Vertreten durch: Marcus Dräbing, 1. Vorsitzender
 
@@ -22,13 +18,9 @@ Wir nehmen den Schutz Ihrer persönlichen Daten ernst und verarbeiten personenbe
 
 Diese Website wird bei GitHub Pages gehostet (GitHub Inc., 88 Colin P. Kelly Jr. St., San Francisco, CA 94107, USA). Beim Aufruf der Seiten werden technisch notwendige Daten (z. B. IP-Adresse, Datum und Uhrzeit, aufgerufene Seite, Browsertyp) in Server-Logfiles verarbeitet. Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO; unser berechtigtes Interesse liegt in der sicheren und stabilen Bereitstellung der Website. GitHub ist unter dem EU-US Data Privacy Framework zertifiziert. Weitere Informationen: [GitHub Privacy Statement](https://docs.github.com/de/site-policy/privacy-policies/github-general-privacy-statement).
 
-[Falls ein anderer Hoster genutzt wird, diesen Abschnitt anpassen.]
-
 ## 4. Kontaktformular und E-Mail
 
 Wenn Sie uns per Kontaktformular oder E-Mail Anfragen zukommen lassen, verarbeiten wir Ihre Angaben (Name, E-Mail-Adresse, ggf. Telefonnummer und Ihre Nachricht) zur Bearbeitung der Anfrage. Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO (vorvertragliche Maßnahmen) bzw. lit. f DSGVO (berechtigtes Interesse an der Beantwortung). Die Daten werden gelöscht, sobald die Anfrage abschließend bearbeitet ist und keine gesetzlichen Aufbewahrungspflichten bestehen.
-
-[Wird ein Formulardienst wie z. B. Formspree genutzt, hier den Anbieter, Sitz, Zweck und ggf. Drittlandübermittlung angeben und einen Auftragsverarbeitungsvertrag abschließen.]
 
 ## 5. Mitgliedsantrag
 
@@ -52,4 +44,4 @@ Zudem haben Sie das Recht, sich bei einer Datenschutz-Aufsichtsbehörde zu besch
 
 ## 9. Stand
 
-Diese Datenschutzerklärung hat den Stand [Monat Jahr].
+Diese Datenschutzerklärung hat den Stand 09.10.2026.

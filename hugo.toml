@@ -32,11 +32,11 @@ theme = "ananke"
 
   # Kontaktdaten (zentral gepflegt, werden in Footer, Impressum und Kontakt genutzt)
   email = "Foerderverein-F-H95@gmx.de"
-  # Postanschrift und Telefon werden nur angezeigt, wenn sie hier eingetragen sind.
-  # Für das Impressum ist eine ladungsfähige Anschrift Pflicht.
+  # Offizielle Postanschrift (Fußzeile, Kontakt, Impressum, Datenschutz).
+  # Telefon wird nur angezeigt, wenn es hier eingetragen ist.
   phone = ""
-  street = ""
-  city = ""
+  street = "Am Fichtenrain 12a"
+  city = "34128 Kassel"
 
   # Spendenkonto
   accountHolder = "Förderverein Fussball Harleshausen 95 e.V."
