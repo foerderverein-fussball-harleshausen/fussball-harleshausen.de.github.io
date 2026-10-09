@@ -4,6 +4,6 @@
   <div class="fv-btn-row">
     <a class="fv-btn fv-btn--green" href="{{ partial "membership-url.html" . }}">Mitglied werden</a>
     <a class="fv-btn fv-btn--red" href="{{ relref . "/kontakt" }}#spenden">Jetzt spenden</a>
-    <a class="fv-btn fv-btn--ghost" href="{{ relref . "/sponsoring" }}">Premium-Sponsor werden</a>
+    {{ with site.GetPage "/sponsoring" }}<a class="fv-btn fv-btn--ghost" href="{{ .RelPermalink }}">Premium-Sponsor werden</a>{{ end }}
   </div>
 </div>

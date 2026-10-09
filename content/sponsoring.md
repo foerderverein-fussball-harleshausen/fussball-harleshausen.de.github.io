@@ -1,4 +1,12 @@
 ---
+# Vorübergehend deaktiviert: Mit "draft: true" wird die Seite nicht veröffentlicht,
+# Menüpunkt und alle Verweise (Startseite, Banner, Fußzeile) werden ausgeblendet.
+# Zeile entfernen, um das Premium-Sponsoring wieder zu aktivieren.
+draft: true
+menus:
+  main:
+    name: "Premium-Sponsoring"
+    weight: 40
 title: "Premium-Sponsor werden"
 description: "Für Unternehmen: Sichtbar werden und den Fußball vor Ort – insbesondere die Fußballjugend – stärken."
 wide: true
@@ -33,9 +41,11 @@ Lernen Sie beim Sponsorenabend andere Unternehmen und Partner des Vereins kennen
 <div class="fv-split" style="align-items:start;margin-top:48px">
 <div>
 <h2>Sponsoring anfragen</h2>
-<p class="fv-muted">Sie interessieren sich für ein Paket oder haben eine eigene Idee? Schreiben Sie uns – wir melden uns zeitnah mit allen Details.</p>
+<p>Sie interessieren sich für ein Paket oder haben eine eigene Idee? Schreiben Sie uns gerne eine E-Mail an <a href="mailto:{{< param email >}}?subject=Anfrage%20Premium-Sponsoring">{{< param email >}}</a> – wir melden uns zeitnah mit allen Details.</p>
+<p><a class="fv-btn fv-btn--green" href="mailto:{{< param email >}}?subject=Anfrage%20Premium-Sponsoring">{{< icon "mail" >}} E-Mail schreiben</a></p>
 
-{{< sponsoranfrage >}}
+<!-- Anfrageformular vorübergehend deaktiviert. Zum Aktivieren hier wieder einfügen:
+     {{</* sponsoranfrage */>}} -->
 
 </div>
 <div class="fv-box">

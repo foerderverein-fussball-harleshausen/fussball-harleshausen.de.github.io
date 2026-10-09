@@ -78,10 +78,7 @@ theme = "ananke"
     name = "Förderprojekte"
     pageRef = "/projekte"
     weight = 30
-  [[menus.main]]
-    name = "Premium-Sponsoring"
-    pageRef = "/sponsoring"
-    weight = 40
+  # Menüpunkt „Premium-Sponsoring“ steht im Front Matter von content/sponsoring.md
   [[menus.main]]
     name = "Kontakt"
     pageRef = "/kontakt"

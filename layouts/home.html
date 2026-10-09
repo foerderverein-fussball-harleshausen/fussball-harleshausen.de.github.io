@@ -68,12 +68,21 @@
   {{/* Unternehmen + Steuer */}}
   <section class="fv-section">
     <div class="fv-container fv-grid fv-grid--2">
+      {{ with site.GetPage "/sponsoring" }}
       <div class="fv-card">
         <span class="fv-icon-badge fv-icon-badge--dark">{{ partial "icon.html" "handshake" }}</span>
         <h3>Verantwortung übernehmen. Vor Ort etwas bewegen.</h3>
         <p class="fv-muted">Als Unternehmen können Sie unsere Arbeit als Premium-Sponsor in Bronze, Silber oder Gold unterstützen – sichtbar auf dem Platz, auf unserer Website und in der Region.</p>
-        <p class="fv-mb0" style="margin-top:auto"><a class="fv-btn fv-btn--outline fv-btn--sm" href="{{ relref . "/sponsoring" }}">Möglichkeiten für Unternehmen entdecken</a></p>
+        <p class="fv-mb0" style="margin-top:auto"><a class="fv-btn fv-btn--outline fv-btn--sm" href="{{ .RelPermalink }}">Möglichkeiten für Unternehmen entdecken</a></p>
       </div>
+      {{ else }}
+      <div class="fv-card">
+        <span class="fv-icon-badge fv-icon-badge--red">{{ partial "icon.html" "heart" }}</span>
+        <h3>Jede Spende hilft.</h3>
+        <p class="fv-muted">Ob einmalig oder regelmäßig, ob von Privatpersonen oder Unternehmen – jede Spende kommt direkt unseren Fußballkids zugute: für Ausrüstung, Weiterbildung und gemeinsame Erlebnisse.</p>
+        <p class="fv-mb0" style="margin-top:auto"><a class="fv-btn fv-btn--outline fv-btn--sm" href="{{ relref . "/kontakt" }}#spenden">Zum Spendenkonto</a></p>
+      </div>
+      {{ end }}
       <div class="fv-card fv-box" style="box-shadow:none">
         <span class="fv-icon-badge">{{ partial "icon.html" "percent" }}</span>
         <h3>Gutes tun und steuerlich profitieren.</h3>

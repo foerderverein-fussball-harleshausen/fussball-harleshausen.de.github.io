@@ -13,16 +13,21 @@
         <ul class="fv-checklist">
           {{ range .leistungen }}<li>{{ . }}</li>{{ end }}
         </ul>
-        <a class="fv-btn {{ if .empfohlen }}fv-btn--green{{ else }}fv-btn--outline{{ end }}" href="#anfrage" data-paket="{{ .name }}">{{ .name }}-Sponsor werden</a>
+        <a class="fv-btn {{ if .empfohlen }}fv-btn--green{{ else }}fv-btn--outline{{ end }}" href="{{ printf "mailto:%s?subject=Anfrage%%20Premium-Sponsoring%%20%s" site.Params.email .name | safeURL }}" data-paket="{{ .name }}">{{ .name }}-Sponsor werden</a>
       </div>
     </div>
   {{ end }}
 </div>
 <script>
+  // Ist das Anfrageformular aktiv, springen die Buttons dorthin und wählen das Paket vor;
+  // sonst öffnen sie eine E-Mail mit passendem Betreff.
   document.querySelectorAll('[data-paket]').forEach(function (a) {
-    a.addEventListener('click', function () {
+    a.addEventListener('click', function (e) {
       var sel = document.getElementById('sp-paket');
-      if (sel) sel.value = a.dataset.paket;
+      if (!sel) return;
+      e.preventDefault();
+      sel.value = a.dataset.paket;
+      document.getElementById('anfrage').scrollIntoView({ behavior: 'smooth' });
     });
   });
 </script>

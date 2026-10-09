@@ -62,7 +62,7 @@ Kinder kommen zum Fußball, weil sie spielen wollen. Ob sie bleiben, hängt star
 
 ## Du trainierst ein Team bei der SVH und möchtest einen Lehrgang besuchen?
 
-Sprich uns an, **bevor** du dich anmeldest – wir klären gemeinsam, welcher Lehrgang passt und in welcher Höhe der Förderverein die Kosten übernimmt. Schreib uns einfach über das [Kontaktformular](/kontakt/) oder per E-Mail an <a href="mailto:{{< param email >}}">{{< param email >}}</a>.
+Sprich uns an, **bevor** du dich anmeldest – wir klären gemeinsam, welcher Lehrgang passt und in welcher Höhe der Förderverein die Kosten übernimmt. Schreib uns einfach eine E-Mail an <a href="mailto:{{< param email >}}">{{< param email >}}</a>.
 
 ## Mitmachen
 

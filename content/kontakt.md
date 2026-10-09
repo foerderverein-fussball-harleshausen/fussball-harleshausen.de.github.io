@@ -7,11 +7,14 @@ wide: true
 <div class="fv-layout">
 <div>
 
-## Schreiben Sie uns
+## Kontakt
 
-Sie haben Fragen zur Mitgliedschaft, möchten spenden, ein Projekt vorschlagen oder als Unternehmen unterstützen? Nutzen Sie einfach das Formular – wir melden uns schnellstmöglich.
+Für weitere Informationen oder Fragen, schreibt uns gerne eine Email an <a href="mailto:{{< param email >}}">{{< param email >}}</a>
 
-{{< kontaktformular >}}
+<p><a class="fv-btn fv-btn--green" href="mailto:{{< param email >}}">{{< icon "mail" >}} E-Mail schreiben</a></p>
+
+<!-- Kontaktformular vorübergehend deaktiviert. Zum Aktivieren hier wieder einfügen:
+     {{</* kontaktformular */>}} -->
 
 </div>
 <aside class="fv-aside">

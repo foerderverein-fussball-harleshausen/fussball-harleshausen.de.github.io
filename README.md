@@ -63,6 +63,9 @@ Offene Restarbeiten – erledigte Punkte einfach abhaken (`[x]`).
 
 ### Inhalte prüfen
 
+- [ ] Kontaktformular wieder aktivieren (sobald der Formularversand steht): in `content/kontakt.md` den Shortcode `{{< kontaktformular >}}` wieder einfügen
+- [ ] Premium-Sponsoring wieder aktivieren: in `content/sponsoring.md` die Zeile `draft: true` entfernen (Seite, Menüpunkt und alle Verweise erscheinen dann automatisch wieder)
+- [ ] Sponsoring-Anfrageformular wieder aktivieren (sobald der Formularversand steht): in `content/sponsoring.md` den Shortcode `{{< sponsoranfrage >}}` wieder einfügen
 - [ ] Eigene Seite `/mitglied-werden` mit Antragsformular wieder aktivieren: in `content/mitglied-werden.md` die Zeile `redirect: …` entfernen (bis dahin führen alle „Mitglied werden“-Links auf svhkassel-fussball.de/foerderverein)
 - [ ] `/mitglied-werden`: genauer angeben, ab wann eine Zuwendungsbestätigung ausgestellt wird (FAQ „Kann ich den Mitgliedsbeitrag steuerlich absetzen?“ in `content/mitglied-werden.md`)
 - [ ] `/mitglied-werden`: in der Satzung prüfen, was zur Kündigung gilt, und die FAQ „Wie lange dauert die Mitgliedschaft?“ in `content/mitglied-werden.md` anpassen
