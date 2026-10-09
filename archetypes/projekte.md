@@ -1,10 +1,10 @@
 ---
 title: "{{ replace .File.ContentBaseName "-" " " | title }}"
-weight: 50          # Reihenfolge in der Liste (kleiner = weiter oben)
+date: {{ .Date }}   # Projektdatum (z. B. Abschluss) – neueste Projekte stehen oben
+weight: 50          # nur relevant für Projekte ohne Datum
 description: "Kurzbeschreibung des Projekts (1–2 Sätze)."
 status: geplant     # geplant | laufend | abgeschlossen
 category: Trainingsausrüstung
-# year: 2026        # optional
 # amount: "500 €"   # optional
 # image: images/projekte/mein-projekt.jpg
 ---

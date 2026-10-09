@@ -43,7 +43,7 @@
         <a class="fv-link-arrow" href="{{ .RelPermalink }}">Alle Förderungen entdecken</a>
       </div>
       <div class="fv-grid fv-grid--3">
-        {{ range first 3 .Pages.ByWeight }}{{ partial "project-card.html" . }}{{ end }}
+        {{ range first 3 (partial "projects-sorted.html" .Pages) }}{{ partial "project-card.html" . }}{{ end }}
       </div>
     </div>
   </section>

@@ -8,7 +8,7 @@
         <span class="fv-muted fv-small">{{ len .Pages }} Projekte</span>
       </div>
       <div class="fv-stack">
-        {{ range .Pages.ByWeight }}
+        {{ range partial "projects-sorted.html" .Pages }}
           <article class="fv-project-row">
             <a href="{{ .RelPermalink }}" tabindex="-1" aria-hidden="true">
               <img src="{{ .Params.image | default "images/projekt-platzhalter.svg" | relURL }}" alt="" loading="lazy">

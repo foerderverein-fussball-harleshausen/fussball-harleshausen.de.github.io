@@ -1,0 +1,28 @@
+{{- /* Sortiert Projekte: zuerst laufende, dann geplante, dann abgeschlossene.
+     Innerhalb jeder Gruppe neuestes Datum zuerst; Projekte ohne "date" stehen am
+     Ende der Gruppe (nach "weight"). Aufruf: partial "projects-sorted.html" .Pages */ -}}
+{{- $groups := slice
+  (slice "laufend" "umsetzung")
+  (slice "geplant")
+-}}
+{{- $result := slice -}}
+{{- $rest := . -}}
+{{- range $groups -}}
+  {{- $g := where $rest "Params.status" "in" . -}}
+  {{- $rest = $rest | complement $g -}}
+  {{- range partial "projects-sort-group.html" $g }}{{ $result = $result | append . }}{{ end -}}
+{{- end -}}
+{{- range partial "projects-sort-group.html" $rest }}{{ $result = $result | append . }}{{ end -}}
+{{- return $result -}}
+
+{{- define "_partials/projects-sort-group.html" -}}
+  {{- $dated := slice -}}
+  {{- $undated := slice -}}
+  {{- range . -}}
+    {{- if .Date.IsZero }}{{ $undated = $undated | append . }}{{ else }}{{ $dated = $dated | append . }}{{ end -}}
+  {{- end -}}
+  {{- $out := slice -}}
+  {{- range sort $dated "Date" "desc" }}{{ $out = $out | append . }}{{ end -}}
+  {{- range sort $undated "Weight" "asc" }}{{ $out = $out | append . }}{{ end -}}
+  {{- return $out -}}
+{{- end -}}
