@@ -1,0 +1,7 @@
+{{- /* Adresse für alle „Mitglied werden“-Links. Ist in content/mitglied-werden.md
+     ein "redirect" gesetzt, wird direkt dorthin verlinkt, sonst auf die eigene Seite. */ -}}
+{{- $url := "" -}}
+{{- with site.GetPage "/mitglied-werden" -}}
+  {{- $url = .Params.redirect | default .RelPermalink -}}
+{{- end -}}
+{{- $url -}}

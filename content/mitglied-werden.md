@@ -2,6 +2,12 @@
 title: "Mitglied werden"
 description: "Teil unserer Unterstützungsgemeinschaft."
 wide: true
+# Vorübergehend deaktiviert: Alle „Mitglied werden“-Links führen auf diese externe Seite,
+# und /mitglied-werden/ leitet dorthin weiter. Zeile entfernen, um die eigene Seite
+# mit Antragsformular wieder zu aktivieren.
+redirect: "https://www.svhkassel-fussball.de/foerderverein/"
+sitemap:
+  disable: true
 ---
 
 <div class="fv-split" style="align-items:start">

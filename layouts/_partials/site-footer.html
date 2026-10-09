@@ -18,7 +18,7 @@
     <div>
       <h4>Verein</h4>
       <ul>
-        <li><a href="{{ relref . "/mitglied-werden" }}">Mitglied werden</a></li>
+        <li><a href="{{ partial "membership-url.html" . }}">Mitglied werden</a></li>
         <li><a href="{{ relref . "/sponsoring" }}">Premium-Sponsor werden</a></li>
         {{- range site.Menus.footer }}
           <li><a href="{{ .URL }}">{{ .Name }}</a></li>

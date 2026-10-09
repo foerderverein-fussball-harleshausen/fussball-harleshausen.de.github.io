@@ -56,8 +56,10 @@
         <h2>Schon mit einem kleinen Beitrag viel bewegen.</h2>
         <p>Werden Sie Mitglied im Förderverein und unterstützen Sie den Fußball der SVH Kassel – insbesondere die Fußballjugend – dauerhaft und verlässlich. Schon ab {{ site.Params.membershipFee }} im Jahr.</p>
         <div class="fv-btn-row">
-          <a class="fv-btn fv-btn--green" href="{{ relref . "/mitglied-werden" }}">Jetzt Mitglied werden</a>
-          <a class="fv-btn fv-btn--ghost" href="{{ relref . "/mitglied-werden" }}#antrag">Zum Antragsformular</a>
+          <a class="fv-btn fv-btn--green" href="{{ partial "membership-url.html" . }}">Jetzt Mitglied werden</a>
+          {{- with site.GetPage "/mitglied-werden" }}{{ if not .Params.redirect }}
+          <a class="fv-btn fv-btn--ghost" href="{{ .RelPermalink }}#antrag">Zum Antragsformular</a>
+          {{- end }}{{ end }}
         </div>
       </div>
     </div>

@@ -19,7 +19,9 @@
     {{- with .Params.heroButtons }}
       <div class="fv-btn-row">
         {{- range . }}
-          <a class="fv-btn fv-btn--{{ .style | default "green" }}" href="{{ .url | relURL }}">{{ .label }}</a>
+          {{- $url := .url | relURL }}
+          {{- if hasPrefix .url "/mitglied-werden" }}{{ $url = partial "membership-url.html" . }}{{ end }}
+          <a class="fv-btn fv-btn--{{ .style | default "green" }}" href="{{ $url }}">{{ .label }}</a>
         {{- end }}
       </div>
     {{- end }}

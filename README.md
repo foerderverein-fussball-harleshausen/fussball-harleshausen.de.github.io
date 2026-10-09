@@ -63,6 +63,7 @@ Offene Restarbeiten – erledigte Punkte einfach abhaken (`[x]`).
 
 ### Inhalte prüfen
 
+- [ ] Eigene Seite `/mitglied-werden` mit Antragsformular wieder aktivieren: in `content/mitglied-werden.md` die Zeile `redirect: …` entfernen (bis dahin führen alle „Mitglied werden“-Links auf svhkassel-fussball.de/foerderverein)
 - [ ] `/mitglied-werden`: genauer angeben, ab wann eine Zuwendungsbestätigung ausgestellt wird (FAQ „Kann ich den Mitgliedsbeitrag steuerlich absetzen?“ in `content/mitglied-werden.md`)
 - [ ] `/mitglied-werden`: in der Satzung prüfen, was zur Kündigung gilt, und die FAQ „Wie lange dauert die Mitgliedschaft?“ in `content/mitglied-werden.md` anpassen
 - [ ] Freistellungsbescheid prüfen: Sind Mitgliedsbeiträge tatsächlich absetzbar (z. B. Zweck „Jugendhilfe“) oder nur Spenden?
@@ -75,5 +76,15 @@ Offene Restarbeiten – erledigte Punkte einfach abhaken (`[x]`).
 - [ ] Vorstandsfotos in `data/vorstand.yaml` ergänzen (optional)
 - [ ] Impressum und Datenschutz vervollständigen (`[ … ]`-Stellen)
 - [ ] Projekte um Jahr, Fördersumme und Fotos ergänzen (optional)
-- [ ] Formular-Endpunkt einrichten
+- [ ] Formular-Endpunkt einrichten (geplant über Google Workspace, siehe „Ausbaustufen“)
 - [ ] GitHub-Repository anlegen und unter *Settings → Pages* „GitHub Actions“ als Quelle wählen
+
+### Ausbaustufen
+
+- [ ] **Formulare über Google Workspace for Nonprofits versenden** (sobald der Workspace eingerichtet ist)
+  - Google Apps Script als Web-App veröffentlichen; nimmt die Formulardaten per HTTPS entgegen
+  - Jede Einsendung in eine Google-Tabelle schreiben (je ein Tabellenblatt für Mitgliedsantrag, Kontakt, Sponsoring) und per E-Mail benachrichtigen
+  - Script (`Code.gs`) mit Einrichtungsanleitung unter `tools/google-apps-script/` ablegen
+  - Formulare im Hintergrund absenden und eine Danke-Meldung auf der Seite zeigen (Design und Pflichtfeld-Markierung bleiben erhalten)
+  - Web-App-Adresse als `formEndpoint` in `hugo.toml` eintragen
+  - Datenschutzerklärung um Google als Empfänger ergänzen; Datenspeicherort (EU) im Workspace-Admin prüfen; Tabelle nur für den Vorstand freigeben

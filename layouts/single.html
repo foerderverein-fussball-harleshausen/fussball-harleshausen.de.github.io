@@ -1,9 +1,21 @@
+{{/* Seiten mit "redirect" im Front Matter leiten sofort auf die angegebene Adresse weiter. */}}
+{{ define "head" }}
+  {{ partials.Include "head-additions.html" . }}
+  {{ with .Params.redirect }}<meta http-equiv="refresh" content="0; url={{ . }}">{{ end }}
+{{ end }}
+
 {{ define "main" }}
   <section class="fv-section">
     <div class="fv-container">
-      <div class="{{ if not .Params.wide }}fv-prose{{ end }}">
-        {{ .Content }}
-      </div>
+      {{ with .Params.redirect }}
+        <div class="fv-prose">
+          <p class="fv-lead">Sie werden weitergeleitet … Falls nicht, geht es <a href="{{ . }}">hier weiter</a>.</p>
+        </div>
+      {{ else }}
+        <div class="{{ if not .Params.wide }}fv-prose{{ end }}">
+          {{ .Content }}
+        </div>
+      {{ end }}
     </div>
   </section>
 {{ end }}
