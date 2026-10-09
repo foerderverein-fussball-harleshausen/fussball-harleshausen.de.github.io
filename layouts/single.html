@@ -1,0 +1,9 @@
+{{ define "main" }}
+  <section class="fv-section">
+    <div class="fv-container">
+      <div class="{{ if not .Params.wide }}fv-prose{{ end }}">
+        {{ .Content }}
+      </div>
+    </div>
+  </section>
+{{ end }}

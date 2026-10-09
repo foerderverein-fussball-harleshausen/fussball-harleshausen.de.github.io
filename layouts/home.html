@@ -1,0 +1,97 @@
+{{ define "main" }}
+  {{- $d := hugo.Data.startseite -}}
+
+  {{/* Kennzahlen */}}
+  <section class="fv-section">
+    <div class="fv-container">
+      <h2>Der Förderverein in Zahlen</h2>
+      <div class="fv-grid fv-grid--4 fv-mt">
+        {{ range $i, $s := $d.zahlen }}
+          <div class="fv-card fv-card--center">
+            <span class="fv-icon-badge {{ if eq (mod $i 2) 1 }}fv-icon-badge--red{{ end }}">{{ partial "icon.html" $s.icon }}</span>
+            <div class="fv-stat__value">{{ $s.wert }}</div>
+            <div class="fv-stat__label">{{ $s.titel }}</div>
+            <div class="fv-stat__text">{{ $s.text }}</div>
+          </div>
+        {{ end }}
+      </div>
+    </div>
+  </section>
+
+  {{/* Wirkung */}}
+  <section class="fv-section fv-section--soft">
+    <div class="fv-container">
+      <h2>Was bewirkt meine Unterstützung?</h2>
+      <div class="fv-grid fv-grid--3 fv-mt">
+        {{ range $i, $w := $d.wirkung }}
+          <div class="fv-card fv-card--center">
+            <span class="fv-icon-badge {{ index (slice "" "fv-icon-badge--red" "fv-icon-badge--dark") (mod $i 3) }}">{{ partial "icon.html" $w.icon }}</span>
+            <h3>{{ $w.titel }}</h3>
+            <p class="fv-muted fv-small">{{ $w.text }}</p>
+          </div>
+        {{ end }}
+      </div>
+    </div>
+  </section>
+
+  {{/* Projekte */}}
+  {{ with site.GetPage "/projekte" }}
+  <section class="fv-section">
+    <div class="fv-container">
+      <div class="fv-section-head">
+        <h2>Unsere bisherigen Förderungen</h2>
+        <a class="fv-link-arrow" href="{{ .RelPermalink }}">Alle Förderungen entdecken</a>
+      </div>
+      <div class="fv-grid fv-grid--3">
+        {{ range first 3 .Pages.ByDate.Reverse }}{{ partial "project-card.html" . }}{{ end }}
+      </div>
+    </div>
+  </section>
+  {{ end }}
+
+  {{/* Mitglied-Banner */}}
+  <section class="fv-section fv-section--tight">
+    <div class="fv-container">
+      <div class="fv-banner">
+        <h2>Schon mit einem kleinen Beitrag viel bewegen.</h2>
+        <p>Werden Sie Mitglied im Förderverein und unterstützen Sie den Fußball der SVH Kassel – dauerhaft und verlässlich. Ab {{ site.Params.membershipFee }} im Jahr.</p>
+        <div class="fv-btn-row">
+          <a class="fv-btn fv-btn--green" href="{{ relref . "/mitglied-werden" }}">Jetzt Mitglied werden</a>
+          <a class="fv-btn fv-btn--ghost" href="{{ relref . "/mitglied-werden" }}#antrag">Zum Antragsformular</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {{/* Unternehmen + Steuer */}}
+  <section class="fv-section">
+    <div class="fv-container fv-grid fv-grid--2">
+      <div class="fv-card">
+        <span class="fv-icon-badge fv-icon-badge--dark">{{ partial "icon.html" "handshake" }}</span>
+        <h3>Verantwortung übernehmen. Vor Ort etwas bewegen.</h3>
+        <p class="fv-muted">Als Unternehmen können Sie unsere Arbeit als Premium-Sponsor in Bronze, Silber oder Gold unterstützen – sichtbar auf dem Platz, auf unserer Website und in der Region.</p>
+        <p class="fv-mb0" style="margin-top:auto"><a class="fv-btn fv-btn--outline fv-btn--sm" href="{{ relref . "/sponsoring" }}">Möglichkeiten für Unternehmen entdecken</a></p>
+      </div>
+      <div class="fv-card fv-box" style="box-shadow:none">
+        <span class="fv-icon-badge">{{ partial "icon.html" "percent" }}</span>
+        <h3>Gutes tun und steuerlich profitieren.</h3>
+        <ul class="fv-checklist">
+          <li>Mitgliedsbeiträge sind steuerlich absetzbar*</li>
+          <li>Spenden als Sonderausgaben geltend machen</li>
+          <li>Zuwendungsbestätigung auf Wunsch</li>
+        </ul>
+        <p class="fv-small fv-muted fv-mb0">* sofern die Gemeinnützigkeit vom Finanzamt anerkannt ist.</p>
+      </div>
+    </div>
+  </section>
+
+  {{ with .Content }}
+  <section class="fv-section fv-section--soft">
+    <div class="fv-container fv-prose">{{ . }}</div>
+  </section>
+  {{ end }}
+
+  <section class="fv-section">
+    <div class="fv-container">{{ partial "cta-banner.html" . }}</div>
+  </section>
+{{ end }}

@@ -1,0 +1,47 @@
+{{ define "main" }}
+  <section class="fv-section">
+    <div class="fv-container">
+      <nav class="fv-breadcrumb" aria-label="Brotkrumen">
+        <a href="{{ site.Home.RelPermalink }}">Startseite</a> /
+        <a href="{{ .Parent.RelPermalink }}">{{ .Parent.Title }}</a> /
+        <span>{{ .Title }}</span>
+      </nav>
+      <div class="fv-layout">
+        <article class="fv-prose">
+          {{ with .Params.image }}<img src="{{ . | relURL }}" alt="" style="border-radius:10px;margin-bottom:24px;width:100%">{{ end }}
+          {{ .Content }}
+        </article>
+        <aside class="fv-aside">
+          <div class="fv-card">
+            <h3>Projekt-Steckbrief</h3>
+            <table class="fv-calc">
+              <tr><td>Status</td><td>{{ partial "status-badge.html" .Params.status }}</td></tr>
+              <tr><td>Jahr</td><td>{{ .Date.Year }}</td></tr>
+              {{ with .Params.category }}<tr><td>Bereich</td><td>{{ . }}</td></tr>{{ end }}
+              {{ with .Params.amount }}<tr><td>Fördersumme</td><td>{{ . }}</td></tr>{{ end }}
+            </table>
+          </div>
+          <div class="fv-box">
+            <h3>Projekte wie dieses möglich machen</h3>
+            <p class="fv-small">Mit Ihrem Mitgliedsbeitrag oder einer Spende helfen Sie uns, weitere Projekte umzusetzen.</p>
+            <div class="fv-btn-row">
+              <a class="fv-btn fv-btn--green fv-btn--sm" href="{{ relref . "/mitglied-werden" }}">Mitglied werden</a>
+              <a class="fv-btn fv-btn--red fv-btn--sm" href="{{ relref . "/kontakt" }}#spenden">Spenden</a>
+            </div>
+          </div>
+        </aside>
+      </div>
+
+      {{ $others := where .Parent.Pages "Permalink" "!=" .Permalink | first 3 }}
+      {{ with $others }}
+        <div class="fv-section-head" style="margin-top:56px">
+          <h2>Weitere Projekte</h2>
+          <a class="fv-link-arrow" href="{{ $.Parent.RelPermalink }}">Alle Projekte</a>
+        </div>
+        <div class="fv-grid fv-grid--3">
+          {{ range . }}{{ partial "project-card.html" . }}{{ end }}
+        </div>
+      {{ end }}
+    </div>
+  </section>
+{{ end }}

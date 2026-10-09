@@ -1,0 +1,97 @@
+baseURL = "https://fussball-harleshausen.de/"
+defaultContentLanguage = "de"
+title = "Förderverein Fußball der SVH Kassel"
+theme = "ananke"
+
+[languages.de]
+  locale = "de-DE"
+  label = "Deutsch"
+  weight = 1
+
+[pagination]
+  pagerSize = 12
+
+[taxonomies]
+  # Keine Tags/Kategorien nötig
+
+[outputs]
+  home = ["HTML"]
+  section = ["HTML"]
+
+[markup.goldmark.renderer]
+  hardWraps = true
+  unsafe = true
+
+[params]
+  description = "Der Förderverein Fußball der SVH Kassel unterstützt den Fußball der Sportvereinigung Harleshausen – von den Bambini bis zu den Senioren."
+  claim = "Gemeinsam. Engagiert. Für den Fußball."
+  favicon = "images/logo.svg"
+  logo = "images/logo.svg"
+  body_classes = "fv"
+  date_format = "2. January 2006"
+
+  # Kontaktdaten (zentral gepflegt, werden in Footer, Impressum und Kontakt genutzt)
+  email = "info@fussball-harleshausen.de"
+  phone = "0561 000000"
+  street = "Musterstraße 1"
+  city = "34128 Kassel"
+
+  # Spendenkonto
+  bank = "Kasseler Sparkasse"
+  iban = "DE00 0000 0000 0000 0000 00"
+  bic = "HELADEF1KAS"
+
+  # Hauptverein
+  clubName = "SVH Kassel 1945 – Fußball"
+  clubUrl = "https://www.svhkassel-fussball.de/"
+
+  # Formular-Endpunkt (z. B. Formspree, Getform, eigener Server).
+  # GitHub Pages kann selbst keine Formulare verarbeiten. Solange hier
+  # nichts steht, öffnen die Formulare das E-Mail-Programm (mailto).
+  formEndpoint = ""
+
+  # Mitgliedsbeitrag
+  membershipFee = "60 €"
+  membershipFeeReduced = "30 €"
+
+  [params.ananke]
+    custom_css = ["fv.css"]
+
+  [params.social]
+    facebook = ""
+    instagram = ""
+
+[menus]
+  [[menus.main]]
+    name = "Startseite"
+    pageRef = "/"
+    weight = 10
+  [[menus.main]]
+    name = "Über uns"
+    pageRef = "/ueber-uns"
+    weight = 20
+  [[menus.main]]
+    name = "Förderprojekte"
+    pageRef = "/projekte"
+    weight = 30
+  [[menus.main]]
+    name = "Premium-Sponsoring"
+    pageRef = "/sponsoring"
+    weight = 40
+  [[menus.main]]
+    name = "Kontakt"
+    pageRef = "/kontakt"
+    weight = 50
+
+  [[menus.footer]]
+    name = "Kontakt"
+    pageRef = "/kontakt"
+    weight = 10
+  [[menus.footer]]
+    name = "Impressum"
+    pageRef = "/impressum"
+    weight = 20
+  [[menus.footer]]
+    name = "Datenschutz"
+    pageRef = "/datenschutz"
+    weight = 30

@@ -1,0 +1,14 @@
+{{- /* Vorstand aus data/vorstand.yaml */ -}}
+<div class="fv-grid fv-grid--4 fv-mt" style="margin-bottom:28px">
+  {{ range hugo.Data.vorstand }}
+    <div class="fv-card fv-person">
+      <img class="fv-person__img" src="{{ .bild | default "images/person-platzhalter.svg" | relURL }}" alt="{{ .name }}" loading="lazy">
+      <div class="fv-person__body">
+        <p class="fv-person__name">{{ .name }}</p>
+        <div class="fv-person__role">{{ .funktion }}</div>
+        <div class="fv-person__text">{{ .text }}</div>
+        {{ with .email }}<p class="fv-small fv-mb0" style="margin-top:.6em"><a href="mailto:{{ . }}">{{ . }}</a></p>{{ end }}
+      </div>
+    </div>
+  {{ end }}
+</div>

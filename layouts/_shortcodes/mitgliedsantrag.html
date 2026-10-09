@@ -1,0 +1,72 @@
+{{- /* Online-Mitgliedsantrag inkl. SEPA-Lastschriftmandat */ -}}
+{{ $p := site.Params }}
+{{ partial "form-open.html" (dict "id" "antrag" "betreff" "Mitgliedsantrag Förderverein") }}
+  <fieldset>
+    <legend>Art der Mitgliedschaft</legend>
+    <div class="fv-options">
+      <label class="fv-option"><input type="radio" name="Mitgliedschaft" value="Einzelmitglied ({{ $p.membershipFee }}/Jahr)" checked>
+        <div><strong>Einzelmitglied</strong><span>{{ $p.membershipFee }} pro Jahr</span></div></label>
+      <label class="fv-option"><input type="radio" name="Mitgliedschaft" value="Ermäßigt ({{ $p.membershipFeeReduced }}/Jahr)">
+        <div><strong>Ermäßigt</strong><span>{{ $p.membershipFeeReduced }} pro Jahr – Schüler, Studierende, Azubis</span></div></label>
+      <label class="fv-option"><input type="radio" name="Mitgliedschaft" value="Fördermitglied mit freiem Beitrag">
+        <div><strong>Freier Beitrag</strong><span>Sie bestimmen die Höhe (mind. {{ $p.membershipFee }})</span></div></label>
+    </div>
+    <div class="fv-form__row fv-mt" style="margin-top:14px">
+      <div class="fv-field"><label for="m-betrag">Freiwilliger Jahresbeitrag (optional)</label><input type="text" id="m-betrag" name="Freier Beitrag" placeholder="z. B. 120 €"></div>
+      <div class="fv-field"><label for="m-start">Beginn der Mitgliedschaft</label><input type="date" id="m-start" name="Beginn"></div>
+    </div>
+  </fieldset>
+
+  <fieldset>
+    <legend>Persönliche Angaben</legend>
+    <div class="fv-form__row">
+      <div class="fv-field"><label for="m-vorname">Vorname <span class="fv-req">*</span></label><input type="text" id="m-vorname" name="Vorname" required autocomplete="given-name"></div>
+      <div class="fv-field"><label for="m-name">Nachname <span class="fv-req">*</span></label><input type="text" id="m-name" name="Nachname" required autocomplete="family-name"></div>
+    </div>
+    <div class="fv-form__row">
+      <div class="fv-field"><label for="m-geb">Geburtsdatum <span class="fv-req">*</span></label><input type="date" id="m-geb" name="Geburtsdatum" required autocomplete="bday"></div>
+      <div class="fv-field"><label for="m-tel">Telefon</label><input type="tel" id="m-tel" name="Telefon" autocomplete="tel"></div>
+    </div>
+    <div class="fv-form__row fv-form__row--3">
+      <div class="fv-field"><label for="m-str">Straße, Hausnr. <span class="fv-req">*</span></label><input type="text" id="m-str" name="Straße" required autocomplete="street-address"></div>
+      <div class="fv-field"><label for="m-plz">PLZ <span class="fv-req">*</span></label><input type="text" id="m-plz" name="PLZ" required inputmode="numeric" autocomplete="postal-code"></div>
+      <div class="fv-field"><label for="m-ort">Ort <span class="fv-req">*</span></label><input type="text" id="m-ort" name="Ort" required autocomplete="address-level2"></div>
+    </div>
+    <div class="fv-form__row">
+      <div class="fv-field"><label for="m-email">E-Mail <span class="fv-req">*</span></label><input type="email" id="m-email" name="E-Mail" required autocomplete="email"></div>
+      <div class="fv-field"><label for="m-bezug">Bezug zum Verein</label>
+        <select id="m-bezug" name="Bezug zum Verein">
+          <option>Elternteil / Angehörige/r</option>
+          <option>Spieler/in</option>
+          <option>Trainer/in / Betreuer/in</option>
+          <option>Ehemalige/r</option>
+          <option>Freund/in des Vereins</option>
+          <option>Sonstiges</option>
+        </select>
+      </div>
+    </div>
+  </fieldset>
+
+  <fieldset>
+    <legend>SEPA-Lastschriftmandat</legend>
+    <p class="fv-form__note">Ich ermächtige den {{ site.Title }}, den Mitgliedsbeitrag jährlich von meinem Konto mittels Lastschrift einzuziehen. Zugleich weise ich mein Kreditinstitut an, die gezogenen Lastschriften einzulösen. Ich kann innerhalb von acht Wochen, beginnend mit dem Belastungsdatum, die Erstattung des belasteten Betrages verlangen. Die Gläubiger-ID und Mandatsreferenz werden separat mitgeteilt.</p>
+    <div class="fv-form__row">
+      <div class="fv-field"><label for="m-inhaber">Kontoinhaber/in <span class="fv-req">*</span></label><input type="text" id="m-inhaber" name="Kontoinhaber" required></div>
+      <div class="fv-field"><label for="m-iban">IBAN <span class="fv-req">*</span></label><input type="text" id="m-iban" name="IBAN" required pattern="[A-Za-z]{2}[0-9 ]{13,32}" placeholder="DE.." autocomplete="off"></div>
+    </div>
+    <label class="fv-choice fv-mt" style="margin-top:14px">
+      <input type="checkbox" name="SEPA-Mandat" value="erteilt" required>
+      <span>Ich erteile das SEPA-Lastschriftmandat. <span class="fv-req">*</span></span>
+    </label>
+  </fieldset>
+
+  <label class="fv-choice">
+    <input type="checkbox" name="Satzung" value="anerkannt" required>
+    <span>Ich erkenne die Satzung des Fördervereins an. <span class="fv-req">*</span></span>
+  </label>
+  {{ partial "form-datenschutz.html" . }}
+  <div class="fv-btn-row">
+    <button class="fv-btn fv-btn--green" type="submit">Mitgliedsantrag absenden</button>
+    {{ if fileExists "static/downloads/mitgliedsantrag.pdf" }}<a class="fv-btn fv-btn--outline" href="{{ "downloads/mitgliedsantrag.pdf" | relURL }}">Antrag als PDF</a>{{ end }}
+  </div>
+</form>

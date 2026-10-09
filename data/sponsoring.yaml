@@ -1,0 +1,33 @@
+# Premium-Sponsoring-Pakete für Unternehmen
+pakete:
+  - id: bronze
+    name: Bronze
+    claim: Der Einstieg für lokale Unternehmen
+    preis: "250 €"
+    leistungen:
+      - Logo auf der Sponsorenseite der Website
+      - Nennung im Newsletter / Social Media (1× jährlich)
+      - Urkunde „Premium-Sponsor Bronze“
+      - Zuwendungsbestätigung bzw. Rechnung
+  - id: silber
+    name: Silber
+    claim: Mehr Sichtbarkeit am Platz
+    preis: "500 €"
+    empfohlen: true
+    leistungen:
+      - Alle Leistungen aus Bronze
+      - Logo mit Verlinkung auf der Startseite
+      - Bandenwerbung am Nebenplatz (Kleinformat)
+      - Nennung bei Heimspielen der 1. Mannschaft
+      - 2 Einladungen zum Sponsorenabend
+  - id: gold
+    name: Gold
+    claim: Der starke Partner des Fußballs
+    preis: "1.000 €"
+    leistungen:
+      - Alle Leistungen aus Silber
+      - Bandenwerbung am Hauptplatz
+      - Logo auf Trainingsanzügen einer Jugendmannschaft*
+      - Exklusive Präsentation auf Website und Social Media
+      - 4 Einladungen zum Sponsorenabend
+      - Persönliche Projekt-Patenschaft

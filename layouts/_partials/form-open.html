@@ -1,0 +1,10 @@
+{{- /* Öffnet ein <form>. Erwartet dict "id" "betreff". Nutzt site.Params.formEndpoint,
+     sonst Fallback auf mailto: (öffnet das E-Mail-Programm des Besuchers). */ -}}
+{{- $endpoint := site.Params.formEndpoint -}}
+{{- if $endpoint -}}
+<form class="fv-form" id="{{ .id }}" action="{{ $endpoint }}" method="POST" accept-charset="UTF-8">
+  <input type="hidden" name="_subject" value="{{ .betreff }}">
+  <input type="text" name="_gotcha" class="fv-hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+{{- else -}}
+<form class="fv-form" id="{{ .id }}" action="mailto:{{ site.Params.email }}?subject={{ .betreff | urlquery }}" method="POST" enctype="text/plain">
+{{- end -}}

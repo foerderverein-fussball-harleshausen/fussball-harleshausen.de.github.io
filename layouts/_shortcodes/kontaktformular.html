@@ -1,0 +1,28 @@
+{{- /* {{< kontaktformular betreff="Kontaktanfrage" >}} */ -}}
+{{ partial "form-open.html" (dict "id" "kontakt" "betreff" (.Get "betreff" | default "Kontaktanfrage über die Website")) }}
+  <fieldset>
+    <legend>Ihre Nachricht</legend>
+    <div class="fv-form__row">
+      <div class="fv-field"><label for="k-name">Name <span class="fv-req">*</span></label><input type="text" id="k-name" name="Name" required autocomplete="name"></div>
+      <div class="fv-field"><label for="k-email">E-Mail <span class="fv-req">*</span></label><input type="email" id="k-email" name="E-Mail" required autocomplete="email"></div>
+    </div>
+    <div class="fv-form__row">
+      <div class="fv-field"><label for="k-tel">Telefon</label><input type="tel" id="k-tel" name="Telefon" autocomplete="tel"></div>
+      <div class="fv-field"><label for="k-thema">Anliegen</label>
+        <select id="k-thema" name="Anliegen">
+          <option>Allgemeine Frage</option>
+          <option>Mitgliedschaft</option>
+          <option>Spende</option>
+          <option>Premium-Sponsoring</option>
+          <option>Förderwunsch / Projektidee</option>
+          <option>Sonstiges</option>
+        </select>
+      </div>
+    </div>
+    <div class="fv-form__row">
+      <div class="fv-field fv-field--full"><label for="k-msg">Nachricht <span class="fv-req">*</span></label><textarea id="k-msg" name="Nachricht" required></textarea></div>
+    </div>
+  </fieldset>
+  {{ partial "form-datenschutz.html" . }}
+  <div><button class="fv-btn fv-btn--green" type="submit">Nachricht senden</button></div>
+</form>

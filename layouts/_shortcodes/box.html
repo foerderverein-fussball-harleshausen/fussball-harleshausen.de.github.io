@@ -1,0 +1,10 @@
+{{- /* Hervorgehobene Box. {{< box titel="..." icon="file" farbe="red" >}}Markdown{{< /box >}} */ -}}
+<div class="fv-box {{ with .Get "farbe" }}fv-box--{{ . }}{{ end }}" style="margin:28px 0">
+  <div style="display:flex;gap:18px;align-items:flex-start">
+    {{ with .Get "icon" }}<span class="fv-icon-badge fv-icon-badge--soft" style="margin:0">{{ partial "icon.html" . }}</span>{{ end }}
+    <div style="flex:1">
+      {{ with .Get "titel" }}<h3>{{ . }}</h3>{{ end }}
+      {{ .Inner | .Page.RenderString (dict "display" "block") }}
+    </div>
+  </div>
+</div>

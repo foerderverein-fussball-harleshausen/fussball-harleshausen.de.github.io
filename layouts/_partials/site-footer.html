@@ -1,0 +1,44 @@
+{{- $p := site.Params -}}
+<footer class="fv-footer">
+  <div class="fv-container fv-footer__top">
+    <div>
+      {{ partial "brand.html" . }}
+      <p>{{ $p.claim }}</p>
+      <p class="fv-small">Wir unterstützen den Fußball des<br><a href="{{ $p.clubUrl }}" rel="noopener">{{ $p.clubName }}</a></p>
+    </div>
+    <div>
+      <h4>Kontakt</h4>
+      <ul>
+        <li><a href="mailto:{{ $p.email }}">{{ $p.email }}</a></li>
+        <li>{{ $p.street }}</li>
+        <li>{{ $p.city }}</li>
+      </ul>
+    </div>
+    <div>
+      <h4>Verein</h4>
+      <ul>
+        <li><a href="{{ relref . "/mitglied-werden" }}">Mitglied werden</a></li>
+        <li><a href="{{ relref . "/sponsoring" }}">Premium-Sponsor werden</a></li>
+        {{- range site.Menus.footer }}
+          <li><a href="{{ .URL }}">{{ .Name }}</a></li>
+        {{- end }}
+      </ul>
+    </div>
+    <div>
+      <h4>Spendenkonto</h4>
+      <p class="fv-mb0">{{ $p.bank }}<br>
+        <span class="fv-footer__iban">IBAN {{ $p.iban }}</span><br>
+        <span class="fv-footer__iban">BIC {{ $p.bic }}</span></p>
+      {{- with $p.social }}
+        <p class="fv-mt" style="display:flex;gap:14px">
+          {{ with .facebook }}<a href="{{ . }}" rel="noopener" aria-label="Facebook">{{ partial "icon.html" "facebook" }}</a>{{ end }}
+          {{ with .instagram }}<a href="{{ . }}" rel="noopener" aria-label="Instagram">{{ partial "icon.html" "instagram" }}</a>{{ end }}
+        </p>
+      {{- end }}
+    </div>
+  </div>
+  <div class="fv-footer__bottom fv-container">
+    <span>{{ $p.claim }}</span>
+    <span>© {{ now.Year }} {{ site.Title }}</span>
+  </div>
+</footer>

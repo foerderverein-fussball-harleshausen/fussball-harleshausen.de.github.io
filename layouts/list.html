@@ -1,0 +1,10 @@
+{{ define "main" }}
+  <section class="fv-section">
+    <div class="fv-container">
+      {{ with .Content }}<div class="fv-prose">{{ . }}</div>{{ end }}
+      <div class="fv-grid fv-grid--3 fv-mt">
+        {{ range .Pages }}{{ partial "project-card.html" . }}{{ end }}
+      </div>
+    </div>
+  </section>
+{{ end }}

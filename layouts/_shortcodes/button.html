@@ -1,0 +1,4 @@
+{{- /* {{< button url="/kontakt" stil="green|red|outline" >}}Text{{< /button >}} */ -}}
+{{- $url := .Get "url" -}}
+{{- if hasPrefix $url "/" }}{{ $url = $url | relURL }}{{ end -}}
+<a class="fv-btn fv-btn--{{ .Get "stil" | default "green" }}" href="{{ $url }}">{{ .Inner }}</a>

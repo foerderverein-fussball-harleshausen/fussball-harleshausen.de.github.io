@@ -1,0 +1,4 @@
+{{- /* Raster für Karten. {{< raster spalten="4" >}} ... {{< /raster >}} */ -}}
+<div class="fv-grid fv-grid--{{ .Get "spalten" | default "3" }} fv-mt" style="margin-bottom:28px">
+  {{ .Inner }}
+</div>

@@ -1,0 +1,4 @@
+{{- $s := . | default "abgeschlossen" -}}
+{{- $map := dict "abgeschlossen" (slice "Abgeschlossen" "") "umsetzung" (slice "In Umsetzung" "fv-badge--active") "geplant" (slice "Geplant" "fv-badge--planned") -}}
+{{- $v := index $map $s | default (slice $s "") -}}
+<span class="fv-badge {{ index $v 1 }}">{{ index $v 0 }}</span>

@@ -1,0 +1,29 @@
+# Kennzahlen und Wirkung auf der Startseite – hier einfach anpassen.
+zahlen:
+  - icon: users
+    wert: "42"
+    titel: Mitglieder
+    text: Menschen, die den Förderverein unterstützen.
+  - icon: euro
+    wert: "28.500 €"
+    titel: Fördermittel
+    text: Insgesamt bewilligt und ausgezahlt.
+  - icon: folder
+    wert: "12"
+    titel: Projekte
+    text: Unterstützte Anschaffungen und Maßnahmen.
+  - icon: calendar
+    wert: "Seit 2022"
+    titel: Engagement
+    text: Für den Fußball bei der SVH Kassel.
+
+wirkung:
+  - icon: user-plus
+    titel: Mehr Möglichkeiten schaffen
+    text: Wir finanzieren Anschaffungen und Projekte, die den Fußball nachhaltig stärken – von Trainingsmaterial bis Infrastruktur.
+  - icon: heart
+    titel: Gemeinschaft fördern
+    text: Wir unterstützen das Vereinsleben, Turniere und Feste und würdigen ehrenamtliches Engagement.
+  - icon: users
+    titel: Engagement möglich machen
+    text: Mitgliedsbeiträge, Spenden und Sponsoring helfen dort, wo dem Verein das Budget fehlt.

@@ -1,0 +1,28 @@
+{{- /* Sponsoring-Pakete aus data/sponsoring.yaml */ -}}
+<div class="fv-grid fv-grid--3 fv-mt" style="margin-bottom:28px;align-items:stretch">
+  {{ range hugo.Data.sponsoring.pakete }}
+    <div class="fv-card fv-tier fv-tier--{{ .id }}{{ if .empfohlen }} fv-tier--featured{{ end }}">
+      {{ if .empfohlen }}<span class="fv-tier__ribbon">Beliebt</span>{{ end }}
+      <div class="fv-tier__head">
+        <div class="fv-tier__medal">{{ partial "icon.html" "medal" }}</div>
+        <h3>{{ .name }}</h3>
+        <div class="fv-small">{{ .claim }}</div>
+        <div class="fv-tier__price">{{ .preis }} <small>/ Jahr</small></div>
+      </div>
+      <div class="fv-tier__body">
+        <ul class="fv-checklist">
+          {{ range .leistungen }}<li>{{ . }}</li>{{ end }}
+        </ul>
+        <a class="fv-btn {{ if .empfohlen }}fv-btn--green{{ else }}fv-btn--outline{{ end }}" href="#anfrage" data-paket="{{ .name }}">{{ .name }}-Sponsor werden</a>
+      </div>
+    </div>
+  {{ end }}
+</div>
+<script>
+  document.querySelectorAll('[data-paket]').forEach(function (a) {
+    a.addEventListener('click', function () {
+      var sel = document.getElementById('sp-paket');
+      if (sel) sel.value = a.dataset.paket;
+    });
+  });
+</script>

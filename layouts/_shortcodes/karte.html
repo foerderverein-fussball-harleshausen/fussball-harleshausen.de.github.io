@@ -1,0 +1,6 @@
+{{- /* {{< karte icon="euro" titel="..." farbe="red|dark|soft" >}}Text{{< /karte >}} */ -}}
+<div class="fv-card fv-card--center">
+  {{ with .Get "icon" }}<span class="fv-icon-badge {{ with $.Get "farbe" }}fv-icon-badge--{{ . }}{{ end }}">{{ partial "icon.html" . }}</span>{{ end }}
+  {{ with .Get "titel" }}<h3>{{ . }}</h3>{{ end }}
+  <div class="fv-muted fv-small">{{ .Inner | .Page.RenderString }}</div>
+</div>

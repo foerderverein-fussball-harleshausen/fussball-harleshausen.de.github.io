@@ -1,0 +1,28 @@
+{{- /* Anfrageformular für Premium-Sponsoren */ -}}
+{{ partial "form-open.html" (dict "id" "anfrage" "betreff" "Anfrage Premium-Sponsoring") }}
+  <fieldset>
+    <legend>Unternehmen</legend>
+    <div class="fv-form__row">
+      <div class="fv-field"><label for="sp-firma">Firma <span class="fv-req">*</span></label><input type="text" id="sp-firma" name="Firma" required autocomplete="organization"></div>
+      <div class="fv-field"><label for="sp-paket">Gewünschtes Paket</label>
+        <select id="sp-paket" name="Paket">
+          {{ range hugo.Data.sponsoring.pakete }}<option{{ if .empfohlen }} selected{{ end }}>{{ .name }}</option>{{ end }}
+          <option>Individuelles Angebot</option>
+        </select>
+      </div>
+    </div>
+    <div class="fv-form__row">
+      <div class="fv-field"><label for="sp-name">Ansprechpartner/in <span class="fv-req">*</span></label><input type="text" id="sp-name" name="Ansprechpartner" required autocomplete="name"></div>
+      <div class="fv-field"><label for="sp-email">E-Mail <span class="fv-req">*</span></label><input type="email" id="sp-email" name="E-Mail" required autocomplete="email"></div>
+    </div>
+    <div class="fv-form__row">
+      <div class="fv-field"><label for="sp-tel">Telefon</label><input type="tel" id="sp-tel" name="Telefon" autocomplete="tel"></div>
+      <div class="fv-field"><label for="sp-web">Website</label><input type="text" id="sp-web" name="Website" placeholder="https://"></div>
+    </div>
+    <div class="fv-form__row">
+      <div class="fv-field fv-field--full"><label for="sp-msg">Nachricht</label><textarea id="sp-msg" name="Nachricht" placeholder="Wünsche, Fragen, Laufzeit …"></textarea></div>
+    </div>
+  </fieldset>
+  {{ partial "form-datenschutz.html" . }}
+  <div><button class="fv-btn fv-btn--green" type="submit">Unverbindlich anfragen</button></div>
+</form>

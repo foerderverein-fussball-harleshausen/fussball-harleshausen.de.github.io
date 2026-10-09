@@ -1,0 +1,5 @@
+<label class="fv-choice">
+  <input type="checkbox" name="Datenschutz" value="akzeptiert" required>
+  <span>Ich habe die <a href="{{ relref site.Home "/datenschutz" }}" target="_blank">Datenschutzerklärung</a> gelesen und bin mit der Verarbeitung meiner Angaben zur Bearbeitung meiner Anfrage einverstanden. <span class="fv-req">*</span></span>
+</label>
+{{ if not site.Params.formEndpoint }}<p class="fv-form__note">Hinweis: Beim Absenden öffnet sich Ihr E-Mail-Programm mit den ausgefüllten Angaben.</p>{{ end }}

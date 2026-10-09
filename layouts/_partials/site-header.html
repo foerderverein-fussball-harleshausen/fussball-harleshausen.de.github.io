@@ -1,0 +1,29 @@
+{{- $current := . -}}
+<header class="fv-header">
+  <div class="fv-container fv-header__inner">
+    {{ partial "brand.html" . }}
+    <button class="fv-nav-toggle" type="button" aria-controls="fv-nav" aria-expanded="false" aria-label="Menü öffnen">
+      {{ partial "icon.html" "menu" }}
+    </button>
+    <nav class="fv-nav" id="fv-nav" aria-label="Hauptnavigation">
+      <ul>
+        {{- range site.Menus.main }}
+          {{- $active := or ($current.IsMenuCurrent "main" .) ($current.HasMenuCurrent "main" .) }}
+          {{- with .Page }}{{ if and (not $active) (ne .Kind "home") }}{{ $active = $current.IsDescendant . }}{{ end }}{{ end }}
+          <li><a class="fv-nav__link{{ if $active }} is-active{{ end }}" href="{{ .URL }}"{{ if $active }} aria-current="page"{{ end }}>{{ .Name }}</a></li>
+        {{- end }}
+      </ul>
+      <a class="fv-btn fv-btn--green fv-btn--sm" href="{{ relref . "/mitglied-werden" }}">Mitglied werden</a>
+    </nav>
+  </div>
+</header>
+<script>
+  (function () {
+    var btn = document.querySelector('.fv-nav-toggle'), nav = document.getElementById('fv-nav');
+    btn.addEventListener('click', function () {
+      var open = nav.classList.toggle('is-open');
+      btn.setAttribute('aria-expanded', open);
+    });
+  })();
+</script>
+{{ partial "hero.html" . }}
