@@ -30,7 +30,10 @@ jobs:
       - id: pages
         uses: actions/configure-pages@v5
       - name: Build
-        run: hugo --gc --minify --baseURL "${{ steps.pages.outputs.base_url }}/"
+        # baseURL kommt aus hugo.toml (https://fussball-harleshausen.de/). Nicht mit
+        # steps.pages.outputs.base_url überschreiben: Das liefert bei diesem Repo die
+        # github.io-Projektadresse mit Unterordner, und CSS/Links würden 404 liefern.
+        run: hugo --gc --minify
       - uses: actions/upload-pages-artifact@v3
         with:
           path: ./public
