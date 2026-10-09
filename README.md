@@ -1,4 +1,4 @@
-# Förderverein Fußball der SVH Kassel – Website
+# Förderverein Fußball Harleshausen 95 e.V. – Website
 
 Statische Website mit [Hugo](https://gohugo.io) und dem Theme [Ananke](https://themes.gohugo.io/themes/gohugo-theme-ananke/) (als Git-Submodul in `themes/ananke`).
 Design und Farben sind an [svhkassel-fussball.de](https://www.svhkassel-fussball.de/) und den Entwurf in `docs/` angelehnt.
@@ -24,6 +24,7 @@ Dann <http://localhost:1313> öffnen. Für die fertige Seite: `hugo --gc --minif
 | Seiten (Über uns, Mitglied werden, …) | `content/*.md` |
 | Förderprojekte | `content/projekte/*.md` |
 | Farben & Layout | `assets/ananke/css/fv.css` |
+| Logo & Favicon | `static/images/logo.png`, `static/images/favicon.png`, `static/apple-touch-icon.png` (Original: `assets/images/logo-original.png`) |
 
 ### Neues Förderprojekt anlegen
 
@@ -56,11 +57,23 @@ Optional: Liegt eine Datei `static/downloads/mitgliedsantrag.pdf` vor, erscheint
 `.github/workflows/hugo.yml` baut und veröffentlicht die Seite bei jedem Push auf `main` über GitHub Pages.
 In den Repository-Einstellungen unter *Settings → Pages* als Quelle **GitHub Actions** wählen. Die Domain steht in `static/CNAME`.
 
-## Vor dem Livegang
+## TODOs
 
-- [ ] Platzhalter in `hugo.toml` (Adresse, E-Mail, IBAN) ersetzen
-- [ ] Vorstand in `data/vorstand.yaml` eintragen
+Offene Restarbeiten – erledigte Punkte einfach abhaken (`[x]`).
+
+### Inhalte prüfen
+
+- [ ] `/mitglied-werden`: genauer angeben, ab wann eine Zuwendungsbestätigung ausgestellt wird (FAQ „Kann ich den Mitgliedsbeitrag steuerlich absetzen?“ in `content/mitglied-werden.md`)
+- [ ] `/mitglied-werden`: in der Satzung prüfen, was zur Kündigung gilt, und die FAQ „Wie lange dauert die Mitgliedschaft?“ in `content/mitglied-werden.md` anpassen
+- [ ] Freistellungsbescheid prüfen: Sind Mitgliedsbeiträge tatsächlich absetzbar (z. B. Zweck „Jugendhilfe“) oder nur Spenden?
+- [ ] Vereinsnamen mit dem Vereinsregister abgleichen („Förderverein Fußball Harleshausen 95 e.V.“ vs. „Förderverein der Fußball-Sportjugend der SVH Kassel e.V.“)
+- [ ] `/projekte/sportliche-weiterbildung`: festlegen, ob Lehrgangskosten ganz oder anteilig übernommen werden (ggf. Betrag nennen)
+
+### Vor dem Livegang
+
+- [ ] Postanschrift in `hugo.toml` und Impressum/Datenschutz ergänzen
+- [ ] Vorstandsfotos in `data/vorstand.yaml` ergänzen (optional)
 - [ ] Impressum und Datenschutz vervollständigen (`[ … ]`-Stellen)
-- [ ] Kennzahlen und Projekte aktualisieren
+- [ ] Projekte um Jahr, Fördersumme und Fotos ergänzen (optional)
 - [ ] Formular-Endpunkt einrichten
-- [ ] Logo durch das offizielle Vereinslogo ersetzen (`static/images/logo.svg`)
+- [ ] GitHub-Repository anlegen und unter *Settings → Pages* „GitHub Actions“ als Quelle wählen

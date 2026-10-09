@@ -9,10 +9,10 @@ Diese Datenschutzerklärung ist eine Vorlage für eine statische Website (Hugo, 
 
 ## 1. Verantwortlicher
 
-Förderverein Fußball der SVH Kassel e. V.
-{{< param street >}}, {{< param city >}}
+Förderverein Fußball Harleshausen 95 e.V.
+[Straße Hausnummer], [PLZ] Kassel
 E-Mail: {{< param email >}}
-Vertreten durch: [Name], 1. Vorsitzende/r
+Vertreten durch: Marcus Dräbing, 1. Vorsitzender
 
 ## 2. Allgemeines
 
@@ -32,7 +32,9 @@ Wenn Sie uns per Kontaktformular oder E-Mail Anfragen zukommen lassen, verarbeit
 
 ## 5. Mitgliedsantrag
 
-Für die Aufnahme und Verwaltung der Mitgliedschaft verarbeiten wir die im Antrag angegebenen Daten (Name, Anschrift, Geburtsdatum, Kontaktdaten, Bankverbindung). Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO (Mitgliedschaftsverhältnis). Die Bankverbindung nutzen wir ausschließlich für den Einzug des Mitgliedsbeitrags per SEPA-Lastschrift. Nach Beendigung der Mitgliedschaft werden die Daten gelöscht, soweit keine steuer- oder handelsrechtlichen Aufbewahrungsfristen (bis zu 10 Jahre) entgegenstehen.
+Für die Aufnahme und Verwaltung der Mitgliedschaft verarbeiten wir die im Antrag angegebenen Daten (Name, Anschrift, Kontaktdaten, ggf. Name des Kindes, Bankverbindung). Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO (Mitgliedschaftsverhältnis). Die Bankverbindung nutzen wir ausschließlich für den Einzug des Mitgliedsbeitrags per SEPA-Lastschrift.
+
+Die Angaben im Feld **„Was ich sonst noch mitbringe“** (z. B. Interessen, Beruf, Fähigkeiten) sind vollständig freiwillig. Wir verarbeiten sie nur, wenn Sie sie uns mitteilen, und nutzen sie ausschließlich, um Sie bei passender Gelegenheit für eine Unterstützung der Vereinsarbeit anzusprechen – und nur, wenn Sie dem zugestimmt haben. Rechtsgrundlage ist Ihre Einwilligung (Art. 6 Abs. 1 lit. a DSGVO). Sie können die Einwilligung jederzeit mit Wirkung für die Zukunft widerrufen, z. B. per E-Mail an {{< param email >}}; die Angaben werden dann gelöscht. Ein Widerruf oder das Weglassen dieser Angaben hat keinen Einfluss auf Ihre Mitgliedschaft. Nach Beendigung der Mitgliedschaft werden die Daten gelöscht, soweit keine steuer- oder handelsrechtlichen Aufbewahrungsfristen (bis zu 10 Jahre) entgegenstehen.
 
 ## 6. Sponsoring-Anfragen
 

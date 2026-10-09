@@ -1,0 +1,2 @@
+{{- /* {{< icon "percent" >}} – bindet ein Icon aus _partials/icon.html ein (ohne Zeilenumbrüche, damit es in HTML-Blöcken funktioniert) */ -}}
+{{- partial "icon.html" (.Get 0) | strings.TrimSpace | safeHTML -}}

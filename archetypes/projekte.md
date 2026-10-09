@@ -1,15 +1,16 @@
 ---
 title: "{{ replace .File.ContentBaseName "-" " " | title }}"
-date: {{ .Date }}
+weight: 50          # Reihenfolge in der Liste (kleiner = weiter oben)
 description: "Kurzbeschreibung des Projekts (1–2 Sätze)."
-amount: "0 €"
-status: geplant   # geplant | umsetzung | abgeschlossen
-category: Jugend
+status: geplant     # geplant | laufend | abgeschlossen
+category: Trainingsausrüstung
+# year: 2026        # optional
+# amount: "500 €"   # optional
 # image: images/projekte/mein-projekt.jpg
 ---
 
-## Ausgangslage
+## Worum geht es?
 
-## Was wird gefördert?
+## Was wurde gefördert?
 
 ## Wirkung

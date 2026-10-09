@@ -9,13 +9,13 @@ Die mit **[ ]** markierten Angaben sind Platzhalter und müssen vor der Veröffe
 
 ## Angaben gemäß § 5 DDG
 
-**Förderverein Fußball der SVH Kassel e. V.** [Vereinsname laut Vereinsregister]
-{{< param street >}}
-{{< param city >}}
+**Förderverein Fußball Harleshausen 95 e.V.** [Vereinsname laut Vereinsregister prüfen]
+[Straße Hausnummer]
+[PLZ] Kassel
 
 **Vertreten durch den Vorstand:**
-[Name], 1. Vorsitzende/r
-[Name], 2. Vorsitzende/r
+Marcus Dräbing, 1. Vorsitzender
+Andre Ben Mansour, 2. Vorsitzender
 
 **Registereintrag:**
 Eintragung im Vereinsregister
@@ -25,17 +25,15 @@ Registernummer: VR [Nummer]
 ## Kontakt
 
 E-Mail: {{< param email >}}
-Telefon: {{< param phone >}}
 
 ## Steuerliche Angaben
 
-Der Verein ist [vom Finanzamt Kassel als gemeinnützig anerkannt – Freistellungsbescheid vom TT.MM.JJJJ, Steuernummer ...].
+Der Verein ist vom Finanzamt als gemeinnützig anerkannt. [Optional: Finanzamt, Datum des Freistellungsbescheids, Steuernummer]
 
 ## Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV
 
-[Name]
-{{< param street >}}
-{{< param city >}}
+Marcus Dräbing
+[Anschrift wie oben]
 
 ## Haftung für Inhalte
 

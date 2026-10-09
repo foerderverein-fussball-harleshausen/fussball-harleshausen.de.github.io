@@ -6,7 +6,7 @@
     <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
     <p class="fv-muted fv-small">{{ .Description | default .Summary | plainify | truncate 140 }}</p>
     <div class="fv-card__foot">
-      <span class="fv-card__meta fv-mb0">{{ .Date.Year }} · {{ .Params.amount }}</span>
+      <span class="fv-card__meta fv-mb0">{{ partial "project-meta.html" . }}</span>
       <a class="fv-btn fv-btn--outline fv-btn--sm" href="{{ .RelPermalink }}">Mehr erfahren</a>
     </div>
   </div>

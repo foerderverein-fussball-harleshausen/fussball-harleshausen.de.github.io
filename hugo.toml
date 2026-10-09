@@ -1,6 +1,6 @@
 baseURL = "https://fussball-harleshausen.de/"
 defaultContentLanguage = "de"
-title = "Förderverein Fußball der SVH Kassel"
+title = "Förderverein Fußball Harleshausen 95 e.V."
 theme = "ananke"
 
 [languages.de]
@@ -23,26 +23,29 @@ theme = "ananke"
   unsafe = true
 
 [params]
-  description = "Der Förderverein Fußball der SVH Kassel unterstützt den Fußball der Sportvereinigung Harleshausen – von den Bambini bis zu den Senioren."
-  claim = "Gemeinsam. Engagiert. Für den Fußball."
-  favicon = "images/logo.svg"
-  logo = "images/logo.svg"
+  description = "Der Förderverein Fußball Harleshausen 95 e.V. unterstützt den Fußball der SVH Kassel – insbesondere die Fußballjugend: Trainingsausrüstung, sportliche Weiterbildung und fußballerische Entwicklung."
+  claim = "Gemeinsam. Engagiert. Für unsere Fußballjugend."
+  favicon = "images/favicon.png"
+  logo = "images/logo.png"
   body_classes = "fv"
   date_format = "2. January 2006"
 
   # Kontaktdaten (zentral gepflegt, werden in Footer, Impressum und Kontakt genutzt)
-  email = "info@fussball-harleshausen.de"
-  phone = "0561 000000"
-  street = "Musterstraße 1"
-  city = "34128 Kassel"
+  email = "Foerderverein-F-H95@gmx.de"
+  # Postanschrift und Telefon werden nur angezeigt, wenn sie hier eingetragen sind.
+  # Für das Impressum ist eine ladungsfähige Anschrift Pflicht.
+  phone = ""
+  street = ""
+  city = ""
 
   # Spendenkonto
+  accountHolder = "Förderverein Fussball Harleshausen 95 e.V."
   bank = "Kasseler Sparkasse"
-  iban = "DE00 0000 0000 0000 0000 00"
+  iban = "DE13 5205 0353 0011 8565 02"
   bic = "HELADEF1KAS"
 
   # Hauptverein
-  clubName = "SVH Kassel 1945 – Fußball"
+  clubName = "SVH Kassel 1945"
   clubUrl = "https://www.svhkassel-fussball.de/"
 
   # Formular-Endpunkt (z. B. Formspree, Getform, eigener Server).
@@ -51,8 +54,9 @@ theme = "ananke"
   formEndpoint = ""
 
   # Mitgliedsbeitrag
-  membershipFee = "60 €"
-  membershipFeeReduced = "30 €"
+  membershipFee = "30 €"        # Mindestbeitrag pro Jahr
+  membershipFeeAlt = "50 €"
+  creditorId = "DE06ZZZ00002586463"  # Gläubiger-ID für das SEPA-Lastschriftmandat
 
   [params.ananke]
     custom_css = ["fv.css"]

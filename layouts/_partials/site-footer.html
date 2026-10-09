@@ -4,14 +4,15 @@
     <div>
       {{ partial "brand.html" . }}
       <p>{{ $p.claim }}</p>
-      <p class="fv-small">Wir unterstützen den Fußball des<br><a href="{{ $p.clubUrl }}" rel="noopener">{{ $p.clubName }}</a></p>
+      <p class="fv-small">Wir unterstützen den Fußball des <a href="{{ $p.clubUrl }}" rel="noopener">{{ $p.clubName }}</a> – insbesondere die Fußballjugend.</p>
     </div>
     <div>
       <h4>Kontakt</h4>
       <ul>
         <li><a href="mailto:{{ $p.email }}">{{ $p.email }}</a></li>
-        <li>{{ $p.street }}</li>
-        <li>{{ $p.city }}</li>
+        {{ with $p.phone }}<li>{{ . }}</li>{{ end }}
+        {{ with $p.street }}<li>{{ . }}</li>{{ end }}
+        {{ with $p.city }}<li>{{ . }}</li>{{ end }}
       </ul>
     </div>
     <div>
@@ -26,7 +27,7 @@
     </div>
     <div>
       <h4>Spendenkonto</h4>
-      <p class="fv-mb0">{{ $p.bank }}<br>
+      <p class="fv-mb0">{{ $p.accountHolder }}<br>{{ $p.bank }}<br>
         <span class="fv-footer__iban">IBAN {{ $p.iban }}</span><br>
         <span class="fv-footer__iban">BIC {{ $p.bic }}</span></p>
       {{- with $p.social }}

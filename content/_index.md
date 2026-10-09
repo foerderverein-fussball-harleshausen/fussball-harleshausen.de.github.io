@@ -1,7 +1,7 @@
 ---
 title: "Startseite"
-heroTitle: "Gemeinsam mehr bewegen."
-heroText: "Der **Förderverein Fußball der SVH Kassel** unterstützt, ermöglicht und stärkt den Fußball in unserem Verein. Mit Mitgliedsbeiträgen, Spenden und dem Engagement unserer Unterstützer schaffen wir zusätzliche Möglichkeiten – dort, wo finanzielle Mittel allein nicht ausreichen."
+heroTitle: "Wir fördern unsere Fußballkids."
+heroText: "Der **Förderverein Fußball Harleshausen 95 e.V.** unterstützt den Fußball der SVH Kassel – insbesondere die Fußballjugend: bei der Ausstattung der Trainingsausrüstung, der sportlichen Weiterbildung und der fußballerischen Entwicklung. Mit Mitgliedsbeiträgen und Spenden schaffen wir zusätzliche Möglichkeiten – dort, wo die finanziellen Mittel des Hauptvereins allein nicht ausreichen."
 heroButtons:
   - label: Mitglied werden
     url: /mitglied-werden/

@@ -78,7 +78,7 @@ body.fv main { padding-bottom: 0; }
 .fv-header { background: #fff; border-bottom: 1px solid var(--fv-line); position: sticky; top: 0; z-index: 50; }
 .fv-header__inner { display: flex; align-items: center; justify-content: space-between; gap: 20px; min-height: 72px; }
 .fv-brand { display: flex; align-items: center; gap: 12px; text-decoration: none; color: var(--fv-green-900); }
-.fv-brand img { width: 44px; height: 44px; }
+.fv-brand img { width: 52px; height: 52px; border-radius: 50%; }
 .fv-brand span { font-weight: 700; line-height: 1.15; font-size: .95rem; }
 .fv-brand small { display: block; font-weight: 500; color: var(--fv-muted); font-size: .8rem; }
 .fv-nav { display: flex; align-items: center; gap: 4px; }
@@ -354,3 +354,8 @@ body.fv main { padding-bottom: 0; }
 .fv-mt { margin-top: 28px; }
 .fv-mb0 { margin-bottom: 0 !important; }
 .fv [id] { scroll-margin-top: 90px; }
+
+/* Freiwillige Formularangaben */
+.fv-form fieldset.fv-fieldset--optional { border-style: dashed; border-color: #b9d6c1; background: var(--fv-green-50); }
+.fv-badge--optional { margin-left: 6px; vertical-align: middle; background: #fff; }
+.fv-optional-note { background: #fff; border-left: 3px solid var(--fv-green-600); padding: 10px 12px; border-radius: 0 6px 6px 0; color: var(--fv-ink); }

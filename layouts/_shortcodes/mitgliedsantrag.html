@@ -1,72 +1,78 @@
-{{- /* Online-Mitgliedsantrag inkl. SEPA-Lastschriftmandat */ -}}
+{{- /* Beitrittserklärung inkl. SEPA-Lastschriftmandat (angelehnt an das Formular auf svhkassel-fussball.de/foerderverein) */ -}}
 {{ $p := site.Params }}
-{{ partial "form-open.html" (dict "id" "antrag" "betreff" "Mitgliedsantrag Förderverein") }}
+{{ partial "form-open.html" (dict "id" "antrag" "betreff" "Beitrittserklärung Förderverein") }}
   <fieldset>
-    <legend>Art der Mitgliedschaft</legend>
+    <legend>Gewünschter Beitrag <span class="fv-req">*</span></legend>
     <div class="fv-options">
-      <label class="fv-option"><input type="radio" name="Mitgliedschaft" value="Einzelmitglied ({{ $p.membershipFee }}/Jahr)" checked>
-        <div><strong>Einzelmitglied</strong><span>{{ $p.membershipFee }} pro Jahr</span></div></label>
-      <label class="fv-option"><input type="radio" name="Mitgliedschaft" value="Ermäßigt ({{ $p.membershipFeeReduced }}/Jahr)">
-        <div><strong>Ermäßigt</strong><span>{{ $p.membershipFeeReduced }} pro Jahr – Schüler, Studierende, Azubis</span></div></label>
-      <label class="fv-option"><input type="radio" name="Mitgliedschaft" value="Fördermitglied mit freiem Beitrag">
-        <div><strong>Freier Beitrag</strong><span>Sie bestimmen die Höhe (mind. {{ $p.membershipFee }})</span></div></label>
+      <label class="fv-option"><input type="radio" name="Beitrag" value="{{ $p.membershipFee }} / Jahr (Mindestbeitrag)" checked required>
+        <div><strong>{{ $p.membershipFee }} / Jahr</strong><span>Mindestbeitrag</span></div></label>
+      <label class="fv-option"><input type="radio" name="Beitrag" value="{{ $p.membershipFeeAlt }} / Jahr">
+        <div><strong>{{ $p.membershipFeeAlt }} / Jahr</strong><span>Damit helfen Sie noch mehr</span></div></label>
+      <label class="fv-option"><input type="radio" name="Beitrag" value="Wunschbetrag">
+        <div><strong>Wunschbetrag</strong><span>Betrag unten eintragen</span></div></label>
     </div>
-    <div class="fv-form__row fv-mt" style="margin-top:14px">
-      <div class="fv-field"><label for="m-betrag">Freiwilliger Jahresbeitrag (optional)</label><input type="text" id="m-betrag" name="Freier Beitrag" placeholder="z. B. 120 €"></div>
-      <div class="fv-field"><label for="m-start">Beginn der Mitgliedschaft</label><input type="date" id="m-start" name="Beginn"></div>
+    <div class="fv-form__row" style="margin-top:14px">
+      <div class="fv-field"><label for="m-betrag">Wunschbetrag pro Jahr</label><input type="text" id="m-betrag" name="Wunschbetrag pro Jahr" placeholder="z. B. 100 €"></div>
     </div>
+    <p class="fv-form__note" style="margin:10px 0 0">Der Mindestbeitrag pro Jahr beträgt {{ $p.membershipFee }}. Er wird fällig zum nächsten Ersten des Aufnahmemonats.</p>
   </fieldset>
 
   <fieldset>
     <legend>Persönliche Angaben</legend>
     <div class="fv-form__row">
-      <div class="fv-field"><label for="m-vorname">Vorname <span class="fv-req">*</span></label><input type="text" id="m-vorname" name="Vorname" required autocomplete="given-name"></div>
-      <div class="fv-field"><label for="m-name">Nachname <span class="fv-req">*</span></label><input type="text" id="m-name" name="Nachname" required autocomplete="family-name"></div>
-    </div>
-    <div class="fv-form__row">
-      <div class="fv-field"><label for="m-geb">Geburtsdatum <span class="fv-req">*</span></label><input type="date" id="m-geb" name="Geburtsdatum" required autocomplete="bday"></div>
-      <div class="fv-field"><label for="m-tel">Telefon</label><input type="tel" id="m-tel" name="Telefon" autocomplete="tel"></div>
-    </div>
-    <div class="fv-form__row fv-form__row--3">
-      <div class="fv-field"><label for="m-str">Straße, Hausnr. <span class="fv-req">*</span></label><input type="text" id="m-str" name="Straße" required autocomplete="street-address"></div>
-      <div class="fv-field"><label for="m-plz">PLZ <span class="fv-req">*</span></label><input type="text" id="m-plz" name="PLZ" required inputmode="numeric" autocomplete="postal-code"></div>
-      <div class="fv-field"><label for="m-ort">Ort <span class="fv-req">*</span></label><input type="text" id="m-ort" name="Ort" required autocomplete="address-level2"></div>
-    </div>
-    <div class="fv-form__row">
+      <div class="fv-field"><label for="m-name">Name <span class="fv-req">*</span></label><input type="text" id="m-name" name="Name" required autocomplete="name"></div>
       <div class="fv-field"><label for="m-email">E-Mail <span class="fv-req">*</span></label><input type="email" id="m-email" name="E-Mail" required autocomplete="email"></div>
-      <div class="fv-field"><label for="m-bezug">Bezug zum Verein</label>
-        <select id="m-bezug" name="Bezug zum Verein">
-          <option>Elternteil / Angehörige/r</option>
-          <option>Spieler/in</option>
-          <option>Trainer/in / Betreuer/in</option>
-          <option>Ehemalige/r</option>
-          <option>Freund/in des Vereins</option>
-          <option>Sonstiges</option>
-        </select>
-      </div>
+    </div>
+    <div class="fv-form__row">
+      <div class="fv-field"><label for="m-tel">Telefon</label><input type="tel" id="m-tel" name="Telefon" autocomplete="tel"></div>
+      <div class="fv-field"><label for="m-str">Straße / Hausnummer <span class="fv-req">*</span></label><input type="text" id="m-str" name="Straße / Hausnummer" required autocomplete="street-address"></div>
+    </div>
+    <div class="fv-form__row">
+      <div class="fv-field"><label for="m-ort">PLZ / Ort <span class="fv-req">*</span></label><input type="text" id="m-ort" name="PLZ / Ort" required autocomplete="address-level2"></div>
+      <div class="fv-field"><label for="m-kind">Name des Kindes</label><input type="text" id="m-kind" name="Name des Kindes" placeholder="falls Ihr Kind bei der SVH spielt"></div>
     </div>
   </fieldset>
 
   <fieldset>
-    <legend>SEPA-Lastschriftmandat</legend>
-    <p class="fv-form__note">Ich ermächtige den {{ site.Title }}, den Mitgliedsbeitrag jährlich von meinem Konto mittels Lastschrift einzuziehen. Zugleich weise ich mein Kreditinstitut an, die gezogenen Lastschriften einzulösen. Ich kann innerhalb von acht Wochen, beginnend mit dem Belastungsdatum, die Erstattung des belasteten Betrages verlangen. Die Gläubiger-ID und Mandatsreferenz werden separat mitgeteilt.</p>
+    <legend>Einzugsermächtigung (SEPA-Lastschrift)</legend>
     <div class="fv-form__row">
-      <div class="fv-field"><label for="m-inhaber">Kontoinhaber/in <span class="fv-req">*</span></label><input type="text" id="m-inhaber" name="Kontoinhaber" required></div>
+      <div class="fv-field"><label for="m-inhaber">Kontoinhaber <span class="fv-req">*</span></label><input type="text" id="m-inhaber" name="Kontoinhaber" required></div>
       <div class="fv-field"><label for="m-iban">IBAN <span class="fv-req">*</span></label><input type="text" id="m-iban" name="IBAN" required pattern="[A-Za-z]{2}[0-9 ]{13,32}" placeholder="DE.." autocomplete="off"></div>
     </div>
-    <label class="fv-choice fv-mt" style="margin-top:14px">
-      <input type="checkbox" name="SEPA-Mandat" value="erteilt" required>
-      <span>Ich erteile das SEPA-Lastschriftmandat. <span class="fv-req">*</span></span>
+    <div class="fv-form__row">
+      <div class="fv-field"><label for="m-bic">BIC</label><input type="text" id="m-bic" name="BIC" autocomplete="off"></div>
+    </div>
+    <p class="fv-form__note" style="margin-top:14px">Hiermit ermächtige ich den {{ $p.accountHolder }}, den jährlichen Mitgliedsbeitrag bis auf Widerruf per Lastschrift von meinem/unserem Konto wiederkehrend einzuziehen. Zugleich weise ich mein Kreditinstitut an, die vom Förderverein auf mein Konto gezogenen Lastschriften einzulösen.<br>Gläubiger-ID: {{ $p.creditorId }}</p>
+    <label class="fv-choice">
+      <input type="checkbox" name="Einzugsermächtigung" value="erteilt" required>
+      <span>Ich erteile die Einzugsermächtigung. <span class="fv-req">*</span></span>
     </label>
   </fieldset>
 
-  <label class="fv-choice">
-    <input type="checkbox" name="Satzung" value="anerkannt" required>
-    <span>Ich erkenne die Satzung des Fördervereins an. <span class="fv-req">*</span></span>
-  </label>
+  <fieldset class="fv-fieldset--optional">
+    <legend>Was ich sonst noch mitbringe <span class="fv-badge fv-badge--optional">freiwillig</span></legend>
+    <p class="fv-form__note fv-optional-note">
+      <strong>Dieses Feld ist komplett freiwillig.</strong> Sie können es einfach leer lassen – das ist völlig in Ordnung und hat keinerlei Einfluss auf Ihre Mitgliedschaft.
+    </p>
+    <p class="fv-form__note">
+      In der Vereinsarbeit gibt es immer wieder Momente, in denen uns besondere Fähigkeiten oder Kontakte weiterhelfen: der Elektriker für die Flutlichtanlage, die Grafikerin für ein Turnierplakat, jemand mit Erfahrung in Buchhaltung, Fotografie oder Social Media – oder einfach jemand, der gern beim Kuchenstand mit anpackt. Wenn Sie mögen, erzählen Sie uns hier etwas über Ihre Interessen, Ihren Beruf oder Ihre Hobbys.
+    </p>
+    <div class="fv-field"><label for="m-extra">Interessen, Beruf, Fähigkeiten (optional)</label><textarea id="m-extra" name="Was ich sonst noch mitbringe" style="min-height:90px" placeholder="z. B. Schreiner, fotografiere gern, helfe bei Turnieren …"></textarea></div>
+    <label class="fv-choice" style="margin-top:12px">
+      <input type="checkbox" name="Darf angesprochen werden" value="ja">
+      <span>Der Förderverein darf mich bei passender Gelegenheit auf diese Angaben ansprechen. <span class="fv-muted">(optional – jederzeit widerrufbar)</span></span>
+    </label>
+  </fieldset>
+
+  <fieldset>
+    <legend>Nachricht / Anmerkungen</legend>
+    <div class="fv-field"><label for="m-msg" class="fv-sr">Nachricht / Anmerkungen</label><textarea id="m-msg" name="Nachricht" style="min-height:90px"></textarea></div>
+  </fieldset>
+
   {{ partial "form-datenschutz.html" . }}
+  <p class="fv-form__note">Bitte die mit <span class="fv-req">*</span> gekennzeichneten Felder ausfüllen.</p>
   <div class="fv-btn-row">
-    <button class="fv-btn fv-btn--green" type="submit">Mitgliedsantrag absenden</button>
+    <button class="fv-btn fv-btn--green" type="submit">Beitrittserklärung absenden</button>
     {{ if fileExists "static/downloads/mitgliedsantrag.pdf" }}<a class="fv-btn fv-btn--outline" href="{{ "downloads/mitgliedsantrag.pdf" | relURL }}">Antrag als PDF</a>{{ end }}
   </div>
 </form>

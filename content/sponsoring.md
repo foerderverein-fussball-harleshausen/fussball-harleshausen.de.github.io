@@ -1,6 +1,6 @@
 ---
 title: "Premium-Sponsor werden"
-description: "Für Unternehmen: Sichtbar werden und den Fußball vor Ort stärken."
+description: "Für Unternehmen: Sichtbar werden und den Fußball vor Ort – insbesondere die Fußballjugend – stärken."
 wide: true
 ---
 
@@ -8,7 +8,7 @@ wide: true
 
 ## Verantwortung übernehmen. Vor Ort etwas bewegen.
 
-Als Unternehmen aus Kassel und der Region können Sie mit einem Premium-Sponsoring die Fußballabteilung der SVH Kassel gezielt unterstützen – und gleichzeitig Ihre Marke bei Spielern, Eltern, Zuschauern und Partnern sichtbar machen.
+Als Unternehmen aus Kassel und der Region können Sie mit einem Premium-Sponsoring die Fußballabteilung der SVH Kassel und insbesondere die Fußballjugend gezielt unterstützen – und gleichzeitig Ihre Marke bei Spielern, Eltern, Zuschauern und Partnern sichtbar machen.
 
 Wir bieten drei Pakete an. Gerne schnüren wir auch ein **individuelles Angebot**, zum Beispiel eine Projekt-Patenschaft oder Trikotsponsoring.
 
@@ -40,7 +40,7 @@ Lernen Sie beim Sponsorenabend andere Unternehmen und Partner des Vereins kennen
 </div>
 <div class="fv-box">
 <h3>Ihr Ansprechpartner</h3>
-<p><strong>Max Mustermann</strong><br>1. Vorsitzender</p>
-<p class="fv-mb0"><a href="mailto:sponsoring@fussball-harleshausen.de">sponsoring@fussball-harleshausen.de</a></p>
+<p><strong>Marcus Dräbing</strong><br>1. Vorsitzender</p>
+<p class="fv-mb0"><a href="mailto:{{< param email >}}">{{< param email >}}</a></p>
 </div>
 </div>

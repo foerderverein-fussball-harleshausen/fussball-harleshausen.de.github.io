@@ -1,29 +1,29 @@
 # Kennzahlen und Wirkung auf der Startseite – hier einfach anpassen.
 zahlen:
-  - icon: users
-    wert: "42"
-    titel: Mitglieder
-    text: Menschen, die den Förderverein unterstützen.
   - icon: euro
-    wert: "28.500 €"
-    titel: Fördermittel
-    text: Insgesamt bewilligt und ausgezahlt.
-  - icon: folder
-    wert: "12"
-    titel: Projekte
-    text: Unterstützte Anschaffungen und Maßnahmen.
-  - icon: calendar
-    wert: "Seit 2022"
-    titel: Engagement
-    text: Für den Fußball bei der SVH Kassel.
+    wert: "30 €"
+    titel: Mindestbeitrag
+    text: Pro Jahr – schon damit sind Sie dabei.
+  - icon: users
+    wert: "100 %"
+    titel: Für den Nachwuchs
+    text: Wir unterstützen gezielt die Jugendteams.
+  - icon: shield
+    wert: "e.V."
+    titel: Eigenständig
+    text: Unabhängig vom Hauptverein organisiert.
+  - icon: heart
+    wert: "Alle Kids"
+    titel: Jungen & Mädchen
+    text: Ob Neueinsteiger oder Leistungsträger.
 
 wirkung:
-  - icon: user-plus
-    titel: Mehr Möglichkeiten schaffen
-    text: Wir finanzieren Anschaffungen und Projekte, die den Fußball nachhaltig stärken – von Trainingsmaterial bis Infrastruktur.
-  - icon: heart
-    titel: Gemeinschaft fördern
-    text: Wir unterstützen das Vereinsleben, Turniere und Feste und würdigen ehrenamtliches Engagement.
-  - icon: users
-    titel: Engagement möglich machen
-    text: Mitgliedsbeiträge, Spenden und Sponsoring helfen dort, wo dem Verein das Budget fehlt.
+  - icon: ball
+    titel: Ausstattung der Trainingsausrüstung
+    text: Minitore, Bälle, Trainingsmaterialien oder komplette Trikotsätze – Anschaffungen, die sonst nicht realisierbar wären.
+  - icon: trophy
+    titel: Sportliche Weiterbildung
+    text: Wir fördern die Lehrgangskosten unserer Trainerinnen und Trainer bei HFV und DFB – vom Kindertrainer-Zertifikat über den DFB-Basis-Coach bis zur C-Lizenz.
+  - icon: leaf
+    titel: Fußballerische Entwicklung
+    text: Wir schaffen die Grundlage für Spaß, Entwicklung und sportlichen Erfolg auf dem Platz.

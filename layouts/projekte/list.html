@@ -8,14 +8,14 @@
         <span class="fv-muted fv-small">{{ len .Pages }} Projekte</span>
       </div>
       <div class="fv-stack">
-        {{ range .Pages.ByDate.Reverse }}
+        {{ range .Pages.ByWeight }}
           <article class="fv-project-row">
             <a href="{{ .RelPermalink }}" tabindex="-1" aria-hidden="true">
               <img src="{{ .Params.image | default "images/projekt-platzhalter.svg" | relURL }}" alt="" loading="lazy">
             </a>
             <div>
               <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
-              <div class="fv-card__meta">{{ .Date.Year }} · {{ .Params.amount }}{{ with .Params.category }} · {{ . }}{{ end }}</div>
+              <div class="fv-card__meta">{{ partial "project-meta.html" . }}</div>
               <p>{{ .Description | default .Summary | plainify | truncate 180 }}</p>
             </div>
             <div style="display:flex;flex-direction:column;gap:12px;align-items:flex-end">

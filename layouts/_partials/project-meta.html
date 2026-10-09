@@ -1,0 +1,5 @@
+{{- $parts := slice -}}
+{{- with .Params.category }}{{ $parts = $parts | append . }}{{ end -}}
+{{- with .Params.year }}{{ $parts = $parts | append (string .) }}{{ end -}}
+{{- with .Params.amount }}{{ $parts = $parts | append . }}{{ end -}}
+{{- delimit $parts " · " -}}

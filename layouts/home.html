@@ -4,7 +4,7 @@
   {{/* Kennzahlen */}}
   <section class="fv-section">
     <div class="fv-container">
-      <h2>Der Förderverein in Zahlen</h2>
+      <h2>Der Förderverein auf einen Blick</h2>
       <div class="fv-grid fv-grid--4 fv-mt">
         {{ range $i, $s := $d.zahlen }}
           <div class="fv-card fv-card--center">
@@ -43,7 +43,7 @@
         <a class="fv-link-arrow" href="{{ .RelPermalink }}">Alle Förderungen entdecken</a>
       </div>
       <div class="fv-grid fv-grid--3">
-        {{ range first 3 .Pages.ByDate.Reverse }}{{ partial "project-card.html" . }}{{ end }}
+        {{ range first 3 .Pages.ByWeight }}{{ partial "project-card.html" . }}{{ end }}
       </div>
     </div>
   </section>
@@ -54,7 +54,7 @@
     <div class="fv-container">
       <div class="fv-banner">
         <h2>Schon mit einem kleinen Beitrag viel bewegen.</h2>
-        <p>Werden Sie Mitglied im Förderverein und unterstützen Sie den Fußball der SVH Kassel – dauerhaft und verlässlich. Ab {{ site.Params.membershipFee }} im Jahr.</p>
+        <p>Werden Sie Mitglied im Förderverein und unterstützen Sie den Fußball der SVH Kassel – insbesondere die Fußballjugend – dauerhaft und verlässlich. Schon ab {{ site.Params.membershipFee }} im Jahr.</p>
         <div class="fv-btn-row">
           <a class="fv-btn fv-btn--green" href="{{ relref . "/mitglied-werden" }}">Jetzt Mitglied werden</a>
           <a class="fv-btn fv-btn--ghost" href="{{ relref . "/mitglied-werden" }}#antrag">Zum Antragsformular</a>
@@ -76,11 +76,11 @@
         <span class="fv-icon-badge">{{ partial "icon.html" "percent" }}</span>
         <h3>Gutes tun und steuerlich profitieren.</h3>
         <ul class="fv-checklist">
-          <li>Mitgliedsbeiträge sind steuerlich absetzbar*</li>
+          <li>Mitgliedsbeiträge sind steuerlich absetzbar</li>
           <li>Spenden als Sonderausgaben geltend machen</li>
           <li>Zuwendungsbestätigung auf Wunsch</li>
         </ul>
-        <p class="fv-small fv-muted fv-mb0">* sofern die Gemeinnützigkeit vom Finanzamt anerkannt ist.</p>
+        <p class="fv-small fv-muted fv-mb0">Der Förderverein ist vom Finanzamt als gemeinnützig anerkannt.</p>
       </div>
     </div>
   </section>

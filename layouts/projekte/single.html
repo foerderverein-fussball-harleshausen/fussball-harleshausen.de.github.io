@@ -16,7 +16,7 @@
             <h3>Projekt-Steckbrief</h3>
             <table class="fv-calc">
               <tr><td>Status</td><td>{{ partial "status-badge.html" .Params.status }}</td></tr>
-              <tr><td>Jahr</td><td>{{ .Date.Year }}</td></tr>
+              {{ with .Params.year }}<tr><td>Jahr</td><td>{{ . }}</td></tr>{{ end }}
               {{ with .Params.category }}<tr><td>Bereich</td><td>{{ . }}</td></tr>{{ end }}
               {{ with .Params.amount }}<tr><td>Fördersumme</td><td>{{ . }}</td></tr>{{ end }}
             </table>
@@ -32,7 +32,7 @@
         </aside>
       </div>
 
-      {{ $others := where .Parent.Pages "Permalink" "!=" .Permalink | first 3 }}
+      {{ $others := where .Parent.Pages.ByWeight "Permalink" "!=" .Permalink | first 3 }}
       {{ with $others }}
         <div class="fv-section-head" style="margin-top:56px">
           <h2>Weitere Projekte</h2>

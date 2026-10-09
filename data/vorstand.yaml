@@ -1,18 +1,16 @@
-# Vorstand des Fördervereins. Bilder unter static/images/vorstand/ ablegen
-# und z. B. "bild: images/vorstand/max.jpg" eintragen.
-- name: Max Mustermann
+# Vorstand des Fördervereins (Quelle: svhkassel-fussball.de/foerderverein).
+# Fotos unter static/images/vorstand/ ablegen und z. B.
+# "bild: images/vorstand/marcus.jpg" eintragen.
+- name: Marcus Dräbing
   funktion: 1. Vorsitzender
-  text: Verantwortlich für die strategische Ausrichtung und die Zusammenarbeit mit Verein und Unterstützern.
-  email: vorstand@fussball-harleshausen.de
-- name: Erika Musterfrau
-  funktion: 2. Vorsitzende
-  text: Unterstützt den Vorsitzenden und koordiniert Projekte und Veranstaltungen.
-  email: vorstand@fussball-harleshausen.de
-- name: Thomas Beispiel
-  funktion: Kassenwart
-  text: Verantwortlich für die Finanzen und die transparente Verwendung der Fördermittel.
-  email: kasse@fussball-harleshausen.de
-- name: Anna Beispiel
-  funktion: Schriftführerin
-  text: Dokumentiert die Arbeit des Vorstands und kümmert sich um die Kommunikation.
-  email: info@fussball-harleshausen.de
+  text: Leitet den Förderverein und ist erster Ansprechpartner für Mitglieder, Spender und Unternehmen.
+  email: Foerderverein-F-H95@gmx.de
+- name: Andre Ben Mansour
+  funktion: 2. Vorsitzender
+  text: Vertritt den Vorsitzenden und unterstützt bei Projekten und Aktionen für die Jugendteams.
+- name: Andreas Lihs
+  funktion: Schriftführer & Kassenprüfer
+  text: Dokumentiert die Arbeit des Vorstands und prüft die ordnungsgemäße Verwendung der Mittel.
+- name: Christina Dräbing
+  funktion: Kassenwartin
+  text: Verwaltet die Finanzen, Mitgliedsbeiträge und Spenden des Fördervereins.
