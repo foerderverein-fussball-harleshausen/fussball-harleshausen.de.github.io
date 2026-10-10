@@ -378,4 +378,6 @@ body.fv main { padding-bottom: 0; }
 /* Projektbild auf der Detailseite: volle Breite, Hochformat in der Höhe begrenzt */
 .fv-project-figure { margin: 0 0 24px; }
 .fv-project-img { display: block; width: 100%; max-height: 520px; object-fit: cover; border-radius: var(--fv-radius); }
+/* imageFit: contain – Bild vollständig zeigen (z. B. Flyer), statt es zuzuschneiden */
+.fv-project-img--contain { object-fit: contain; background: var(--fv-bg-soft); max-height: 720px; }
 .fv-project-figure figcaption { margin-top: 6px; font-size: .8rem; color: var(--fv-muted); }

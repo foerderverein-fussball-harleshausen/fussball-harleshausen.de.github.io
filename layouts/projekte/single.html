@@ -10,7 +10,7 @@
         <article class="fv-prose">
           {{ with .Params.image }}
             <figure class="fv-project-figure">
-              <img class="fv-project-img" src="{{ . | relURL }}" alt="{{ $.Params.imageAlt }}">
+              <img class="fv-project-img{{ if eq $.Params.imageFit "contain" }} fv-project-img--contain{{ end }}" src="{{ . | relURL }}" alt="{{ $.Params.imageAlt }}">
               {{ with $.Params.imageCaption }}<figcaption>{{ . }}</figcaption>{{ end }}
             </figure>
           {{ end }}
