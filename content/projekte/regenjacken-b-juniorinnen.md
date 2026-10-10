@@ -18,4 +18,4 @@ Der Förderverein hat das Team mit **Regenjacken mit Vereinsaufdruck** ausgestat
 
 ## Wirkung
 
-Die Spielerinnen können bei Wind und Wetter trainieren und sind vor und nach dem Training, auf der Bank und bei Auswärtsspielen gut geschützt. Und als Team im einheitlichen Look machen sie auch am Spielfeldrand eine gute Figur.
+Die Spielerinnen können bei Wind und Wetter trainieren und sind vor und nach dem Training, auf der Bank und bei Auswärtsspielen gut geschützt. Der einheitliche Look stärkt außerdem das Gemeinschaftsgefühl: Man sieht auf den ersten Blick, dass die Spielerinnen zusammengehören.
