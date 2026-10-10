@@ -7,6 +7,7 @@ status: geplant     # geplant | laufend | abgeschlossen
 category: Trainingsausrüstung
 # amount: "500 €"   # optional
 # image: images/projekte/mein-projekt.jpg
+# imageAlt: "Kurze Bildbeschreibung für Screenreader"
 ---
 
 ## Worum geht es?

@@ -11,7 +11,7 @@
         {{ range partial "projects-sorted.html" .Pages }}
           <article class="fv-project-row">
             <a href="{{ .RelPermalink }}" tabindex="-1" aria-hidden="true">
-              <img src="{{ .Params.image | default "images/projekt-platzhalter.svg" | relURL }}" alt="" loading="lazy">
+              <img src="{{ .Params.image | default "images/projekt-platzhalter.svg" | relURL }}" alt="{{ .Params.imageAlt }}" loading="lazy">
             </a>
             <div>
               <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
