@@ -4,6 +4,9 @@ weight: 40
 description: "Wir fördern die Lehrgangskosten unserer Trainerinnen und Trainer beim HFV und DFB – damit unsere Fußballkids von Anfang an gut betreut werden."
 status: laufend
 category: Weiterbildung
+image: images/projekte/sportliche-weiterbildung.jpg
+imageAlt: "Symbolbild (KI-generiert): Ein Trainer erklärt auf dem Fußballplatz an einer Taktiktafel, mehrere Trainerinnen und Trainer hören zu. Text im Bild: „Weiterbildung im Fußball – Sportliche Weiterbildung – mit Bezug zu DFB & HFV“"
+imageCaption: "Symbolbild (KI-generiert)"
 ---
 
 ## Worum geht es?
