@@ -8,6 +8,7 @@ category: Trainingsausrüstung
 # amount: "500 €"   # optional
 # image: images/projekte/mein-projekt.jpg
 # imageAlt: "Kurze Bildbeschreibung für Screenreader"
+# imageCaption: "Bildunterschrift, z. B. Symbolbild oder Foto: Name"
 ---
 
 ## Worum geht es?

@@ -376,4 +376,6 @@ body.fv main { padding-bottom: 0; }
 .fv-error { display: block; flex-basis: 100%; margin-top: 5px; font-size: .82rem; font-weight: 600; color: var(--fv-red-600); }
 
 /* Projektbild auf der Detailseite: volle Breite, Hochformat in der Höhe begrenzt */
-.fv-project-img { display: block; width: 100%; max-height: 520px; object-fit: cover; border-radius: var(--fv-radius); margin-bottom: 24px; }
+.fv-project-figure { margin: 0 0 24px; }
+.fv-project-img { display: block; width: 100%; max-height: 520px; object-fit: cover; border-radius: var(--fv-radius); }
+.fv-project-figure figcaption { margin-top: 6px; font-size: .8rem; color: var(--fv-muted); }

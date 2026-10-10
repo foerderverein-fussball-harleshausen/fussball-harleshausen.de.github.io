@@ -8,7 +8,12 @@
       </nav>
       <div class="fv-layout">
         <article class="fv-prose">
-          {{ with .Params.image }}<img class="fv-project-img" src="{{ . | relURL }}" alt="{{ $.Params.imageAlt }}">{{ end }}
+          {{ with .Params.image }}
+            <figure class="fv-project-figure">
+              <img class="fv-project-img" src="{{ . | relURL }}" alt="{{ $.Params.imageAlt }}">
+              {{ with $.Params.imageCaption }}<figcaption>{{ . }}</figcaption>{{ end }}
+            </figure>
+          {{ end }}
           {{ .Content }}
         </article>
         <aside class="fv-aside">
