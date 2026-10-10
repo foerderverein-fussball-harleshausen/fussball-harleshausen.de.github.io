@@ -9,6 +9,7 @@ category: Trainingsausrüstung
 # image: images/projekte/mein-projekt.jpg
 # imageAlt: "Kurze Bildbeschreibung für Screenreader"
 # imageCaption: "Bildunterschrift, z. B. Symbolbild oder Foto: Name"
+# imageFit: contain  # Bild vollständig zeigen statt zuschneiden (z. B. für Flyer)
 ---
 
 ## Worum geht es?
