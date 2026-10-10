@@ -1,6 +1,6 @@
 <article class="fv-card fv-card--media">
   <a href="{{ .RelPermalink }}" tabindex="-1" aria-hidden="true">
-    <img class="fv-card__img" src="{{ .Params.image | default "images/projekt-platzhalter.svg" | relURL }}" alt="" loading="lazy">
+    <img class="fv-card__img" src="{{ .Params.image | default "images/projekt-platzhalter.svg" | relURL }}" alt="{{ .Params.imageAlt }}" loading="lazy">
   </a>
   <div class="fv-card__body">
     <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
