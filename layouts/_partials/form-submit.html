@@ -1,0 +1,71 @@
+{{- /* Schickt ein Formular im Hintergrund an site.Params.formEndpoint und zeigt
+     eine Bestätigung auf der Seite. Aufruf direkt nach dem </form> und nach
+     form-validation.html: partial "form-submit.html" "kontakt" (ID des Formulars).
+     Ohne JavaScript wird das Formular normal abgeschickt. */ -}}
+{{- if site.Params.formEndpoint -}}
+<script>
+(function () {
+  var form = document.getElementById({{ . }});
+  if (!form) return;
+  var started = form.querySelector('input[name="_t"]');
+  if (started) started.value = Date.now();
+  // Herkunft für die Prüfung im Apps Script (CONFIG.allowedOrigins)
+  var origin = form.querySelector('input[name="_origin"]');
+  if (origin) origin.value = window.location.origin;
+
+  var status = document.createElement('div');
+  status.className = 'fv-form-status';
+  status.setAttribute('role', 'status');
+  status.hidden = true;
+  form.insertBefore(status, form.firstElementChild);
+
+  function show(type, html) {
+    status.className = 'fv-form-status fv-form-status--' + type;
+    status.innerHTML = html;
+    status.hidden = false;
+    status.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+
+  function resetValidation() {
+    form.classList.remove('is-validated');
+    form.querySelectorAll('.is-invalid').forEach(function (el) { el.classList.remove('is-invalid'); });
+    form.querySelectorAll('.fv-error').forEach(function (el) { el.remove(); });
+    form.querySelectorAll('[aria-invalid]').forEach(function (el) { el.removeAttribute('aria-invalid'); });
+    var summary = form.querySelector('.fv-form-summary');
+    if (summary) summary.hidden = true;
+  }
+
+  form.addEventListener('submit', function (e) {
+    // Pflichtfelder fehlen (form-validation.html hat das Absenden schon gestoppt)
+    if (e.defaultPrevented) return;
+    e.preventDefault();
+
+    var button = form.querySelector('[type="submit"]');
+    var label = button.textContent;
+    button.disabled = true;
+    button.textContent = 'Wird gesendet …';
+    status.hidden = true;
+
+    var data = new URLSearchParams(new FormData(form));
+    data.set('_ajax', '1');
+
+    fetch(form.action, { method: 'POST', body: data })
+      .then(function (response) { return response.json(); })
+      .then(function (result) {
+        if (!result.ok) throw new Error(result.error || 'Fehler');
+        form.reset();
+        if (started) started.value = Date.now();
+        resetValidation();
+        show('success', '<strong>Vielen Dank!</strong> Ihre Nachricht ist bei uns angekommen. Wir melden uns so bald wie möglich.');
+      })
+      .catch(function () {
+        show('error', '<strong>Das hat leider nicht geklappt.</strong> Bitte versuchen Sie es später noch einmal oder schreiben Sie uns direkt an <a href="mailto:{{ site.Params.email }}">{{ site.Params.email }}</a>.');
+      })
+      .then(function () {
+        button.disabled = false;
+        button.textContent = label;
+      });
+  });
+})();
+</script>
+{{- end -}}

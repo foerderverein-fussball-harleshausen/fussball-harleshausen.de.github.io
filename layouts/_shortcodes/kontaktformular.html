@@ -1,5 +1,8 @@
-{{- /* {{< kontaktformular betreff="Kontaktanfrage" >}} */ -}}
-{{ partial "form-open.html" (dict "id" "kontakt" "betreff" (.Get "betreff" | default "Kontaktanfrage über die Website")) }}
+{{- /* {{< kontaktformular titel="Oder nutzen Sie unser Kontaktformular" >}}
+     Wird nur angezeigt, wenn site.Params.formEndpoint gesetzt ist. */ -}}
+{{ if site.Params.formEndpoint }}
+{{ with .Get "titel" }}<h2 id="formular" style="margin-top:48px">{{ . }}</h2>{{ end }}
+{{ partial "form-open.html" (dict "id" "kontaktformular" "betreff" (.Get "betreff" | default "Kontaktanfrage über die Website")) }}
   <fieldset>
     <legend>Ihre Nachricht</legend>
     <div class="fv-form__row">
@@ -26,3 +29,6 @@
   {{ partial "form-datenschutz.html" . }}
   <div><button class="fv-btn fv-btn--green" type="submit">Nachricht senden</button></div>
 </form>
+{{ partial "form-validation.html" "kontaktformular" }}
+{{ partial "form-submit.html" "kontaktformular" }}
+{{ end }}
