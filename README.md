@@ -63,10 +63,7 @@ Offene Restarbeiten – erledigte Punkte einfach abhaken (`[x]`).
 
 ### Inhalte prüfen
 
-- [ ] Kontaktformular wieder aktivieren (sobald der Formularversand steht): in `content/kontakt.md` den Shortcode `{{< kontaktformular >}}` wieder einfügen
-- [ ] Premium-Sponsoring wieder aktivieren: in `content/sponsoring.md` die Zeile `draft: true` entfernen (Seite, Menüpunkt und alle Verweise erscheinen dann automatisch wieder)
-- [ ] Sponsoring-Anfrageformular wieder aktivieren (sobald der Formularversand steht): in `content/sponsoring.md` den Shortcode `{{< sponsoranfrage >}}` wieder einfügen
-- [ ] Eigene Seite `/mitglied-werden` mit Antragsformular wieder aktivieren: in `content/mitglied-werden.md` die Zeile `redirect: …` entfernen (bis dahin führen alle „Mitglied werden“-Links auf svhkassel-fussball.de/foerderverein)
+- [ ] Premium-Sponsoring wieder aktivieren: in `content/sponsoring.md` die Zeile `draft: true` entfernen (Seite, Menüpunkt, Verweise und Anfrageformular erscheinen dann automatisch)
 - [ ] `/mitglied-werden`: genauer angeben, ab wann eine Zuwendungsbestätigung ausgestellt wird (FAQ „Kann ich den Mitgliedsbeitrag steuerlich absetzen?“ in `content/mitglied-werden.md`)
 - [ ] `/mitglied-werden`: in der Satzung prüfen, was zur Kündigung gilt, und die FAQ „Wie lange dauert die Mitgliedschaft?“ in `content/mitglied-werden.md` anpassen
 - [ ] Freistellungsbescheid prüfen: Sind Mitgliedsbeiträge tatsächlich absetzbar (z. B. Zweck „Jugendhilfe“) oder nur Spenden?
@@ -80,15 +77,15 @@ Offene Restarbeiten – erledigte Punkte einfach abhaken (`[x]`).
 - [ ] Impressum und Datenschutz vervollständigen (`[ … ]`-Stellen)
 - [ ] Abgeschlossenen Projekten ein Datum geben (`date: 2025-09-01` im Front Matter) – danach werden sie sortiert, neueste oben; laufende Projekte stehen immer zuerst
 - [ ] Projekte um Fördersumme und Fotos ergänzen (optional)
-- [ ] Formular-Endpunkt einrichten (geplant über Google Workspace, siehe „Ausbaustufen“)
+- [x] Formular-Endpunkt einrichten (Google-Apps-Script-Web-App, URL als `formEndpoint` in `hugo.toml`)
 - [ ] GitHub-Repository anlegen und unter *Settings → Pages* „GitHub Actions“ als Quelle wählen
 
 ### Ausbaustufen
 
-- [ ] **Formulare über Google Workspace for Nonprofits versenden** (sobald der Workspace eingerichtet ist)
-  - Google Apps Script als Web-App veröffentlichen; nimmt die Formulardaten per HTTPS entgegen
-  - Jede Einsendung in eine Google-Tabelle schreiben (je ein Tabellenblatt für Mitgliedsantrag, Kontakt, Sponsoring) und per E-Mail benachrichtigen
-  - Script (`Code.gs`) mit Einrichtungsanleitung unter `tools/google-apps-script/` ablegen
-  - Formulare im Hintergrund absenden und eine Danke-Meldung auf der Seite zeigen (Design und Pflichtfeld-Markierung bleiben erhalten)
-  - Web-App-Adresse als `formEndpoint` in `hugo.toml` eintragen
-  - Datenschutzerklärung um Google als Empfänger ergänzen; Datenspeicherort (EU) im Workspace-Admin prüfen; Tabelle nur für den Vorstand freigeben
+- [ ] **Formulare über Google Workspace for Nonprofits versenden**
+  - [x] Google Apps Script: speichert Einsendungen in einer Google-Tabelle (ein Blatt pro Formular) und benachrichtigt per E-Mail an info@. Der Code liegt im Workspace (Tabelle „Website-Formulare“ → Erweiterungen → Apps Script) und bewusst nicht in diesem Repository
+  - [x] Formulare im Hintergrund absenden und Danke-/Fehlermeldung auf der Seite zeigen; Pflichtfeld-Markierung auch im Kontaktformular
+  - [x] Datenschutzerklärung um Google Workspace ergänzt
+  - [x] Script im Workspace eingerichtet und Web-App-URL als `formEndpoint` in `hugo.toml` eingetragen
+  - [ ] Datenspeicherort (EU) im Workspace-Admin prüfen; Tabelle nur für den Vorstand freigeben
+  - [x] Kontaktformular und Mitgliedsantrag (eigene Seite `/mitglied-werden`) aktiviert; das Sponsoring-Anfrageformular ist vorbereitet und erscheint mit der Sponsoring-Seite

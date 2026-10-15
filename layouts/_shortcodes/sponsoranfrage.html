@@ -1,4 +1,7 @@
-{{- /* Anfrageformular für Premium-Sponsoren */ -}}
+{{- /* Anfrageformular für Premium-Sponsoren. {{< sponsoranfrage titel="…" >}}
+     Wird nur angezeigt, wenn site.Params.formEndpoint gesetzt ist. */ -}}
+{{ if site.Params.formEndpoint }}
+{{ with .Get "titel" }}<h3 id="formular" style="margin-top:32px">{{ . }}</h3>{{ end }}
 {{ partial "form-open.html" (dict "id" "anfrage" "betreff" "Anfrage Premium-Sponsoring") }}
   <fieldset>
     <legend>Unternehmen</legend>
@@ -26,3 +29,6 @@
   {{ partial "form-datenschutz.html" . }}
   <div><button class="fv-btn fv-btn--green" type="submit">Unverbindlich anfragen</button></div>
 </form>
+{{ partial "form-validation.html" "anfrage" }}
+{{ partial "form-submit.html" "anfrage" }}
+{{ end }}

@@ -2,3 +2,6 @@
 /resources/_gen/
 .hugo_build.lock
 .DS_Store
+
+# Google-Apps-Script für die Formulare (nur lokal, nicht im Repository)
+/tools/google-apps-script/

@@ -31,7 +31,7 @@ theme = "ananke"
   date_format = "2. January 2006"
 
   # Kontaktdaten (zentral gepflegt, werden in Footer, Impressum und Kontakt genutzt)
-  email = "Foerderverein-F-H95@gmx.de"
+  email = "info@fussball-harleshausen.de"
   # Offizielle Postanschrift (Fußzeile, Kontakt, Impressum, Datenschutz).
   # Telefon wird nur angezeigt, wenn es hier eingetragen ist.
   phone = ""
@@ -48,10 +48,10 @@ theme = "ananke"
   clubName = "SVH Kassel 1945"
   clubUrl = "https://www.svhkassel-fussball.de/"
 
-  # Formular-Endpunkt (z. B. Formspree, Getform, eigener Server).
-  # GitHub Pages kann selbst keine Formulare verarbeiten. Solange hier
-  # nichts steht, öffnen die Formulare das E-Mail-Programm (mailto).
-  formEndpoint = ""
+  # Formular-Endpunkt: URL der Google-Apps-Script-Web-App
+  # (Script im Google Workspace: Tabelle „Website-Formulare“ → Erweiterungen → Apps Script).
+  # Solange hier nichts steht, sind die Formulare ausgeblendet (Hinweis mit E-Mail-Adresse).
+  formEndpoint = "https://script.google.com/macros/s/AKfycbwOYdEb9SQnccmmCeglUEtDfqj9kdO_XLc0han7MNvIHJejq97UAKTsZFTMlKoXO7GN/exec"
 
   # Mitgliedsbeitrag
   membershipFee = "30 €"        # Mindestbeitrag pro Jahr

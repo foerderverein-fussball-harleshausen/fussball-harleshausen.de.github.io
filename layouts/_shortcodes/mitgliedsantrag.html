@@ -1,5 +1,7 @@
 {{- /* Beitrittserklärung inkl. SEPA-Lastschriftmandat (angelehnt an das Formular auf svhkassel-fussball.de/foerderverein) */ -}}
+{{- /* Wird nur als Formular angezeigt, wenn site.Params.formEndpoint gesetzt ist. */ -}}
 {{ $p := site.Params }}
+{{ if $p.formEndpoint }}
 {{ partial "form-open.html" (dict "id" "beitrittserklaerung" "betreff" "Beitrittserklärung Förderverein") }}
   <fieldset>
     <legend>Gewünschter Beitrag <span class="fv-req">*</span></legend>
@@ -8,11 +10,11 @@
         <div><strong>{{ $p.membershipFee }} / Jahr</strong><span>Mindestbeitrag</span></div></label>
       <label class="fv-option"><input type="radio" name="Beitrag" value="{{ $p.membershipFeeAlt }} / Jahr">
         <div><strong>{{ $p.membershipFeeAlt }} / Jahr</strong><span>Damit helfen Sie noch mehr</span></div></label>
-      <label class="fv-option"><input type="radio" name="Beitrag" value="Wunschbetrag">
+      <label class="fv-option"><input type="radio" name="Beitrag" value="Wunschbetrag" id="m-beitrag-wunsch">
         <div><strong>Wunschbetrag</strong><span>Betrag unten eintragen</span></div></label>
     </div>
     <div class="fv-form__row" style="margin-top:14px">
-      <div class="fv-field"><label for="m-betrag">Wunschbetrag pro Jahr</label><input type="text" id="m-betrag" name="Wunschbetrag pro Jahr" placeholder="z. B. 100 €"></div>
+      <div class="fv-field"><label for="m-betrag">Wunschbetrag pro Jahr <span class="fv-req" hidden>*</span></label><input type="text" id="m-betrag" name="Wunschbetrag pro Jahr" placeholder="z. B. 100 €" inputmode="decimal" autocomplete="off"></div>
     </div>
     <p class="fv-form__note" style="margin:10px 0 0">Der Mindestbeitrag pro Jahr beträgt {{ $p.membershipFee }}. Er wird fällig zum nächsten Ersten des Aufnahmemonats.</p>
   </fieldset>
@@ -76,4 +78,56 @@
     {{ if fileExists "static/downloads/mitgliedsantrag.pdf" }}<a class="fv-btn fv-btn--outline" href="{{ "downloads/mitgliedsantrag.pdf" | relURL }}">Antrag als PDF</a>{{ end }}
   </div>
 </form>
+<script>
+  // Wunschbetrag nur eintragbar, wenn „Wunschbetrag“ gewählt ist – dann Pflichtfeld mit Mindestbetrag.
+  (function () {
+    var form = document.getElementById('beitrittserklaerung');
+    var radio = document.getElementById('m-beitrag-wunsch');
+    var input = document.getElementById('m-betrag');
+    if (!form || !radio || !input) return;
+    var star = input.parentNode.querySelector('.fv-req');
+    var minimum = parseFloat({{ $p.membershipFee }}) || 0;
+
+    function checkAmount() {
+      var value = parseFloat(input.value.replace(/[^\d,.]/g, '').replace(',', '.'));
+      if (!input.disabled && input.value.trim() && !(value >= minimum)) {
+        input.setCustomValidity('Bitte einen Betrag von mindestens {{ $p.membershipFee }} eintragen.');
+      } else {
+        input.setCustomValidity('');
+      }
+    }
+
+    function update() {
+      var active = radio.checked;
+      input.disabled = !active;
+      input.required = active;
+      if (star) star.hidden = !active;
+      if (!active) {
+        input.value = '';
+        var field = input.closest('.fv-field');
+        field.classList.remove('is-invalid');
+        var err = field.querySelector('.fv-error');
+        if (err) err.remove();
+        input.removeAttribute('aria-invalid');
+      }
+      checkAmount();
+    }
+
+    form.querySelectorAll('input[name="Beitrag"]').forEach(function (r) {
+      r.addEventListener('change', function () {
+        update();
+        if (radio.checked) input.focus();
+      });
+    });
+    input.addEventListener('input', checkAmount);
+    form.addEventListener('reset', function () { setTimeout(update, 0); });
+    update();
+  })();
+</script>
 {{ partial "form-validation.html" "beitrittserklaerung" }}
+{{ partial "form-submit.html" "beitrittserklaerung" }}
+{{ else }}
+<div class="fv-box" style="margin-top:20px">
+  <p class="fv-mb0">{{ .Get "ersatz" | default "Das Online-Formular steht in Kürze zur Verfügung." }} Bis dahin erreichen Sie uns per E-Mail an <a href="mailto:{{ site.Params.email }}">{{ site.Params.email }}</a>.</p>
+</div>
+{{ end }}

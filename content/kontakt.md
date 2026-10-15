@@ -13,8 +13,7 @@ Für weitere Informationen oder Fragen, schreibt uns gerne eine Email an <a href
 
 <p><a class="fv-btn fv-btn--green" href="mailto:{{< param email >}}">{{< icon "mail" >}} E-Mail schreiben</a></p>
 
-<!-- Kontaktformular vorübergehend deaktiviert. Zum Aktivieren hier wieder einfügen:
-     {{</* kontaktformular */>}} -->
+{{< kontaktformular titel="Oder nutzen Sie unser Kontaktformular" >}}
 
 </div>
 <aside class="fv-aside">

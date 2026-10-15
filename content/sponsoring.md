@@ -44,8 +44,7 @@ Lernen Sie beim Sponsorenabend andere Unternehmen und Partner des Vereins kennen
 <p>Sie interessieren sich für ein Paket oder haben eine eigene Idee? Schreiben Sie uns gerne eine E-Mail an <a href="mailto:{{< param email >}}?subject=Anfrage%20Premium-Sponsoring">{{< param email >}}</a> – wir melden uns zeitnah mit allen Details.</p>
 <p><a class="fv-btn fv-btn--green" href="mailto:{{< param email >}}?subject=Anfrage%20Premium-Sponsoring">{{< icon "mail" >}} E-Mail schreiben</a></p>
 
-<!-- Anfrageformular vorübergehend deaktiviert. Zum Aktivieren hier wieder einfügen:
-     {{</* sponsoranfrage */>}} -->
+{{< sponsoranfrage titel="Oder nutzen Sie unser Anfrageformular" >}}
 
 </div>
 <div class="fv-box">

@@ -381,3 +381,12 @@ body.fv main { padding-bottom: 0; }
 /* imageFit: contain – Bild vollständig zeigen (z. B. Flyer), statt es zuzuschneiden */
 .fv-project-img--contain { object-fit: contain; background: var(--fv-bg-soft); max-height: 720px; }
 .fv-project-figure figcaption { margin-top: 6px; font-size: .8rem; color: var(--fv-muted); }
+
+/* Rückmeldung nach dem Absenden (siehe _partials/form-submit.html) */
+.fv-form-status { padding: 14px 16px; border-radius: 6px; border: 1px solid; border-left-width: 4px; }
+.fv-form-status--success { background: var(--fv-green-50); border-color: #b9d6c1; border-left-color: var(--fv-green-600); color: var(--fv-green-800); }
+.fv-form-status--error { background: var(--fv-red-50); border-color: #f4cccc; border-left-color: var(--fv-red-600); color: var(--fv-red-700); }
+
+/* Deaktivierte Eingabefelder (z. B. Wunschbetrag, solange nicht gewählt) */
+.fv-field input:disabled { background: var(--fv-bg-soft); color: var(--fv-muted); cursor: not-allowed; }
+.fv-field input:disabled::placeholder { color: #a7afb5; }

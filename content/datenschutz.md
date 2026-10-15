@@ -22,15 +22,17 @@ Diese Website wird bei GitHub Pages gehostet (GitHub Inc., 88 Colin P. Kelly Jr.
 
 Wenn Sie uns per Kontaktformular oder E-Mail Anfragen zukommen lassen, verarbeiten wir Ihre Angaben (Name, E-Mail-Adresse, ggf. Telefonnummer und Ihre Nachricht) zur Bearbeitung der Anfrage. Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO (vorvertragliche Maßnahmen) bzw. lit. f DSGVO (berechtigtes Interesse an der Beantwortung). Die Daten werden gelöscht, sobald die Anfrage abschließend bearbeitet ist und keine gesetzlichen Aufbewahrungspflichten bestehen.
 
+Für die Verarbeitung der Formulare nutzen wir **Google Workspace** (Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irland). Ihre Angaben werden beim Absenden an einen Dienst von Google übermittelt, in einer Google-Tabelle gespeichert, auf die nur der Vorstand Zugriff hat, und uns per E-Mail weitergeleitet. Google verarbeitet die Daten in unserem Auftrag auf Grundlage eines Vertrags zur Auftragsverarbeitung (Art. 28 DSGVO). Eine Übermittlung in die USA ist nicht auszuschließen; Google ist unter dem EU-US Data Privacy Framework zertifiziert. Bankdaten aus dem Mitgliedsantrag werden nicht per E-Mail weitergeleitet.
+
 ## 5. Mitgliedsantrag
 
-Für die Aufnahme und Verwaltung der Mitgliedschaft verarbeiten wir die im Antrag angegebenen Daten (Name, Anschrift, Kontaktdaten, ggf. Name des Kindes, Bankverbindung). Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO (Mitgliedschaftsverhältnis). Die Bankverbindung nutzen wir ausschließlich für den Einzug des Mitgliedsbeitrags per SEPA-Lastschrift.
+Für die Aufnahme und Verwaltung der Mitgliedschaft verarbeiten wir die im Antrag angegebenen Daten (Name, Anschrift, Kontaktdaten, ggf. Name des Kindes, Bankverbindung). Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO (Mitgliedschaftsverhältnis). Die Bankverbindung nutzen wir ausschließlich für den Einzug des Mitgliedsbeitrags per SEPA-Lastschrift. Übermittlung und Speicherung des Online-Antrags erfolgen über Google Workspace (siehe Abschnitt 4); die Bankverbindung wird dabei nicht per E-Mail weitergeleitet.
 
 Die Angaben im Feld **„Was ich sonst noch mitbringe“** (z. B. Interessen, Beruf, Fähigkeiten) sind vollständig freiwillig. Wir verarbeiten sie nur, wenn Sie sie uns mitteilen, und nutzen sie ausschließlich, um Sie bei passender Gelegenheit für eine Unterstützung der Vereinsarbeit anzusprechen – und nur, wenn Sie dem zugestimmt haben. Rechtsgrundlage ist Ihre Einwilligung (Art. 6 Abs. 1 lit. a DSGVO). Sie können die Einwilligung jederzeit mit Wirkung für die Zukunft widerrufen, z. B. per E-Mail an {{< param email >}}; die Angaben werden dann gelöscht. Ein Widerruf oder das Weglassen dieser Angaben hat keinen Einfluss auf Ihre Mitgliedschaft. Nach Beendigung der Mitgliedschaft werden die Daten gelöscht, soweit keine steuer- oder handelsrechtlichen Aufbewahrungsfristen (bis zu 10 Jahre) entgegenstehen.
 
 ## 6. Sponsoring-Anfragen
 
-Angaben aus Sponsoring-Anfragen verarbeiten wir zur Anbahnung und Durchführung der Sponsoring-Vereinbarung (Art. 6 Abs. 1 lit. b DSGVO).
+Angaben aus Sponsoring-Anfragen verarbeiten wir zur Anbahnung und Durchführung der Sponsoring-Vereinbarung (Art. 6 Abs. 1 lit. b DSGVO). Die Übermittlung über das Anfrageformular erfolgt über Google Workspace (siehe Abschnitt 4).
 
 ## 7. Externe Links
 
