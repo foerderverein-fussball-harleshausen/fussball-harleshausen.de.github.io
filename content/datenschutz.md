@@ -6,7 +6,7 @@ description: "Informationen zur Verarbeitung personenbezogener Daten"
 ## 1. Verantwortlicher
 
 Förderverein Fußball Harleshausen 95 e.V.
-{{< param street >}}, {{< param city >}}
+{{< param city >}} (vollständige Anschrift siehe [Impressum](/impressum/))
 E-Mail: {{< param email >}}
 Vertreten durch: Marcus Dräbing, 1. Vorsitzender
 

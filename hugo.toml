@@ -32,7 +32,8 @@ theme = "ananke"
 
   # Kontaktdaten (zentral gepflegt, werden in Footer, Impressum und Kontakt genutzt)
   email = "info@fussball-harleshausen.de"
-  # Offizielle Postanschrift (Fußzeile, Kontakt, Impressum, Datenschutz).
+  # Offizielle Postanschrift. Die Straße erscheint nur im Impressum,
+  # PLZ und Ort auch in Fußzeile, Kontakt und Datenschutz.
   # Telefon wird nur angezeigt, wenn es hier eingetragen ist.
   phone = ""
   street = "Am Fichtenrain 12a"
