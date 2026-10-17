@@ -129,6 +129,104 @@ body.fv main { padding-bottom: 0; }
   background: linear-gradient(90deg, var(--fv-red-600) 0 33%, transparent 33%);
 }
 
+/* ---------- Animierter Fußball im Hero ----------
+   Abgestumpfter Ikosaeder (12 Fünfecke, 20 Sechsecke). Bewusst ohne preserve-3d:
+   Jede Fläche trägt Neigung (--fv-ball-tz/-tx) und Drehung (--fv-ball-spin) selbst, so
+   muss der Browser nichts tiefensortieren (verhindert Lücken in Chrome/Safari).
+   Die Flächenwerte sind berechnet – Ball-Radius = 5em, Größe über --d. */
+@property --fv-ball-spin { syntax: "<angle>"; inherits: true; initial-value: 0deg; }
+@property --fv-ball-tz { syntax: "<angle>"; inherits: true; initial-value: 17deg; }
+@property --fv-ball-tx { syntax: "<angle>"; inherits: true; initial-value: -24deg; }
+.fv-ball {
+  --d: clamp(110px, 30vw, 190px);
+  position: absolute; left: 76.9%; top: 67%; translate: -50% -50%;
+  width: var(--d); height: var(--d); font-size: calc(var(--d) / 10);
+  isolation: isolate; pointer-events: none;
+}
+.fv-hero--page .fv-ball { --d: clamp(80px, 14vw, 120px); top: 50%; }
+.fv-ball__body {
+  position: absolute; inset: 0; border-radius: 50%; clip-path: circle(50%);
+  background: #5d5f5c; filter: brightness(.92);
+  animation: fv-ball-spin 28s linear infinite, fv-ball-wobble 13s ease-in-out infinite alternate,
+    fv-ball-float 5s ease-in-out infinite;
+}
+.fv-ball__f {
+  position: absolute; left: 50%; top: 50%; backface-visibility: hidden;
+  width: 4.4106em; height: 4.4106em; margin: -2.2053em;
+  clip-path: polygon(98.900% 50.000%, 74.450% 92.349%, 25.550% 92.349%, 1.100% 50.000%, 25.550% 7.651%, 74.450% 7.651%);
+  background: radial-gradient(circle, #fbfbf8 0 52%, #dedcd5 100%);
+}
+.fv-ball__f:nth-child(-n+12) {
+  width: 3.7518em; height: 3.7518em; margin: -1.8759em;
+  clip-path: polygon(98.616% 50.000%, 65.023% 96.237%, 10.669% 78.576%, 10.669% 21.424%, 65.023% 3.763%);
+  background: radial-gradient(circle, #151515 0 50%, #050505 100%);
+}
+.fv-ball__f:nth-child(1){transform:rotateZ(var(--fv-ball-tz)) rotateX(var(--fv-ball-tx)) rotateY(var(--fv-ball-spin)) matrix3d(-0.58779,0,0.80902,0,-0.80902,-0.00000,-0.58779,0,0,-1,0.00000,0,0,0,0,1) translateZ(5.1327em)}
+.fv-ball__f:nth-child(2){transform:rotateZ(var(--fv-ball-tz)) rotateX(var(--fv-ball-tx)) rotateY(var(--fv-ball-spin)) matrix3d(0.26287,-0.89443,-0.36180,0,0.80902,0,0.58779,0,-0.52573,-0.44721,0.72361,0,0,0,0,1) translateZ(5.1327em)}
+.fv-ball__f:nth-child(3){transform:rotateZ(var(--fv-ball-tz)) rotateX(var(--fv-ball-tx)) rotateY(var(--fv-ball-spin)) matrix3d(0.42533,-0.89443,0.13820,0,-0.30902,-0.00000,0.95106,0,-0.85065,-0.44721,-0.27639,0,0,0,0,1) translateZ(5.1327em)}
+.fv-ball__f:nth-child(4){transform:rotateZ(var(--fv-ball-tz)) rotateX(var(--fv-ball-tx)) rotateY(var(--fv-ball-spin)) matrix3d(-0.58779,-0.72361,0.36180,0,0.80902,-0.52573,0.26287,0,0,0.44721,0.89443,0,0,0,0,1) translateZ(5.1327em)}
+.fv-ball__f:nth-child(5){transform:rotateZ(var(--fv-ball-tz)) rotateX(var(--fv-ball-tx)) rotateY(var(--fv-ball-spin)) matrix3d(-0.68819,-0.72361,0.05279,0,-0.50000,0.52573,0.68819,0,-0.52573,0.44721,-0.72361,0,0,0,0,1) translateZ(5.1327em)}
+.fv-ball__f:nth-child(6){transform:rotateZ(var(--fv-ball-tz)) rotateX(var(--fv-ball-tx)) rotateY(var(--fv-ball-spin)) matrix3d(-0.42533,-0.89443,0.13820,0,-0.30902,0.00000,-0.95106,0,0.85065,-0.44721,-0.27639,0,0,0,0,1) translateZ(5.1327em)}
+.fv-ball__f:nth-child(7){transform:rotateZ(var(--fv-ball-tz)) rotateX(var(--fv-ball-tx)) rotateY(var(--fv-ball-spin)) matrix3d(0,-0.89443,0.44721,0,-1.00000,0,0,0,0,-0.44721,-0.89443,0,0,0,0,1) translateZ(5.1327em)}
+.fv-ball__f:nth-child(8){transform:rotateZ(var(--fv-ball-tz)) rotateX(var(--fv-ball-tx)) rotateY(var(--fv-ball-spin)) matrix3d(-0.26287,-0.89443,-0.36180,0,0.80902,0,-0.58779,0,0.52573,-0.44721,0.72361,0,0,0,0,1) translateZ(5.1327em)}
+.fv-ball__f:nth-child(9){transform:rotateZ(var(--fv-ball-tz)) rotateX(var(--fv-ball-tx)) rotateY(var(--fv-ball-spin)) matrix3d(-0.16246,-0.72361,0.67082,0,0.50000,0.52573,0.68819,0,-0.85065,0.44721,0.27639,0,0,0,0,1) translateZ(5.1327em)}
+.fv-ball__f:nth-child(10){transform:rotateZ(var(--fv-ball-tz)) rotateX(var(--fv-ball-tx)) rotateY(var(--fv-ball-spin)) matrix3d(0,0,1,0,1,0,0,0,0,1,-0.00000,0,0,0,0,1) translateZ(5.1327em)}
+.fv-ball__f:nth-child(11){transform:rotateZ(var(--fv-ball-tz)) rotateX(var(--fv-ball-tx)) rotateY(var(--fv-ball-spin)) matrix3d(-0.85065,0.27639,-0.44721,0,-0.00000,0.85065,0.52573,0,0.52573,0.44721,-0.72361,0,0,0,0,1) translateZ(5.1327em)}
+.fv-ball__f:nth-child(12){transform:rotateZ(var(--fv-ball-tz)) rotateX(var(--fv-ball-tx)) rotateY(var(--fv-ball-spin)) matrix3d(-0.42533,0.27639,0.86180,0,0.30902,-0.85065,0.42533,0,0.85065,0.44721,0.27639,0,0,0,0,1) translateZ(5.1327em)}
+.fv-ball__f:nth-child(13){transform:rotateZ(var(--fv-ball-tz)) rotateX(var(--fv-ball-tx)) rotateY(var(--fv-ball-spin)) matrix3d(0.80902,-0.52573,0.26287,0,-0.11026,0.30353,0.94642,0,-0.57735,-0.79465,0.18759,0,0,0,0,1) translateZ(5.0000em)}
+.fv-ball__f:nth-child(14){transform:rotateZ(var(--fv-ball-tz)) rotateX(var(--fv-ball-tx)) rotateY(var(--fv-ball-spin)) matrix3d(-0.50000,-0.52573,-0.68819,0,0.86603,-0.30353,-0.39733,0,0,-0.79465,0.60706,0,0,0,0,1) translateZ(5.0000em)}
+.fv-ball__f:nth-child(15){transform:rotateZ(var(--fv-ball-tz)) rotateX(var(--fv-ball-tx)) rotateY(var(--fv-ball-spin)) matrix3d(0,-0.52573,0.85065,0,-0.93417,0.30353,0.18759,0,-0.35682,-0.79465,-0.49112,0,0,0,0,1) translateZ(5.0000em)}
+.fv-ball__f:nth-child(16){transform:rotateZ(var(--fv-ball-tz)) rotateX(var(--fv-ball-tx)) rotateY(var(--fv-ball-spin)) matrix3d(0,-0.52573,0.85065,0,-0.93417,-0.30353,-0.18759,0,0.35682,-0.79465,-0.49112,0,0,0,0,1) translateZ(5.0000em)}
+.fv-ball__f:nth-child(17){transform:rotateZ(var(--fv-ball-tz)) rotateX(var(--fv-ball-tx)) rotateY(var(--fv-ball-spin)) matrix3d(-0.50000,-0.52573,-0.68819,0,0.64550,0.30353,-0.70086,0,0.57735,-0.79465,0.18759,0,0,0,0,1) translateZ(5.0000em)}
+.fv-ball__f:nth-child(18){transform:rotateZ(var(--fv-ball-tz)) rotateX(var(--fv-ball-tx)) rotateY(var(--fv-ball-spin)) matrix3d(0.30902,-0.85065,0.42533,0,0.17841,0.49112,0.85262,0,-0.93417,-0.18759,0.30353,0,0,0,0,1) translateZ(5.0000em)}
+.fv-ball__f:nth-child(19){transform:rotateZ(var(--fv-ball-tz)) rotateX(var(--fv-ball-tx)) rotateY(var(--fv-ball-spin)) matrix3d(-1,0,0,0,0,-0.98225,-0.18759,0,0,-0.18759,0.98225,0,0,0,0,1) translateZ(5.0000em)}
+.fv-ball__f:nth-child(20){transform:rotateZ(var(--fv-ball-tz)) rotateX(var(--fv-ball-tx)) rotateY(var(--fv-ball-spin)) matrix3d(0.30902,-0.85065,0.42533,0,0.75576,0.49112,0.43315,0,-0.57735,0.18759,0.79465,0,0,0,0,1) translateZ(5.0000em)}
+.fv-ball__f:nth-child(21){transform:rotateZ(var(--fv-ball-tz)) rotateX(var(--fv-ball-tx)) rotateY(var(--fv-ball-spin)) matrix3d(-0.80902,-0.00000,0.58779,0,-0.11026,0.98225,-0.15177,0,-0.57735,-0.18759,-0.79465,0,0,0,0,1) translateZ(5.0000em)}
+.fv-ball__f:nth-child(22){transform:rotateZ(var(--fv-ball-tz)) rotateX(var(--fv-ball-tx)) rotateY(var(--fv-ball-spin)) matrix3d(0,-0.85065,-0.52573,0,-0.35682,-0.49112,0.79465,0,-0.93417,0.18759,-0.30353,0,0,0,0,1) translateZ(5.0000em)}
+.fv-ball__f:nth-child(23){transform:rotateZ(var(--fv-ball-tz)) rotateX(var(--fv-ball-tx)) rotateY(var(--fv-ball-spin)) matrix3d(-0.80902,-0.00000,0.58779,0,0.11026,-0.98225,0.15177,0,0.57735,0.18759,0.79465,0,0,0,0,1) translateZ(5.0000em)}
+.fv-ball__f:nth-child(24){transform:rotateZ(var(--fv-ball-tz)) rotateX(var(--fv-ball-tx)) rotateY(var(--fv-ball-spin)) matrix3d(0,-0.52573,0.85065,0,0.93417,0.30353,0.18759,0,-0.35682,0.79465,0.49112,0,0,0,0,1) translateZ(5.0000em)}
+.fv-ball__f:nth-child(25){transform:rotateZ(var(--fv-ball-tz)) rotateX(var(--fv-ball-tx)) rotateY(var(--fv-ball-spin)) matrix3d(-0.80902,0,0.58779,0,0.46709,-0.60706,0.64289,0,0.35682,0.79465,0.49112,0,0,0,0,1) translateZ(5.0000em)}
+.fv-ball__f:nth-child(26){transform:rotateZ(var(--fv-ball-tz)) rotateX(var(--fv-ball-tx)) rotateY(var(--fv-ball-spin)) matrix3d(-1,0,0,0,0,0.98225,0.18759,0,0,0.18759,-0.98225,0,0,0,0,1) translateZ(5.0000em)}
+.fv-ball__f:nth-child(27){transform:rotateZ(var(--fv-ball-tz)) rotateX(var(--fv-ball-tx)) rotateY(var(--fv-ball-spin)) matrix3d(-0.50000,-0.52573,-0.68819,0,-0.64550,-0.30353,0.70086,0,-0.57735,0.79465,-0.18759,0,0,0,0,1) translateZ(5.0000em)}
+.fv-ball__f:nth-child(28){transform:rotateZ(var(--fv-ball-tz)) rotateX(var(--fv-ball-tx)) rotateY(var(--fv-ball-spin)) matrix3d(-1,0,0.00000,0,0.00000,0.60706,0.79465,0,0,0.79465,-0.60706,0,0,0,0,1) translateZ(5.0000em)}
+.fv-ball__f:nth-child(29){transform:rotateZ(var(--fv-ball-tz)) rotateX(var(--fv-ball-tx)) rotateY(var(--fv-ball-spin)) matrix3d(0.30902,-0.85065,0.42533,0,-0.75576,-0.49112,-0.43315,0,0.57735,-0.18759,-0.79465,0,0,0,0,1) translateZ(5.0000em)}
+.fv-ball__f:nth-child(30){transform:rotateZ(var(--fv-ball-tz)) rotateX(var(--fv-ball-tx)) rotateY(var(--fv-ball-spin)) matrix3d(0,-0.85065,-0.52573,0,0.35682,0.49112,-0.79465,0,0.93417,-0.18759,0.30353,0,0,0,0,1) translateZ(5.0000em)}
+.fv-ball__f:nth-child(31){transform:rotateZ(var(--fv-ball-tz)) rotateX(var(--fv-ball-tx)) rotateY(var(--fv-ball-spin)) matrix3d(0,-0.85065,-0.52573,0,-0.35682,0.49112,-0.79465,0,0.93417,0.18759,-0.30353,0,0,0,0,1) translateZ(5.0000em)}
+.fv-ball__f:nth-child(32){transform:rotateZ(var(--fv-ball-tz)) rotateX(var(--fv-ball-tx)) rotateY(var(--fv-ball-spin)) matrix3d(-0.80902,0.52573,-0.26287,0,-0.11026,0.30353,0.94642,0,0.57735,0.79465,-0.18759,0,0,0,0,1) translateZ(5.0000em)}
+/* Licht, Ledertextur und Schatten – fest, drehen nicht mit */
+.fv-ball__body::before, .fv-ball__body::after {
+  content: ""; position: absolute; inset: 0; border-radius: 50%; z-index: 1;
+}
+.fv-ball__body::before {
+  opacity: .16; mix-blend-mode: multiply;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.1' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.5 0 0 0 0 0.5 0 0 0 0 0.5 0 0 0 1.2 0'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+.fv-ball__body::after {
+  z-index: 2;
+  background:
+    radial-gradient(circle at 60% 24%, rgba(255,255,255,.85) 0, rgba(255,255,255,.35) 7%, rgba(255,255,255,0) 22%),
+    radial-gradient(ellipse 60% 45% at 52% 100%, rgba(80,170,90,.28), rgba(80,170,90,0) 70%),
+    radial-gradient(circle at 56% 32%, rgba(0,0,0,0) 30%, rgba(0,0,0,.18) 58%, rgba(0,0,0,.55) 86%, rgba(0,0,0,.75) 100%);
+  box-shadow: inset 0 0 .25em rgba(0,0,0,.45);
+}
+.fv-ball__shadow {
+  position: absolute; left: 8%; right: 8%; bottom: -7%; height: 16%; z-index: -1; border-radius: 50%;
+  background: radial-gradient(closest-side, rgba(0,0,0,.6), rgba(0,0,0,.25) 60%, rgba(0,0,0,0));
+  animation: fv-ball-shadow 5s ease-in-out infinite;
+}
+@keyframes fv-ball-spin { to { --fv-ball-spin: 360deg; } }
+@keyframes fv-ball-wobble {
+  from { --fv-ball-tz: 22deg; --fv-ball-tx: -28deg; }
+  to { --fv-ball-tz: 6deg; --fv-ball-tx: -12deg; }
+}
+@keyframes fv-ball-float { 50% { translate: 0 -4%; } }
+@keyframes fv-ball-shadow { 50% { transform: scale(.88); opacity: .7; } }
+@media (prefers-reduced-motion: reduce) { .fv-ball__body, .fv-ball__shadow { animation: none; } }
+@media (max-width: 760px) {
+  .fv-ball { left: auto; right: -6%; top: auto; bottom: 4%; translate: none; opacity: .55; }
+  .fv-hero--page .fv-ball { display: none; }
+}
+
 /* ---------- Grids & Karten ---------- */
 .fv-grid { display: grid; gap: 20px; }
 .fv-grid--2 { grid-template-columns: repeat(2, 1fr); }
