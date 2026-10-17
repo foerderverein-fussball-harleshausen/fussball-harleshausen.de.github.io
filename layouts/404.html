@@ -1,0 +1,18 @@
+{{ define "title" }}Seite nicht gefunden (404) | {{ site.Title }}{{ end }}
+
+{{ define "main" }}
+  <section class="fv-section">
+    <div class="fv-container">
+      <div class="fv-prose">
+        <p class="fv-lead">Die aufgerufene Seite gibt es leider nicht (mehr). Vielleicht wurde sie verschoben, oder die Adresse enthält einen Tippfehler.</p>
+        <p>Hier geht es weiter:</p>
+      </div>
+      <div class="fv-btn-row">
+        <a class="fv-btn fv-btn--green" href="{{ site.Home.RelPermalink }}">Zur Startseite</a>
+        <a class="fv-btn fv-btn--outline" href="{{ relref . "/projekte" }}">Unsere Förderprojekte</a>
+        <a class="fv-btn fv-btn--outline" href="{{ partial "membership-url.html" . }}">Mitglied werden</a>
+        <a class="fv-btn fv-btn--outline" href="{{ relref . "/kontakt" }}">Kontakt</a>
+      </div>
+    </div>
+  </section>
+{{ end }}

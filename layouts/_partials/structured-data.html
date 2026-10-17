@@ -1,0 +1,46 @@
+{{- /* Strukturierte Daten (JSON-LD) für Suchmaschinen:
+  Startseite: Verein (Organisation) und Website. Unterseiten: Brotkrumen-Pfad.
+  Die Daten kommen aus hugo.toml → [params]. */ -}}
+{{- $p := site.Params -}}
+{{- $graph := slice -}}
+{{- if .IsHome -}}
+  {{- $orgID := printf "%s#verein" site.Home.Permalink -}}
+  {{- $cityParts := split $p.city " " -}}
+  {{- $org := dict
+    "@type" "SportsOrganization"
+    "@id" $orgID
+    "name" site.Title
+    "url" site.Home.Permalink
+    "logo" (absURL $p.logo)
+    "description" $p.description
+    "sport" "Fußball"
+    "email" $p.email
+    "address" (dict
+      "@type" "PostalAddress"
+      "streetAddress" $p.street
+      "postalCode" (index $cityParts 0)
+      "addressLocality" (delimit (after 1 $cityParts) " ")
+      "addressCountry" "DE")
+  -}}
+  {{- with $p.phone }}{{ $org = merge $org (dict "telephone" .) }}{{ end -}}
+  {{- $sameAs := slice -}}
+  {{- range $p.social }}{{ with . }}{{ $sameAs = $sameAs | append . }}{{ end }}{{ end -}}
+  {{- with $sameAs }}{{ $org = merge $org (dict "sameAs" .) }}{{ end -}}
+  {{- $graph = $graph | append $org (dict
+    "@type" "WebSite"
+    "name" site.Title
+    "url" site.Home.Permalink
+    "inLanguage" site.Language.Locale
+    "publisher" (dict "@id" $orgID))
+  -}}
+{{- else if or .IsPage .IsSection -}}
+  {{- $items := slice -}}
+  {{- range $i, $pg := .Ancestors.Reverse | append . -}}
+    {{- $name := cond $pg.IsHome "Startseite" $pg.Title -}}
+    {{- $items = $items | append (dict "@type" "ListItem" "position" (add $i 1) "name" $name "item" $pg.Permalink) -}}
+  {{- end -}}
+  {{- $graph = $graph | append (dict "@type" "BreadcrumbList" "itemListElement" $items) -}}
+{{- end -}}
+{{- with $graph }}
+<script type="application/ld+json">{{ dict "@context" "https://schema.org" "@graph" . | jsonify | safeJS }}</script>
+{{- end }}

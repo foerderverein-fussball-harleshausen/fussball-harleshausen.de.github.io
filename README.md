@@ -36,8 +36,18 @@ Im Front Matter `status` auf `geplant`, `umsetzung` oder `abgeschlossen` setzen 
 
 ### Bilder
 
-Echte Fotos einfach unter `static/images/` ablegen und per Front Matter einbinden:
+Fotos unter `assets/images/` ablegen (Projektfotos in `assets/images/projekte/`) und per Front Matter einbinden:
 `heroImage: images/mein-bild.jpg` (Kopfbereich jeder Seite) oder `image:` (Projekte).
+Hugo erzeugt daraus beim Build automatisch verkleinerte WebP-Varianten (`layouts/_partials/img.html`).
+Das Projektbild dient auch als Vorschaubild beim Teilen; Seiten ohne Bild nutzen ein aus dem Logo erzeugtes Standardbild.
+
+### Suchmaschinen & Vorschauen
+
+- `description` im Front Matter ist der Text für Google und für Link-Vorschauen (ca. 120–155 Zeichen).
+  Der kurze Untertitel im Kopfbereich steht in `heroSubtitle` (fehlt er, wird `description` angezeigt).
+- `seoTitle` in `content/_index.md` ist der Titel der Startseite im Browser-Tab und bei Google.
+- Strukturierte Daten (Verein, Brotkrumen) erzeugt `layouts/_partials/structured-data.html` aus `hugo.toml` → `[params]`.
+- `robots.txt` und `sitemap.xml` entstehen automatisch; das Änderungsdatum in der Sitemap kommt aus der Git-Historie.
 
 ### Shortcodes für Inhalte
 

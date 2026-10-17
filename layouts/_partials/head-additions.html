@@ -1,0 +1,6 @@
+{{- /* Ergänzungen am Ende von <head> (ersetzt die gleichnamige Theme-Datei). */ -}}
+{{- with partial "_funcs/hero-image.html" . }}
+<link rel="preload" as="image" href="{{ . }}" fetchpriority="high">
+{{- end }}
+{{ partial "structured-data.html" . }}
+{{- partials.Include "hook.html" (dict "hook" "head-end" "context" .) -}}

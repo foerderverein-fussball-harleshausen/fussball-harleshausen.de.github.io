@@ -1,0 +1,15 @@
+{{- /* URL des Hintergrundbilds im Kopfbereich (heroImage, bei Projekten sonst image).
+  Bilder unter assets/ werden als WebP ausgeliefert (gleiche Variante wie die größte
+  aus _partials/img.html, damit der Browser sie nur einmal lädt). Leer ohne Bild. */ -}}
+{{- $src := .Params.heroImage -}}
+{{- if and (not $src) .IsPage }}{{ $src = .Params.image }}{{ end -}}
+{{- $url := "" -}}
+{{- with $src -}}
+  {{- $url = relURL . -}}
+  {{- with resources.Get . -}}
+    {{- if in (slice "jpeg" "png") .MediaType.SubType -}}
+      {{- $url = (.Resize (printf "%dx webp q75 photo" (math.Min .Width 1200 | int)) ).RelPermalink -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+{{- return $url -}}

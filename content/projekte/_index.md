@@ -1,7 +1,9 @@
 ---
 title: "Unsere Förderprojekte"
 heroTitle: "Unsere Förderung"
-description: "Projekte. Ideen. Wirkung."
+heroSubtitle: "Projekte. Ideen. Wirkung."
+# description: Text für Google und Vorschauen beim Teilen (ca. 120–155 Zeichen)
+description: "Minitore, Trikots, Trainingsequipment und Trainerlehrgänge: Diese Projekte hat der Förderverein für die Fußballjugend der SVH Kassel umgesetzt."
 ---
 
 ## So fördern wir
