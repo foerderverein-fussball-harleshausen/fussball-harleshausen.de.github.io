@@ -11,7 +11,7 @@ wide: true
 
 ## So erreichen Sie uns
 
-Für weitere Informationen oder Fragen, schreibt uns gerne eine Email an <a href="mailto:{{< param email >}}">{{< param email >}}</a>
+Für weitere Informationen oder bei Fragen schreiben Sie uns gerne eine E-Mail an <a href="mailto:{{< param email >}}">{{< param email >}}</a>
 
 <p><a class="fv-btn fv-btn--green" href="mailto:{{< param email >}}">{{< icon "mail" >}} E-Mail schreiben</a></p>
 
