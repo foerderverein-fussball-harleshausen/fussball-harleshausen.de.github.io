@@ -9,7 +9,7 @@ wide: true
 <div class="fv-layout">
 <div>
 
-## Kontakt
+## So erreichen Sie uns
 
 Für weitere Informationen oder Fragen, schreibt uns gerne eine Email an <a href="mailto:{{< param email >}}">{{< param email >}}</a>
 
