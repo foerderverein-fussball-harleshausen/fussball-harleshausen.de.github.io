@@ -278,7 +278,7 @@ body.fv main { padding-bottom: 0; }
   border-radius: var(--fv-radius); color: #fff; padding: 40px;
   background:
     linear-gradient(90deg, rgba(17,38,17,.96) 0%, rgba(23,58,28,.88) 55%, rgba(31,122,58,.75) 100%),
-    url("../../images/hero-pitch.svg") center / cover;
+    url("../../images/banner-pitch.svg") center / cover;
 }
 .fv .fv-banner h2 { color: #fff; }
 .fv-banner p { color: rgba(255,255,255,.88); max-width: 620px; }
