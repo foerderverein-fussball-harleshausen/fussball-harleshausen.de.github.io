@@ -3,6 +3,11 @@ defaultContentLanguage = "de"
 title = "Förderverein Fußball Harleshausen 95 e.V."
 theme = "ananke"
 
+# robots.txt erzeugen (Vorlage aus dem Theme, verweist auf die Sitemap)
+enableRobotsTXT = true
+# Änderungsdatum (lastmod) für Sitemap & Co. aus der Git-Historie
+enableGitInfo = true
+
 [languages.de]
   locale = "de-DE"
   label = "Deutsch"

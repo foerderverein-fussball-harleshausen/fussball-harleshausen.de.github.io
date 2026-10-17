@@ -1,3 +1,5 @@
+{{ define "title" }}{{ .Params.seoTitle | default site.Title }}{{ end }}
+
 {{ define "main" }}
   {{- $d := hugo.Data.startseite -}}
 

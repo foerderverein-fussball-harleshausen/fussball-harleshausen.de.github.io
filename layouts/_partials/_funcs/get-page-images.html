@@ -1,0 +1,19 @@
+{{- /* Ersetzt Hugos eingebaute Funktion: liefert die Vorschaubilder für
+  og:image, twitter:image und itemprop=image.
+  Reihenfolge: images (Liste im Front Matter) → image (Projektbild) → Standardbild. */ -}}
+{{- $imgs := slice -}}
+{{- $srcs := .Params.images | default (slice) -}}
+{{- if and (not $srcs) .Params.image }}{{ $srcs = slice .Params.image }}{{ end -}}
+{{- range $srcs -}}
+  {{- with resources.Get . -}}
+    {{- $imgs = $imgs | append (dict "Image" . "RelPermalink" .RelPermalink "Permalink" .Permalink) -}}
+  {{- else -}}
+    {{- $imgs = $imgs | append (dict "RelPermalink" (relURL .) "Permalink" (absURL .)) -}}
+  {{- end -}}
+{{- end -}}
+{{- if not $imgs -}}
+  {{- with partialCached "_funcs/og-default.html" . -}}
+    {{- $imgs = slice (dict "Image" . "RelPermalink" .RelPermalink "Permalink" .Permalink) -}}
+  {{- end -}}
+{{- end -}}
+{{- return $imgs -}}

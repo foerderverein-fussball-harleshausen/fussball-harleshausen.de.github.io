@@ -1,6 +1,8 @@
 ---
 title: "Kontakt"
-description: "Wir freuen uns auf Ihre Nachricht."
+heroSubtitle: "Wir freuen uns auf Ihre Nachricht."
+# description: Text für Google und Vorschauen beim Teilen
+description: "Kontakt zum Förderverein Fußball Harleshausen 95 e.V. in Kassel: per E-Mail oder Kontaktformular – dazu das Spendenkonto für die Fußballjugend der SVH Kassel."
 wide: true
 ---
 

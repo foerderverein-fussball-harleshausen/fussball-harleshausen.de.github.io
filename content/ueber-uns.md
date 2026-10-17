@@ -1,6 +1,8 @@
 ---
 title: "Über uns"
-description: "Förderverein Fußball Harleshausen 95 e.V. – ein Förderverein für die Fußballabteilung der SVH Kassel"
+heroSubtitle: "Förderverein Fußball Harleshausen 95 e.V. – ein Förderverein für die Fußballabteilung der SVH Kassel"
+# description: Text für Google und Vorschauen beim Teilen
+description: "Der Förderverein Fußball Harleshausen 95 e.V. unterstützt die Jugendteams der SVH Kassel. Unsere Aufgaben, Ziele und der Vorstand im Überblick."
 wide: true
 ---
 
