@@ -89,7 +89,7 @@ body.fv main { padding-bottom: 0; }
 }
 .fv .fv-nav a.fv-nav__link:hover { color: var(--fv-green-600); }
 .fv .fv-nav a.fv-nav__link.is-active { color: var(--fv-green-700); border-bottom-color: var(--fv-red-600); }
-.fv-nav .fv-btn { margin-left: 10px; }
+.fv-nav__actions { display: flex; gap: 8px; margin-left: 10px; }
 .fv-nav-toggle { display: none; background: none; border: 0; padding: 8px; cursor: pointer; color: var(--fv-green-900); }
 .fv-nav-toggle svg { width: 28px; height: 28px; }
 
@@ -105,7 +105,8 @@ body.fv main { padding-bottom: 0; }
   .fv-nav ul { flex-direction: column; }
   .fv .fv-nav a.fv-nav__link { padding: .8em 0; border-bottom: 1px solid var(--fv-line); }
   .fv .fv-nav a.fv-nav__link.is-active { border-bottom-color: var(--fv-line); color: var(--fv-red-600); }
-  .fv-nav .fv-btn { margin: 14px 0 0; justify-content: center; }
+  .fv-nav__actions { margin: 14px 0 0; flex-direction: column; }
+  .fv-nav__actions .fv-btn { justify-content: center; }
 }
 
 /* ---------- Hero ---------- */
@@ -488,3 +489,50 @@ body.fv main { padding-bottom: 0; }
 /* Deaktivierte Eingabefelder (z. B. Wunschbetrag, solange nicht gewählt) */
 .fv-field input:disabled { background: var(--fv-bg-soft); color: var(--fv-muted); cursor: not-allowed; }
 .fv-field input:disabled::placeholder { color: #a7afb5; }
+
+/* Girocode im Spendenkasten (Shortcode "girocode") */
+.fv-girocode { margin: 4px 0 0; }
+.fv-girocode img { display: block; width: 168px; height: 168px; background: #fff; padding: 8px; border-radius: 8px; border: 1px solid #f4cccc; image-rendering: pixelated; }
+.fv-girocode figcaption { margin-top: 8px; font-size: .8rem; color: var(--fv-muted); }
+
+/* Zusätzliche Bilder im Text (Shortcode "bild") */
+.fv-inline-figure { margin: 28px 0; text-align: center; }
+.fv-inline-figure img { display: inline-block; max-width: 100%; max-height: 560px; width: auto; height: auto; border-radius: var(--fv-radius); box-shadow: var(--fv-shadow); }
+.fv-inline-figure figcaption { margin-top: 8px; font-size: .85rem; color: var(--fv-muted); }
+
+/* Spendenseite (Shortcode "spenden") */
+.fv-donate { display: grid; grid-template-columns: 1.1fr 1fr; gap: 20px; align-items: stretch; }
+@media (max-width: 860px) { .fv-donate { grid-template-columns: 1fr; } }
+.fv .fv-donate__step { display: flex; align-items: center; gap: 10px; font-size: 1.1rem; margin: 0 0 14px; }
+.fv-donate__step + * + .fv-donate__step, .fv-donate__amounts + .fv-donate__step { margin-top: 26px; }
+.fv-donate__step span {
+  display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; border-radius: 50%;
+  background: var(--fv-red-600); color: #fff; font-size: .9rem; font-weight: 700; flex-shrink: 0;
+}
+.fv-donate__amounts { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+@media (max-width: 520px) { .fv-donate__amounts { grid-template-columns: repeat(2, 1fr); } }
+.fv-donate__amount { position: relative; cursor: pointer; }
+.fv-donate__amount input { position: absolute; opacity: 0; inset: 0; cursor: pointer; }
+.fv-donate__amount span {
+  display: flex; align-items: center; justify-content: center; min-height: 52px; padding: 8px; text-align: center;
+  border: 2px solid var(--fv-line); border-radius: 8px; font-weight: 700; color: var(--fv-green-900); background: #fff;
+  transition: border-color .15s, background .15s;
+}
+.fv-donate__amount:hover span { border-color: #f4cccc; }
+.fv-donate__amount input:checked + span { border-color: var(--fv-red-600); background: var(--fv-red-50); color: var(--fv-red-700); }
+.fv-donate__amount input:focus-visible + span { box-shadow: 0 0 0 3px rgba(209, 27, 27, .25); }
+.fv-donate__qr { margin-bottom: 12px; }
+.fv-donate__qr img { display: block; width: 200px; height: 200px; padding: 10px; background: #fff; border: 1px solid var(--fv-line); border-radius: 10px; image-rendering: pixelated; }
+.fv-donate__qr img[hidden] { display: none; }
+.fv-donate__data { margin: 0 0 16px; }
+.fv-donate__data > div { display: grid; grid-template-columns: 130px 1fr; gap: 10px; padding: 10px 0; border-bottom: 1px solid var(--fv-line); align-items: center; }
+@media (max-width: 520px) { .fv-donate__data > div { grid-template-columns: 1fr; gap: 2px; } }
+.fv-donate__data dt { font-size: .85rem; color: var(--fv-muted); }
+.fv-donate__data dd { margin: 0; display: flex; align-items: center; justify-content: space-between; gap: 10px; font-weight: 600; word-break: break-word; }
+.fv-mono { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: .92em; }
+.fv-copy {
+  flex-shrink: 0; font: inherit; font-size: .78rem; font-weight: 600; padding: 4px 10px; border-radius: 6px; cursor: pointer;
+  border: 1px solid var(--fv-green-600); background: #fff; color: var(--fv-green-700);
+}
+.fv-copy:hover { background: var(--fv-green-50); }
+.fv-copy.is-done { background: var(--fv-green-600); color: #fff; }

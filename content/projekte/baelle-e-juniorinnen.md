@@ -6,8 +6,7 @@ description: "Zehn neue Leichtbälle der Größe 4 für das Training unserer E-J
 status: abgeschlossen
 category: Trainingsausrüstung
 image: images/projekte/baelle-e-juniorinnen.jpg
-imageAlt: "Symbolbild (KI-generiert): Zehn weiße Fußbälle mit blauen und gelben Akzenten in zwei Reihen, Aufdruck „Light, Größe 4“"
-imageCaption: "Symbolbild (KI-generiert)"
+imageAlt: "Gelbe und grüne Fußbälle in zwei schwarzen Balltaschen auf einem Kunstrasenplatz, ein gelber Ball liegt vor der geöffneten Tasche"
 aliases:
   - /projekte/baelle-trainingsmaterial/
 ---

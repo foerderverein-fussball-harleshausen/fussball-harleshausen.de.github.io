@@ -49,6 +49,9 @@ enableGitInfo = true
   bank = "Kasseler Sparkasse"
   iban = "DE13 5205 0353 0011 8565 02"
   bic = "HELADEF1KAS"
+  # Spendenseite: Beträge zur Auswahl (Euro) und vorbelegter Verwendungszweck im Girocode
+  donationAmounts = [20, 50, 100]
+  donationPurpose = "Spende"
 
   # Hauptverein
   clubName = "SVH Kassel 1945"

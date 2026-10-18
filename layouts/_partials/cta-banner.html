@@ -3,7 +3,7 @@
   <p>Ob Mitgliedschaft, Spende oder Unternehmensförderung – Sie helfen direkt dem Fußball der SVH Kassel und insbesondere unserer Fußballjugend.</p>
   <div class="fv-btn-row">
     <a class="fv-btn fv-btn--green" href="{{ partial "membership-url.html" . }}">Mitglied werden</a>
-    <a class="fv-btn fv-btn--red" href="{{ relref . "/kontakt" }}#spenden">Jetzt spenden</a>
+    <a class="fv-btn fv-btn--red" href="{{ relref . "/spenden" }}">Jetzt spenden</a>
     {{ with site.GetPage "/sponsoring" }}<a class="fv-btn fv-btn--ghost" href="{{ .RelPermalink }}">Premium-Sponsor werden</a>{{ end }}
   </div>
 </div>

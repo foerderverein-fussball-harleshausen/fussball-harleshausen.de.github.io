@@ -9,7 +9,7 @@ heroButtons:
     url: /mitglied-werden/
     style: green
   - label: Jetzt spenden
-    url: /kontakt/#spenden
+    url: /spenden/
     style: red
   - label: Unsere Arbeit kennenlernen
     url: /ueber-uns/
