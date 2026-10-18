@@ -1,4 +1,7 @@
 {{- /* Ergänzungen am Ende von <head> (ersetzt die gleichnamige Theme-Datei). */ -}}
+{{- /* Keine automatische Telefonnummern-Erkennung auf Smartphones (sonst wird z. B. die IBAN
+     als Telefonnummer verlinkt). Echte Telefonnummern werden explizit mit tel: verlinkt. */}}
+<meta name="format-detection" content="telephone=no">
 {{- with partial "_funcs/hero-image.html" . }}
 <link rel="preload" as="image" href="{{ . }}" fetchpriority="high">
 {{- end }}
