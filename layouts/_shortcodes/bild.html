@@ -1,0 +1,6 @@
+{{- /* Zusätzliches Bild im Text, z. B. auf Projektseiten.
+     {{< bild src="images/projekte/foto.jpg" alt="Bildbeschreibung" caption="Bildunterschrift (optional)" >}} */ -}}
+<figure class="fv-inline-figure">
+  <img src="{{ .Get "src" | relURL }}" alt="{{ .Get "alt" }}" loading="lazy">
+  {{- with .Get "caption" }}<figcaption>{{ . }}</figcaption>{{ end }}
+</figure>
