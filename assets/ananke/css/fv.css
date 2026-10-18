@@ -347,7 +347,7 @@ body.fv main { padding-bottom: 0; }
 
 /* Vorstand */
 .fv-person { padding: 0; overflow: hidden; }
-.fv-person__img { aspect-ratio: 1 / 1; width: 100%; object-fit: cover; display: block; background: var(--fv-green-100); }
+.fv-person__img { aspect-ratio: 1 / 1; width: 100%; height: auto; object-fit: cover; object-position: center 25%; display: block; background: var(--fv-green-100); }
 .fv-person__body { padding: 16px 18px 20px; }
 .fv-person__name { font-weight: 700; margin: 0; color: var(--fv-green-900); }
 .fv-person__role { color: var(--fv-red-600); font-weight: 600; font-size: .88rem; margin-bottom: .6em; }

@@ -1,6 +1,7 @@
 # Vorstand des Fördervereins (Quelle: svhkassel-fussball.de/foerderverein).
-# Fotos unter static/images/vorstand/ ablegen und z. B.
-# "bild: images/vorstand/marcus.jpg" eintragen.
+# Fotos unter assets/images/vorstand/ ablegen (JPG oder PNG, möglichst quadratisch,
+# Gesicht etwa mittig) und z. B. "bild: images/vorstand/marcus-draebing.jpg" eintragen.
+# Hugo erzeugt daraus automatisch WebP-Varianten.
 - name: Marcus Dräbing
   funktion: 1. Vorsitzender
   text: Leitet den Förderverein und ist erster Ansprechpartner für Mitglieder, Spender und Unternehmen.
@@ -11,6 +12,8 @@
 - name: Andreas Lihs
   funktion: Schriftführer & Kassenprüfer
   text: Dokumentiert die Arbeit des Vorstands und prüft die ordnungsgemäße Verwendung der Mittel.
+  bild: images/vorstand/andreas-lihs.jpg
 - name: Christina Dräbing
   funktion: Kassenwartin
   text: Verwaltet die Finanzen, Mitgliedsbeiträge und Spenden des Fördervereins.
+  bild: images/vorstand/christina-draebing.jpg
