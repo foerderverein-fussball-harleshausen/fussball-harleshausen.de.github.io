@@ -1,13 +1,7 @@
 {{- /* Girocode (EPC-QR-Code) für Überweisungen an das Spendenkonto.
-     Daten aus hugo.toml: accountHolder, iban, bic.
      {{< girocode zweck="Spende" >}} – Verwendungszweck ist optional und in der Banking-App änderbar. */ -}}
 {{- $p := site.Params -}}
-{{- $iban := replace $p.iban " " "" -}}
-{{- $zweck := .Get "zweck" | default "Spende" -}}
-{{- /* Aufbau nach EPC069-12: Service-Tag, Version, Zeichensatz (1 = UTF-8), SEPA-Überweisung,
-       BIC, Empfänger, IBAN, Betrag (leer = frei wählbar), Zweck-Code, Referenz, Verwendungszweck */ -}}
-{{- $epc := delimit (slice "BCD" "002" "1" "SCT" $p.bic $p.accountHolder $iban "" "" "" $zweck) "\n" -}}
-{{- with images.QR $epc (dict "level" "medium" "scale" 4) -}}
+{{- with partial "girocode-qr.html" (dict "zweck" (.Get "zweck")) -}}
 <figure class="fv-girocode">
   <img src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}" alt="Girocode für eine Überweisung an {{ $p.accountHolder }}, IBAN {{ $p.iban }}">
   <figcaption>Mit der Banking-App scannen – Empfänger und IBAN sind dann schon ausgefüllt. Den Betrag wählen Sie selbst.</figcaption>

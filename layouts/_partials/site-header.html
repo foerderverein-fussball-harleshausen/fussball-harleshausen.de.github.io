@@ -13,7 +13,10 @@
           <li><a class="fv-nav__link{{ if $active }} is-active{{ end }}" href="{{ .URL }}"{{ if $active }} aria-current="page"{{ end }}>{{ .Name }}</a></li>
         {{- end }}
       </ul>
-      <a class="fv-btn fv-btn--green fv-btn--sm" href="{{ partial "membership-url.html" . }}">Mitglied werden</a>
+      <div class="fv-nav__actions">
+        <a class="fv-btn fv-btn--red fv-btn--sm" href="{{ relref . "/spenden" }}">Spenden</a>
+        <a class="fv-btn fv-btn--green fv-btn--sm" href="{{ partial "membership-url.html" . }}">Mitglied werden</a>
+      </div>
     </nav>
   </div>
 </header>
