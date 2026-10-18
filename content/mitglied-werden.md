@@ -1,6 +1,8 @@
 ---
 title: "Mitglied werden"
-description: "Teil unserer Unterstützungsgemeinschaft."
+heroSubtitle: "Teil unserer Unterstützungsgemeinschaft."
+# description: Text für Google und Vorschauen beim Teilen (Beitrag ggf. mit hugo.toml abgleichen)
+description: "Ab 30 € im Jahr Mitglied im Förderverein Fußball Harleshausen werden und die Fußballjugend der SVH Kassel unterstützen. Der Beitrag ist steuerlich absetzbar."
 wide: true
 # Um die eigene Seite vorübergehend zu deaktivieren und alle „Mitglied werden“-Links
 # auf eine externe Seite umzuleiten, hier eintragen:

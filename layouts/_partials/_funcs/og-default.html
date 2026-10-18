@@ -1,0 +1,12 @@
+{{- /* Standard-Vorschaubild (1200×630) für Seiten ohne eigenes Bild:
+  Logo links, rechts Vereinsname und Claim, grüner Streifen unten.
+  Wird beim Build aus assets/images/logo-original.png erzeugt
+  (weißer Grund, weil das Logo keinen transparenten Hintergrund hat). */ -}}
+{{- $logo := (resources.Get "images/logo-original.png").Resize "440x440" -}}
+{{- $img := $logo.Filter
+  (images.Padding 95 680 79 80 "#ffffff")
+  (images.Padding 0 0 16 0 "#1f7a3a")
+  (images.Text "Förderverein Fußball\nHarleshausen 95 e.V." (dict "x" 580 "y" 200 "size" 52 "linespacing" 10 "color" "#173a1c"))
+  (images.Text (site.Params.claim | replaceRE `\.\s+` ".\n") (dict "x" 580 "y" 360 "size" 30 "linespacing" 8 "color" "#d11b1b"))
+-}}
+{{- return ($img.Process "jpg q85") -}}
