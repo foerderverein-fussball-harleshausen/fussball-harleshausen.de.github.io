@@ -1,4 +1,7 @@
 ---
+# Vorübergehend deaktiviert: Mit "draft: true" wird das Projekt nicht veröffentlicht
+# und erscheint in keiner Projektliste. Zeile entfernen, um es wieder anzuzeigen.
+draft: true
 title: "Sportliche Weiterbildung"
 weight: 40
 description: "Wir fördern die Lehrgangskosten unserer Trainerinnen und Trainer beim HFV und DFB – damit unsere Fußballkids von Anfang an gut betreut werden."
