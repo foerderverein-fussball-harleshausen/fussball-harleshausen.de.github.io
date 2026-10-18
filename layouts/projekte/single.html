@@ -10,7 +10,7 @@
         <article class="fv-prose">
           {{ with .Params.image }}
             <figure class="fv-project-figure">
-              <img class="fv-project-img{{ if eq $.Params.imageFit "contain" }} fv-project-img--contain{{ end }}" src="{{ . | relURL }}" alt="{{ $.Params.imageAlt }}">
+              {{ partial "img.html" (dict "src" . "alt" $.Params.imageAlt "class" (cond (eq $.Params.imageFit "contain") "fv-project-img fv-project-img--contain" "fv-project-img") "sizes" "(max-width: 960px) 100vw, 780px") }}
               {{ with $.Params.imageCaption }}<figcaption>{{ . }}</figcaption>{{ end }}
             </figure>
           {{ end }}

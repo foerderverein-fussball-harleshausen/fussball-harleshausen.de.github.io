@@ -1,0 +1,29 @@
+{{- /* Responsives Bild. Parameter (dict):
+  src       Pfad wie im Front Matter, z. B. images/projekte/minitore.jpg
+  alt       Alternativtext
+  class     CSS-Klasse (optional)
+  sizes     sizes-Attribut (optional, Standard 100vw)
+  lazy      true = erst beim Scrollen laden
+  priority  true = mit hoher Priorität laden (Hauptbild der Seite)
+  Liegt das Bild unter assets/, erzeugt Hugo WebP-Varianten in mehreren Breiten
+  und setzt width/height (verhindert Layout-Sprünge). Andere Bilder (z. B. die
+  SVG-Platzhalter in static/) werden unverändert eingebunden.
+*/ -}}
+{{- $res := resources.Get .src -}}
+{{- if and $res (in (slice "jpeg" "png") $res.MediaType.SubType) -}}
+  {{- $srcset := slice -}}
+  {{- $img := $res -}}
+  {{- range slice 480 800 1200 -}}
+    {{- if lt . $res.Width -}}
+      {{- $img = $res.Resize (printf "%dx webp q75 photo" .) -}}
+      {{- $srcset = $srcset | append (printf "%s %dw" $img.RelPermalink $img.Width) -}}
+    {{- end -}}
+  {{- end -}}
+  {{- $img = $res.Resize (printf "%dx webp q75 photo" $res.Width) -}}
+  {{- $srcset = $srcset | append (printf "%s %dw" $img.RelPermalink $img.Width) -}}
+  <img src="{{ $img.RelPermalink }}" srcset="{{ delimit $srcset ", " }}" sizes="{{ .sizes | default "100vw" }}" width="{{ $img.Width }}" height="{{ $img.Height }}" alt="{{ .alt }}" decoding="async"
+    {{- with .class }} class="{{ . }}"{{ end }}{{ if .lazy }} loading="lazy"{{ end }}{{ if .priority }} fetchpriority="high"{{ end }}>
+{{- else -}}
+  <img src="{{ .src | relURL }}" alt="{{ .alt }}"
+    {{- with .class }} class="{{ . }}"{{ end }}{{ if .lazy }} loading="lazy"{{ end }}>
+{{- end -}}

@@ -1,5 +1,7 @@
 ---
-title: "Startseite"
+title: "Förderverein Fußball Harleshausen 95 e.V."
+# Titel im Browser-Tab und in den Google-Ergebnissen (sonst der Vereinsname)
+seoTitle: "Förderverein Fußball Harleshausen – Jugendfußball der SVH Kassel"
 heroTitle: "Wir fördern unsere Fußballkids."
 heroText: "Der **Förderverein Fußball Harleshausen 95 e.V.** unterstützt den Fußball der SVH Kassel – insbesondere die Fußballjugend: bei der Ausstattung der Trainingsausrüstung, der sportlichen Weiterbildung und der fußballerischen Entwicklung. Mit Mitgliedsbeiträgen und Spenden schaffen wir zusätzliche Möglichkeiten – dort, wo die finanziellen Mittel des Hauptvereins allein nicht ausreichen."
 heroButtons:

@@ -1,16 +1,15 @@
 {{- /* Hero-Bereich. Front Matter:
   heroTitle, heroSubtitle (optional, sonst title/description)
-  heroImage: Pfad zu einem Bild in /static (optional)
+  heroImage: Pfad zu einem Bild in /assets oder /static (optional)
   heroButtons: Liste mit {label, url, style}
 */ -}}
 {{- $isHome := .IsHome -}}
-{{- $img := .Params.heroImage -}}
-{{- if and (not $img) .IsPage -}}{{- with .Params.image -}}{{- $img = . -}}{{- end -}}{{- end -}}
+{{- $img := partial "_funcs/hero-image.html" . -}}
 <section class="fv-hero {{ if $isHome }}fv-hero--home{{ else }}fv-hero--page{{ end }}"
-  {{- with $img }} style="--fv-hero-img: url('{{ . | relURL }}')"{{ end }}>
+  {{- with $img }} style="--fv-hero-img: url('{{ . }}')"{{ end }}>
   {{- if not $img }}{{ partial "hero-ball.html" . }}{{ end }}
   <div class="fv-container fv-hero__inner">
-    <h1>{{ .Params.heroTitle | default .Title }}</h1>
+    <h1>{{ if eq .Kind "404" }}Seite nicht gefunden{{ else }}{{ .Params.heroTitle | default .Title }}{{ end }}</h1>
     {{- with .Params.heroText }}
       <p>{{ . | markdownify }}</p>
     {{- end }}
