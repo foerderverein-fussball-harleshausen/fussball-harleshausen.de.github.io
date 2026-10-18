@@ -1,0 +1,11 @@
+{{- /* Erzeugt einen Girocode (EPC-QR-Code nach EPC069-12) als Bild-Ressource.
+     Eingabe: dict "betrag" (Zahl in Euro, 0 = frei wählbar) "zweck" (Verwendungszweck).
+     Kontodaten aus hugo.toml: accountHolder, iban, bic. */ -}}
+{{- $p := site.Params -}}
+{{- $iban := replace $p.iban " " "" -}}
+{{- $betrag := "" -}}
+{{- with .betrag }}{{ $betrag = printf "EUR%.2f" (float .) }}{{ end -}}
+{{- /* Service-Tag, Version, Zeichensatz (1 = UTF-8), SEPA-Überweisung, BIC, Empfänger, IBAN,
+       Betrag, Zweck-Code, Referenz, Verwendungszweck */ -}}
+{{- $epc := delimit (slice "BCD" "002" "1" "SCT" $p.bic $p.accountHolder $iban $betrag "" "" (.zweck | default "Spende")) "\n" -}}
+{{- return (images.QR $epc (dict "level" "medium" "scale" 4)) -}}

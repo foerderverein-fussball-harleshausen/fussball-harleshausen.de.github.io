@@ -1,0 +1,93 @@
+{{- /* Spenden-Bereich: Betrag wählen, Girocode scannen oder Kontodaten kopieren.
+     Beträge und Verwendungszweck aus hugo.toml (donationAmounts, donationPurpose). */ -}}
+{{- $p := site.Params -}}
+{{- $zweck := $p.donationPurpose | default "Spende" -}}
+{{- $amounts := $p.donationAmounts | default (slice 20 50 100) -}}
+<div class="fv-donate" id="spendenbereich">
+  <div class="fv-donate__main fv-card">
+    <h2 class="fv-donate__step"><span>1</span> Betrag wählen</h2>
+    <div class="fv-donate__amounts" role="radiogroup" aria-label="Spendenbetrag">
+      {{- range $amounts }}
+        <label class="fv-donate__amount"><input type="radio" name="spendenbetrag" value="{{ . }}" data-label="{{ . }} €"><span>{{ . }} €</span></label>
+      {{- end }}
+      <label class="fv-donate__amount"><input type="radio" name="spendenbetrag" value="0" data-label="frei wählbar" checked><span>Eigener Betrag</span></label>
+    </div>
+
+    <h2 class="fv-donate__step"><span>2</span> Girocode scannen</h2>
+    <div class="fv-donate__qr">
+      {{- /* Ein Girocode pro Betrag; JavaScript zeigt den zum gewählten Betrag passenden.
+             Ohne JavaScript bleibt der Code ohne Betrag sichtbar. */}}
+      {{- range $amounts | append 0 }}
+        {{- $betrag := . }}
+        {{- with partial "girocode-qr.html" (dict "betrag" $betrag "zweck" $zweck) }}
+          <img src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}" data-betrag="{{ $betrag }}"
+            alt="Girocode für eine Spende an {{ $p.accountHolder }}{{ if $betrag }} über {{ $betrag }} €{{ else }}, Betrag frei wählbar{{ end }}"
+            {{- if $betrag }} hidden{{ end }}>
+        {{- end }}
+      {{- end }}
+    </div>
+    <p class="fv-small fv-muted fv-mb0">Mit der Kamera Ihrer Banking-App scannen – Empfänger, IBAN, Verwendungszweck und Betrag sind dann schon ausgefüllt. Sie prüfen und bestätigen nur noch.</p>
+  </div>
+
+  <div class="fv-donate__bank fv-card">
+    <h2 class="fv-donate__step"><span>3</span> Oder selbst überweisen</h2>
+    <p class="fv-small fv-muted">Am Handy? Einfach die Angaben kopieren und in Ihrer Banking-App einfügen.</p>
+    <dl class="fv-donate__data">
+      <div><dt>Empfänger</dt><dd><span>{{ $p.accountHolder }}</span><button type="button" class="fv-copy" hidden data-copy="{{ $p.accountHolder }}">Kopieren</button></dd></div>
+      <div><dt>IBAN</dt><dd><span class="fv-mono">{{ $p.iban }}</span><button type="button" class="fv-copy" hidden data-copy="{{ replace $p.iban " " "" }}">Kopieren</button></dd></div>
+      <div><dt>BIC</dt><dd><span class="fv-mono">{{ $p.bic }}</span><button type="button" class="fv-copy" hidden data-copy="{{ $p.bic }}">Kopieren</button></dd></div>
+      <div><dt>Bank</dt><dd><span>{{ $p.bank }}</span></dd></div>
+      <div><dt>Verwendungszweck</dt><dd><span>{{ $zweck }}</span><button type="button" class="fv-copy" hidden data-copy="{{ $zweck }}">Kopieren</button></dd></div>
+      <div><dt>Betrag</dt><dd><span class="fv-donate__chosen">frei wählbar</span></dd></div>
+    </dl>
+    <p class="fv-small fv-mb0">Sie möchten für etwas Bestimmtes spenden, zum Beispiel ein <a href="{{ relref site.Home "/projekte" }}">Förderprojekt</a>? Ergänzen Sie den Verwendungszweck einfach entsprechend.</p>
+  </div>
+</div>
+<script>
+  (function () {
+    var box = document.getElementById('spendenbereich');
+    if (!box) return;
+    var codes = box.querySelectorAll('.fv-donate__qr img');
+    var chosen = box.querySelector('.fv-donate__chosen');
+
+    // Betrag wählen: passenden Girocode zeigen
+    box.querySelectorAll('input[name="spendenbetrag"]').forEach(function (radio) {
+      radio.addEventListener('change', function () {
+        codes.forEach(function (img) { img.hidden = img.dataset.betrag !== radio.value; });
+        chosen.textContent = radio.dataset.label;
+      });
+    });
+
+    // Kontodaten kopieren (Knöpfe nur mit JavaScript sichtbar)
+    box.querySelectorAll('.fv-copy').forEach(function (btn) {
+      btn.hidden = false;
+      btn.addEventListener('click', function () {
+        var feedback = function (text, ok) {
+          btn.textContent = text;
+          btn.classList.toggle('is-done', ok);
+          setTimeout(function () { btn.textContent = 'Kopieren'; btn.classList.remove('is-done'); }, 1800);
+        };
+        // Ausweichweg für Browser ohne Clipboard-API oder ohne Berechtigung
+        var fallback = function () {
+          var t = document.createElement('textarea');
+          t.value = btn.dataset.copy;
+          t.setAttribute('readonly', '');
+          t.style.position = 'fixed'; t.style.opacity = '0';
+          document.body.appendChild(t);
+          t.select();
+          var ok = false;
+          try { ok = document.execCommand('copy'); } catch (e) { ok = false; }
+          t.remove();
+          feedback(ok ? 'Kopiert ✓' : 'Bitte markieren', ok);
+        };
+        if (navigator.clipboard && window.isSecureContext) {
+          navigator.clipboard.writeText(btn.dataset.copy)
+            .then(function () { feedback('Kopiert ✓', true); })
+            .catch(fallback);
+        } else {
+          fallback();
+        }
+      });
+    });
+  })();
+</script>

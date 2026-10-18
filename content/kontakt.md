@@ -32,6 +32,7 @@ Für weitere Informationen oder Fragen, schreibt uns gerne eine Email an <a href
   BIC: {{< param bic >}}</p>
   <p class="fv-small">Als Verwendungszweck bitte Beschreibung oder Ziel der Spende angeben.</p>
   {{< girocode zweck="Spende" >}}
+  <p class="fv-small fv-mb0" style="margin-top:12px"><a class="fv-link-arrow" href="/spenden/">Mehr zum Spenden</a></p>
 </div>
 </aside>
 </div>

@@ -69,4 +69,4 @@ Sprich uns an, **bevor** du dich anmeldest – wir klären gemeinsam, welcher Le
 
 ## Mitmachen
 
-Mit Ihrem [Mitgliedsbeitrag](/mitglied-werden/) oder einer [Spende](/kontakt/#spenden) helfen Sie, diese Förderung dauerhaft zu sichern.
+Mit Ihrem [Mitgliedsbeitrag](/mitglied-werden/) oder einer [Spende](/spenden/) helfen Sie, diese Förderung dauerhaft zu sichern.
