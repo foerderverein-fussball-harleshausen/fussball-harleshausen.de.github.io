@@ -24,6 +24,8 @@ Am **31. August 2025** konnten unsere Spielerinnen und Spieler Qualle beim Works
 - **Selbstbewusstsein und Fair Play**
 - **„Wie entscheidest du?“** – selbst in die Rolle des Schiris schlüpfen
 
+{{< bild src="images/projekte/workshop-qualle-foto.jpg" alt="Qualle im schwarzen Schiedsrichter-Trikot steht neben einem jungen Spieler am Spielfeldrand, beide lächeln in die Kamera" caption="Qualle beim Workshop am 31. August 2025" >}}
+
 ## Förderverein und Mitgliederaktion
 
 Die Teilnahmegebühr betrug 20 €. **Wer in den Förderverein eingetreten ist, war von der Gebühr befreit.** Als zusätzlicher Anreiz winkte ein besonderer Preis: Die SVH-Mannschaft mit den meisten Mitgliedern im Förderverein gewinnt Qualle als Schiedsrichter für ein Serienspiel.
