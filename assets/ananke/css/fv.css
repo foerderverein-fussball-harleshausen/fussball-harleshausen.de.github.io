@@ -488,3 +488,8 @@ body.fv main { padding-bottom: 0; }
 /* Deaktivierte Eingabefelder (z. B. Wunschbetrag, solange nicht gewählt) */
 .fv-field input:disabled { background: var(--fv-bg-soft); color: var(--fv-muted); cursor: not-allowed; }
 .fv-field input:disabled::placeholder { color: #a7afb5; }
+
+/* Girocode im Spendenkasten (Shortcode "girocode") */
+.fv-girocode { margin: 4px 0 0; }
+.fv-girocode img { display: block; width: 168px; height: 168px; background: #fff; padding: 8px; border-radius: 8px; border: 1px solid #f4cccc; image-rendering: pixelated; }
+.fv-girocode figcaption { margin-top: 8px; font-size: .8rem; color: var(--fv-muted); }

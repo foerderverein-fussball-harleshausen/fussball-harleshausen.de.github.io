@@ -30,7 +30,8 @@ Für weitere Informationen oder Fragen, schreibt uns gerne eine Email an <a href
   {{< param bank >}}<br>
   IBAN: {{< param iban >}}<br>
   BIC: {{< param bic >}}</p>
-  <p class="fv-small fv-mb0">Als Verwendungszweck bitte Beschreibung oder Ziel der Spende angeben.</p>
+  <p class="fv-small">Als Verwendungszweck bitte Beschreibung oder Ziel der Spende angeben.</p>
+  {{< girocode zweck="Spende" >}}
 </div>
 </aside>
 </div>
