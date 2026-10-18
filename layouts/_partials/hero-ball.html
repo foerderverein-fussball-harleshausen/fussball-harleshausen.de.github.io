@@ -1,0 +1,5 @@
+{{- /* Animierter Fußball (reines CSS, siehe .fv-ball in fv.css): 12 Fünfecke + 20 Sechsecke. */ -}}
+<div class="fv-ball" aria-hidden="true">
+  <div class="fv-ball__body">{{ range seq 32 }}<i class="fv-ball__f"></i>{{ end }}</div>
+  <div class="fv-ball__shadow"></div>
+</div>

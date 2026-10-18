@@ -18,10 +18,4 @@
     <path d="M560 300 L470 370 L1130 370 L1040 300"/>
   </g>
   <rect width="1600" height="700" fill="url(#l)"/>
-  <g transform="translate(1230 470)">
-    <circle r="120" fill="#fff"/>
-    <path d="M0-48l45 33-17 53h-56l-17-53z" fill="#112611"/>
-    <path d="M0-120v72M45-15l70-22M28 38l42 58M-28 38l-42 58M-45-15l-70-22" stroke="#112611" stroke-width="8"/>
-    <circle r="120" fill="none" stroke="#112611" stroke-opacity=".15" stroke-width="10"/>
-  </g>
 </svg>

@@ -8,6 +8,7 @@
 {{- if and (not $img) .IsPage -}}{{- with .Params.image -}}{{- $img = . -}}{{- end -}}{{- end -}}
 <section class="fv-hero {{ if $isHome }}fv-hero--home{{ else }}fv-hero--page{{ end }}"
   {{- with $img }} style="--fv-hero-img: url('{{ . | relURL }}')"{{ end }}>
+  {{- if not $img }}{{ partial "hero-ball.html" . }}{{ end }}
   <div class="fv-container fv-hero__inner">
     <h1>{{ .Params.heroTitle | default .Title }}</h1>
     {{- with .Params.heroText }}
